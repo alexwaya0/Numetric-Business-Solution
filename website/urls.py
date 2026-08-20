@@ -32,4 +32,23 @@ urlpatterns = [
         name="service_detail",
     ),
 
+    path(
+        "blog/",
+        views.blog,
+        name="blog",
+    ),
+
+    path(
+        "blog/<slug:slug>/",
+        views.post_detail,
+        name="post_detail",
+    ),
+
+
+    path(
+        "contact/",
+        views.contact,
+        name="contact",
+    ),
+
 ]
