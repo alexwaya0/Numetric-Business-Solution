@@ -8,102 +8,1474 @@
     Numetric Business Solution provides accounting, tax, audit, financial reporting, payroll and strategic advisory services for businesses in Kenya.
 {% endblock %}
 
+{% block og_title %}
+    Numetric Business Solution | Financial Clarity. Strategic Growth.
+{% endblock %}
+
+{% block og_description %}
+    Accounting, tax, audit and financial advisory built around better business decisions.
+{% endblock %}
+
 
 {% block content %}
 
+<!-- ==========================================================
+     HERO
+=========================================================== -->
+
 <section
     class="
-        flex
-        min-h-screen
-        items-center
+        relative
+        overflow-hidden
         bg-numetric-cream
-        pt-32
+        pt-36
         pb-20
+        sm:pt-40
+        sm:pb-24
+        lg:pt-48
+        lg:pb-28
+    "
+>
+
+    <!-- Decorative background -->
+    <div
+        class="
+            pointer-events-none
+            absolute
+            -right-40
+            -top-40
+            h-[32rem]
+            w-[32rem]
+            rounded-full
+            bg-numetric-green/5
+            blur-3xl
+        "
+    ></div>
+
+    <div
+        class="
+            pointer-events-none
+            absolute
+            bottom-0
+            left-1/3
+            h-64
+            w-64
+            rounded-full
+            bg-numetric-green/5
+            blur-3xl
+        "
+    ></div>
+
+
+    <div class="page-container relative">
+
+        <div
+            class="
+                grid
+                items-center
+                gap-14
+                lg:grid-cols-[1.08fr_0.92fr]
+                lg:gap-16
+            "
+        >
+
+            <!-- ==================================================
+                 HERO COPY
+            =================================================== -->
+
+            <div>
+
+                <span class="eyebrow">
+                    Numetric Business Solution
+                </span>
+
+
+                <h1
+                    class="
+                        mt-7
+                        max-w-4xl
+                        text-5xl
+                        font-semibold
+                        leading-[0.94]
+                        tracking-[-0.055em]
+                        text-numetric-dark
+                        sm:text-6xl
+                        lg:text-[5.9rem]
+                    "
+                >
+                    Your numbers
+                    <span class="text-numetric-green">
+                        should move
+                    </span>
+                    your business.
+                </h1>
+
+
+                <p
+                    class="
+                        mt-8
+                        max-w-2xl
+                        text-lg
+                        leading-8
+                        text-numetric-muted
+                        sm:text-xl
+                        sm:leading-9
+                    "
+                >
+                    We help businesses get their numbers right,
+                    understand what they mean, and make better
+                    informed decisions with confidence.
+                </p>
+
+
+                <div
+                    class="
+                        mt-9
+                        flex
+                        flex-col
+                        gap-3
+                        sm:flex-row
+                    "
+                >
+
+                    <a
+                        href="#services"
+                        class="btn-primary"
+                    >
+                        Explore our expertise
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            class="h-4 w-4"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+
+                    </a>
+
+
+                    <a
+                        href="#why-numetric"
+                        class="btn-secondary"
+                    >
+                        Why Numetric
+                    </a>
+
+                </div>
+
+
+                <!-- Small reassurance -->
+                <div
+                    class="
+                        mt-9
+                        flex
+                        flex-wrap
+                        items-center
+                        gap-x-6
+                        gap-y-3
+                        text-xs
+                        font-medium
+                        uppercase
+                        tracking-[0.12em]
+                        text-numetric-muted
+                    "
+                >
+
+                    <span>
+                        Accounting
+                    </span>
+
+                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
+
+                    <span>
+                        Tax
+                    </span>
+
+                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
+
+                    <span>
+                        Advisory
+                    </span>
+
+                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
+
+                    <span>
+                        Audit
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 HERO VISUAL
+            =================================================== -->
+
+            <div class="relative">
+
+                <div
+                    class="
+                        relative
+                        min-h-[28rem]
+                        overflow-hidden
+                        rounded-[2rem]
+                        bg-numetric-dark
+                        sm:min-h-[34rem]
+                        lg:min-h-[40rem]
+                    "
+                >
+
+                    <!--
+                        Image placeholder.
+
+                        Replace this background later with the
+                        approved Numetric African business image.
+                    -->
+
+                    <div
+                        class="
+                            absolute
+                            inset-0
+                            bg-gradient-to-br
+                            from-numetric-dark
+                            via-numetric-charcoal
+                            to-numetric-green/80
+                        "
+                    ></div>
+
+
+                    <!-- Architectural lines -->
+
+                    <div
+                        class="
+                            absolute
+                            inset-0
+                            opacity-20
+                        "
+                    >
+
+                        <div
+                            class="
+                                absolute
+                                right-[-15%]
+                                top-[-10%]
+                                h-[34rem]
+                                w-[34rem]
+                                rounded-full
+                                border
+                                border-white
+                            "
+                        ></div>
+
+                        <div
+                            class="
+                                absolute
+                                right-[-5%]
+                                top-0
+                                h-[26rem]
+                                w-[26rem]
+                                rounded-full
+                                border
+                                border-white
+                            "
+                        ></div>
+
+                        <div
+                            class="
+                                absolute
+                                bottom-[-20%]
+                                left-[-10%]
+                                h-72
+                                w-72
+                                rounded-full
+                                border
+                                border-numetric-green
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Visual statement -->
+
+                    <div
+                        class="
+                            absolute
+                            inset-x-6
+                            bottom-6
+                            sm:inset-x-8
+                            sm:bottom-8
+                        "
+                    >
+
+                        <div
+                            class="
+                                max-w-sm
+                                rounded-[1.5rem]
+                                border
+                                border-white/10
+                                bg-white/10
+                                p-6
+                                backdrop-blur-xl
+                                sm:p-7
+                            "
+                        >
+
+                            <p
+                                class="
+                                    text-[0.65rem]
+                                    font-semibold
+                                    uppercase
+                                    tracking-[0.18em]
+                                    text-white/45
+                                "
+                            >
+                                The Numetric approach
+                            </p>
+
+                            <p
+                                class="
+                                    mt-4
+                                    text-2xl
+                                    font-medium
+                                    leading-tight
+                                    tracking-[-0.025em]
+                                    text-white
+                                    sm:text-3xl
+                                "
+                            >
+                                Clear numbers.
+                                Better decisions.
+                            </p>
+
+                            <div
+                                class="
+                                    mt-6
+                                    h-px
+                                    bg-white/10
+                                "
+                            ></div>
+
+                            <p
+                                class="
+                                    mt-5
+                                    text-sm
+                                    leading-6
+                                    text-white/55
+                                "
+                            >
+                                Reliable financial expertise,
+                                practical solutions and strategic
+                                support.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating marker -->
+
+                    <div
+                        class="
+                            absolute
+                            right-6
+                            top-6
+                            flex
+                            h-14
+                            w-14
+                            items-center
+                            justify-center
+                            rounded-full
+                            bg-numetric-green
+                            text-white
+                            shadow-2xl
+                            sm:right-8
+                            sm:top-8
+                        "
+                    >
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            class="h-6 w-6"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3 13.5 9 3l4 7 8-1-5 12-5-7-8-.5Z"
+                            />
+                        </svg>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     TRUST / CREDENTIALS
+=========================================================== -->
+
+<section
+    class="
+        border-y
+        border-numetric-line
+        bg-white
     "
 >
 
     <div class="page-container">
 
-        <div class="max-w-4xl">
+        <div
+            class="
+                grid
+                divide-y
+                divide-numetric-line
+                sm:grid-cols-2
+                sm:divide-x
+                sm:divide-y-0
+                lg:grid-cols-4
+            "
+        >
 
-            <span class="eyebrow">
-                Numetric Business Solution
-            </span>
+            <div class="px-0 py-7 sm:px-8 lg:px-8">
 
-            <h1
-                class="
-                    mt-7
-                    max-w-4xl
-                    text-5xl
-                    font-semibold
-                    leading-[0.98]
-                    tracking-[-0.045em]
-                    text-numetric-dark
-                    sm:text-6xl
-                    lg:text-8xl
-                "
-            >
-                Financial clarity.
-                <span class="text-numetric-green">
-                    Strategic growth.
+                <p
+                    class="
+                        text-[0.62rem]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-numetric-muted
+                    "
+                >
+                    Professional
+                </p>
+
+                <p
+                    class="
+                        mt-2
+                        text-base
+                        font-semibold
+                    "
+                >
+                    CPA (K)
+                </p>
+
+            </div>
+
+
+            <div class="px-0 py-7 sm:px-8 lg:px-8">
+
+                <p
+                    class="
+                        text-[0.62rem]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-numetric-muted
+                    "
+                >
+                    Certified
+                </p>
+
+                <p
+                    class="
+                        mt-2
+                        text-base
+                        font-semibold
+                    "
+                >
+                    QuickBooks
+                </p>
+
+            </div>
+
+
+            <div class="px-0 py-7 sm:px-8 lg:px-8">
+
+                <p
+                    class="
+                        text-[0.62rem]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-numetric-muted
+                    "
+                >
+                    Certified
+                </p>
+
+                <p
+                    class="
+                        mt-2
+                        text-base
+                        font-semibold
+                    "
+                >
+                    Odoo
+                </p>
+
+            </div>
+
+
+            <div class="px-0 py-7 sm:px-8 lg:px-8">
+
+                <p
+                    class="
+                        text-[0.62rem]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-numetric-muted
+                    "
+                >
+                    Affiliation
+                </p>
+
+                <p
+                    class="
+                        mt-2
+                        text-base
+                        font-semibold
+                    "
+                >
+                    ICPAK
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     POSITIONING
+=========================================================== -->
+
+<section
+    id="why-numetric"
+    class="
+        bg-white
+        py-20
+        sm:py-24
+        lg:py-32
+    "
+>
+
+    <div class="page-container">
+
+        <div
+            class="
+                grid
+                gap-12
+                lg:grid-cols-[0.7fr_1.3fr]
+                lg:gap-20
+            "
+        >
+
+            <div>
+
+                <span class="eyebrow">
+                    Why Numetric
                 </span>
-            </h1>
+
+            </div>
+
+
+            <div>
+
+                <h2
+                    class="
+                        max-w-5xl
+                        text-4xl
+                        font-medium
+                        leading-[1.03]
+                        tracking-[-0.04em]
+                        text-numetric-dark
+                        sm:text-5xl
+                        lg:text-6xl
+                    "
+                >
+                    Accounting should be more than
+                    <span class="text-numetric-green">
+                        meeting requirements.
+                    </span>
+                </h2>
+
+
+                <div
+                    class="
+                        mt-8
+                        grid
+                        gap-8
+                        sm:grid-cols-2
+                    "
+                >
+
+                    <p
+                        class="
+                            text-base
+                            leading-7
+                            text-numetric-muted
+                        "
+                    >
+                        We provide end-to-end accounting,
+                        tax, audit, financial reporting and
+                        advisory services that give business
+                        owners a clearer view of their
+                        financial position.
+                    </p>
+
+
+                    <p
+                        class="
+                            text-base
+                            leading-7
+                            text-numetric-muted
+                        "
+                    >
+                        We work alongside our clients as
+                        trusted partners, combining professional
+                        expertise with smarter processes and
+                        practical support.
+                    </p>
+
+                </div>
+
+
+                <div class="mt-10">
+
+                    <a
+                        href="#services"
+                        class="
+                            inline-flex
+                            items-center
+                            gap-3
+                            text-sm
+                            font-semibold
+                            text-numetric-dark
+                            transition
+                            hover:text-numetric-green
+                        "
+                    >
+
+                        Discover how we work
+
+                        <span
+                            class="
+                                flex
+                                h-9
+                                w-9
+                                items-center
+                                justify-center
+                                rounded-full
+                                border
+                                border-black/10
+                            "
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="h-4 w-4"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     SERVICES
+=========================================================== -->
+
+<section
+    id="services"
+    class="
+        bg-numetric-dark
+        py-20
+        text-white
+        sm:py-24
+        lg:py-32
+    "
+>
+
+    <div class="page-container">
+
+        <!-- Section heading -->
+
+        <div
+            class="
+                flex
+                flex-col
+                gap-8
+                lg:flex-row
+                lg:items-end
+                lg:justify-between
+            "
+        >
+
+            <div class="max-w-3xl">
+
+                <span
+                    class="
+                        eyebrow
+                        text-numetric-green
+                    "
+                >
+                    Our expertise
+                </span>
+
+
+                <h2
+                    class="
+                        mt-6
+                        text-4xl
+                        font-medium
+                        leading-[1.03]
+                        tracking-[-0.04em]
+                        sm:text-5xl
+                        lg:text-6xl
+                    "
+                >
+                    Financial expertise
+                    for every stage
+                    of the journey.
+                </h2>
+
+            </div>
+
 
             <p
                 class="
-                    mt-7
-                    max-w-2xl
-                    text-lg
-                    leading-8
-                    text-numetric-muted
-                    sm:text-xl
+                    max-w-md
+                    text-base
+                    leading-7
+                    text-white/50
                 "
             >
-                Accounting, tax, audit and financial advisory
-                built around one goal: helping businesses make
-                better decisions with confidence.
+                From dependable financial records to
+                strategic leadership, our services are
+                designed around the realities of running
+                a business.
             </p>
 
-            <div
+        </div>
+
+
+        <!-- Service list -->
+
+        <div
+            class="
+                mt-16
+                border-t
+                border-white/10
+            "
+        >
+
+            <!-- 01 -->
+
+            <a
+                href="#"
                 class="
-                    mt-9
-                    flex
-                    flex-col
-                    gap-3
-                    sm:flex-row
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
                 "
             >
 
-                <a
-                    href="#"
-                    class="btn-primary"
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
                 >
-                    Start a conversation
+                    01
+                </span>
+
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Bookkeeping & Financial Reporting
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Clean books. Clear numbers.
+                        Real confidence in your business.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         class="h-4 w-4"
-                        aria-hidden="true"
                     >
                         <path
                             fill-rule="evenodd"
-                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
                             clip-rule="evenodd"
                         />
                     </svg>
 
-                </a>
+                </span>
 
-                <a
-                    href="#"
-                    class="btn-secondary"
+            </a>
+
+
+            <!-- 02 -->
+
+            <a
+                href="#"
+                class="
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
+                "
+            >
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
                 >
-                    Explore our services
-                </a>
+                    02
+                </span>
 
-            </div>
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Tax Planning & Compliance
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Stay compliant. Stay ahead.
+                        Never let tax catch you off guard.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                </span>
+
+            </a>
+
+
+            <!-- 03 -->
+
+            <a
+                href="#"
+                class="
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
+                "
+            >
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
+                >
+                    03
+                </span>
+
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Payroll Management
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Accurate, confidential and
+                        compliant payroll every cycle.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                </span>
+
+            </a>
+
+
+            <!-- 04 -->
+
+            <a
+                href="#"
+                class="
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
+                "
+            >
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
+                >
+                    04
+                </span>
+
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Management Accounting & Insights
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Numbers that don't just report the past —
+                        they guide what's next.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l5.5-5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                </span>
+
+            </a>
+
+
+            <!-- 05 -->
+
+            <a
+                href="#"
+                class="
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
+                "
+            >
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
+                >
+                    05
+                </span>
+
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Virtual CFO & Strategic Advisory
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Practical financial leadership for
+                        better decisions and sustainable growth.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                </span>
+
+            </a>
+
+
+            <!-- 06 -->
+
+            <a
+                href="#"
+                class="
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
+                "
+            >
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
+                >
+                    06
+                </span>
+
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Financial Training & Team Upskilling
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Build financial capability inside
+                        your team, not just outside it.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1 0 1.06l5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                </span>
+
+            </a>
+
+
+            <!-- 07 -->
+
+            <a
+                href="#"
+                class="
+                    group
+                    grid
+                    gap-5
+                    border-b
+                    border-white/10
+                    py-8
+                    transition
+                    sm:grid-cols-[4rem_1fr_auto]
+                    sm:items-center
+                    sm:gap-8
+                    lg:py-10
+                "
+            >
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-white/30
+                    "
+                >
+                    07
+                </span>
+
+
+                <div>
+
+                    <h3
+                        class="
+                            text-2xl
+                            font-medium
+                            tracking-[-0.025em]
+                            transition
+                            group-hover:text-numetric-green
+                            sm:text-3xl
+                        "
+                    >
+                        Audit & Assurance
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/40
+                        "
+                    >
+                        Independent assurance that builds
+                        confidence and strengthens governance.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="
+                        flex
+                        h-11
+                        w-11
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/15
+                        transition
+                        group-hover:border-numetric-green
+                        group-hover:bg-numetric-green
+                    "
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l5.5-5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                </span>
+
+            </a>
 
         </div>
 
