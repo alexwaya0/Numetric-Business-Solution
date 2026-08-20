@@ -18,6 +18,14 @@ def home(request):
     )
 
 
+def about(request):
+
+    return render(
+        request,
+        "website/about.html",
+    )
+
+
 def services(request):
 
     services = Service.objects.filter(
