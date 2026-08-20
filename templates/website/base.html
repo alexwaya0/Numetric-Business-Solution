@@ -1,0 +1,195 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="theme-color"
+        content="#1B6B3A"
+    >
+
+    <title>
+        {% block title %}
+            Numetric Business Solution
+        {% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="{% block meta_description %}Numetric Business Solution provides accounting, tax, audit, financial reporting and strategic advisory services for businesses in Kenya.{% endblock %}"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        property="og:type"
+        content="{% block og_type %}website{% endblock %}"
+    >
+
+    <meta
+        property="og:title"
+        content="{% block og_title %}Numetric Business Solution{% endblock %}"
+    >
+
+    <meta
+        property="og:description"
+        content="{% block og_description %}Financial clarity, compliance certainty and strategic insight for ambitious businesses.{% endblock %}"
+    >
+
+    <meta
+        property="og:url"
+        content="{{ request.build_absolute_uri }}"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Numetric Business Solution"
+    >
+
+    {% block og_image %}{% endblock %}
+
+    <link
+        rel="icon"
+        href="{% static 'images/favicon.ico' %}"
+    >
+
+    <!-- Jost -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Tailwind CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Jost", "sans-serif"],
+                    },
+
+                    colors: {
+                        numetric: {
+                            green: "#1B6B3A",
+                            dark: "#0A0D0B",
+                            charcoal: "#151A17",
+                            muted: "#68716B",
+                            cream: "#F6F8F4",
+                            soft: "#EEF3EE",
+                        },
+                    },
+
+                    maxWidth: {
+                        "8xl": "90rem",
+                    },
+                },
+            },
+        };
+
+    </script>
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: #1B6B3A;
+            color: #fff;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -7px;
+            height: 1px;
+            background: #1B6B3A;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .25s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+
+        }
+
+    </style>
+
+    {% block extra_head %}{% endblock %}
+
+</head>
+
+
+<body class="bg-white font-sans text-numetric-dark">
+
+    {% include "website/partials/navbar.html" %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include "website/partials/footer.html" %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+</body>
+
+</html>

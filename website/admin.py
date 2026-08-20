@@ -27,7 +27,7 @@ admin.site.index_title = "Business Management"
 
 
 # ==========================================================
-# REMOVE GROUPS FROM ADMIN
+# REMOVE GROUPS
 # ==========================================================
 
 try:
@@ -130,7 +130,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 
 # ==========================================================
-# BLOG CATEGORY ADMIN
+# CATEGORY ADMIN
 # ==========================================================
 
 @admin.register(Category)
@@ -204,7 +204,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 # ==========================================================
-# BLOG POST ADMIN
+# BLOG ACTIONS
 # ==========================================================
 
 @admin.action(description="Publish selected articles")
@@ -239,10 +239,15 @@ def unfeature_posts(modeladmin, request, queryset):
     )
 
 
+# ==========================================================
+# BLOG POST ADMIN
+# ==========================================================
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
 
     list_display = (
+        "featured_image_preview",
         "title",
         "category",
         "author",
@@ -321,6 +326,7 @@ class PostAdmin(admin.ModelAdmin):
             {
                 "fields": (
                     "featured_image",
+                    "featured_image_preview",
                 )
             },
         ),
@@ -356,9 +362,122 @@ class PostAdmin(admin.ModelAdmin):
     readonly_fields = (
         "created_at",
         "updated_at",
+        "featured_image_preview",
     )
 
     save_on_top = True
+
+
+    # ======================================================
+    # FEATURED IMAGE — LIST PREVIEW
+    # ======================================================
+
+    @admin.display(
+        description="Image",
+        ordering="featured_image",
+    )
+    def featured_image_preview(self, obj):
+
+        if not obj.featured_image:
+
+            return format_html(
+                '<span style="'
+                'display:inline-flex;'
+                'align-items:center;'
+                'justify-content:center;'
+                'width:56px;'
+                'height:42px;'
+                'border-radius:8px;'
+                'background:#F1F4F1;'
+                'color:#8A938C;'
+                'font-size:11px;'
+                'font-weight:600;'
+                '">'
+                '{}'
+                '</span>',
+                "No image",
+            )
+
+        return format_html(
+            '<img src="{}" '
+            'style="'
+            'width:64px;'
+            'height:44px;'
+            'object-fit:cover;'
+            'border-radius:8px;'
+            'display:block;'
+            'border:1px solid #E2E7E2;'
+            '" '
+            'alt="Featured image">',
+            obj.featured_image.url,
+        )
+
+
+    # ======================================================
+    # FEATURED IMAGE — CHANGE PAGE PREVIEW
+    # ======================================================
+
+    @admin.display(
+        description="Current Featured Image",
+    )
+    def featured_image_preview(self, obj):
+
+        if not obj or not obj.pk:
+
+            return format_html(
+                '<span style="'
+                'color:#8A938C;'
+                'font-size:13px;'
+                '">'
+                '{}'
+                '</span>',
+                "Upload an image to preview it here.",
+            )
+
+        if not obj.featured_image:
+
+            return format_html(
+                '<div style="'
+                'padding:20px;'
+                'border:1px dashed #D8DED8;'
+                'border-radius:12px;'
+                'background:#F8FAF8;'
+                'color:#7A837C;'
+                'font-size:13px;'
+                '">'
+                '{}'
+                '</div>',
+                "No featured image has been uploaded.",
+            )
+
+        return format_html(
+            '<div style="'
+            'margin-top:4px;'
+            'padding:12px;'
+            'display:inline-block;'
+            'border:1px solid #E2E7E2;'
+            'border-radius:14px;'
+            'background:#F8FAF8;'
+            '">'
+            '<img src="{}" '
+            'style="'
+            'display:block;'
+            'width:420px;'
+            'max-width:100%;'
+            'height:auto;'
+            'max-height:280px;'
+            'object-fit:cover;'
+            'border-radius:10px;'
+            '" '
+            'alt="Featured image">'
+            '</div>',
+            obj.featured_image.url,
+        )
+
+
+    # ======================================================
+    # PUBLICATION STATUS
+    # ======================================================
 
     @admin.display(
         description="Status",
@@ -370,21 +489,48 @@ class PostAdmin(admin.ModelAdmin):
 
             return format_html(
                 '<span style="'
+                'display:inline-flex;'
+                'align-items:center;'
+                'gap:6px;'
                 'color:#1B6B3A;'
                 'font-weight:600;'
                 '">'
-                'Published'
-                '</span>'
+                '<span style="'
+                'width:7px;'
+                'height:7px;'
+                'border-radius:50%;'
+                'background:#1B6B3A;'
+                'display:inline-block;'
+                '"></span>'
+                '{}'
+                '</span>',
+                "Published",
             )
 
         return format_html(
             '<span style="'
+            'display:inline-flex;'
+            'align-items:center;'
+            'gap:6px;'
             'color:#777;'
             'font-weight:600;'
             '">'
-            'Draft'
-            '</span>'
+            '<span style="'
+            'width:7px;'
+            'height:7px;'
+            'border-radius:50%;'
+            'background:#AAA;'
+            'display:inline-block;'
+            '"></span>'
+            '{}'
+            '</span>',
+            "Draft",
         )
+
+
+    # ======================================================
+    # FEATURED STATUS
+    # ======================================================
 
     @admin.display(
         description="Featured",
@@ -658,7 +804,7 @@ class TestimonialAdmin(admin.ModelAdmin):
     )
 
     @admin.display(
-        description="Testimonial"
+        description="Testimonial",
     )
     def quote_preview(self, obj):
 
@@ -797,7 +943,7 @@ class ProfessionalAffiliationAdmin(admin.ModelAdmin):
 
 
 # ==========================================================
-# CONTACT ENQUIRY ADMIN
+# CONTACT ENQUIRY ACTIONS
 # ==========================================================
 
 @admin.action(description="Mark selected enquiries as read")
@@ -815,6 +961,10 @@ def mark_enquiries_unread(modeladmin, request, queryset):
         is_read=False
     )
 
+
+# ==========================================================
+# CONTACT ENQUIRY ADMIN
+# ==========================================================
 
 @admin.register(ContactEnquiry)
 class ContactEnquiryAdmin(admin.ModelAdmin):
@@ -920,25 +1070,47 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
 
             return format_html(
                 '<span style="'
+                'display:inline-flex;'
+                'align-items:center;'
+                'gap:6px;'
                 'color:#777;'
                 'font-weight:600;'
                 '">'
-                'Read'
-                '</span>'
+                '<span style="'
+                'width:7px;'
+                'height:7px;'
+                'border-radius:50%;'
+                'background:#AAA;'
+                'display:inline-block;'
+                '"></span>'
+                '{}'
+                '</span>',
+                "Read",
             )
 
         return format_html(
             '<span style="'
+            'display:inline-flex;'
+            'align-items:center;'
+            'gap:6px;'
             'color:#1B6B3A;'
             'font-weight:700;'
             '">'
-            'New'
-            '</span>'
+            '<span style="'
+            'width:7px;'
+            'height:7px;'
+            'border-radius:50%;'
+            'background:#1B6B3A;'
+            'display:inline-block;'
+            '"></span>'
+            '{}'
+            '</span>',
+            "New",
         )
 
 
 # ==========================================================
-# ADMIN INTERFACE CONFIGURATION
+# ADMIN DEFAULTS
 # ==========================================================
 
 admin.site.empty_value_display = "—"

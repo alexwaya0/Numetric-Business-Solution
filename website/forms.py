@@ -23,10 +23,16 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.TextInput(
             attrs={
-                "class": "form-input",
                 "placeholder": "Your full name",
                 "autocomplete": "name",
                 "required": True,
+                "class": (
+                    "w-full rounded-xl border border-black/10 "
+                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "placeholder:text-black/35 outline-none "
+                    "transition focus:border-numetric-green "
+                    "focus:ring-4 focus:ring-numetric-green/10"
+                ),
             }
         ),
     )
@@ -43,9 +49,15 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.TextInput(
             attrs={
-                "class": "form-input",
                 "placeholder": "Your company name",
                 "autocomplete": "organization",
+                "class": (
+                    "w-full rounded-xl border border-black/10 "
+                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "placeholder:text-black/35 outline-none "
+                    "transition focus:border-numetric-green "
+                    "focus:ring-4 focus:ring-numetric-green/10"
+                ),
             }
         ),
     )
@@ -61,11 +73,17 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                "class": "form-input",
                 "placeholder": "you@company.com",
                 "autocomplete": "email",
                 "inputmode": "email",
                 "required": True,
+                "class": (
+                    "w-full rounded-xl border border-black/10 "
+                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "placeholder:text-black/35 outline-none "
+                    "transition focus:border-numetric-green "
+                    "focus:ring-4 focus:ring-numetric-green/10"
+                ),
             }
         ),
     )
@@ -83,11 +101,17 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.TextInput(
             attrs={
-                "class": "form-input",
                 "placeholder": "+254 7XX XXX XXX",
                 "autocomplete": "tel",
                 "inputmode": "tel",
                 "required": True,
+                "class": (
+                    "w-full rounded-xl border border-black/10 "
+                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "placeholder:text-black/35 outline-none "
+                    "transition focus:border-numetric-green "
+                    "focus:ring-4 focus:ring-numetric-green/10"
+                ),
             }
         ),
     )
@@ -104,8 +128,14 @@ class ContactForm(forms.Form):
         empty_label="Select a service",
         widget=forms.Select(
             attrs={
-                "class": "form-select",
                 "required": True,
+                "class": (
+                    "w-full appearance-none rounded-xl "
+                    "border border-black/10 bg-white px-4 py-3.5 "
+                    "text-sm text-numetric-dark outline-none "
+                    "transition focus:border-numetric-green "
+                    "focus:ring-4 focus:ring-numetric-green/10"
+                ),
             }
         ),
     )
@@ -123,13 +153,20 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.Textarea(
             attrs={
-                "class": "form-textarea",
                 "placeholder": (
                     "Tell us briefly how we can help "
                     "your business..."
                 ),
                 "rows": 7,
                 "required": True,
+                "class": (
+                    "w-full resize-y rounded-xl border "
+                    "border-black/10 bg-white px-4 py-3.5 "
+                    "text-sm leading-6 text-numetric-dark "
+                    "placeholder:text-black/35 outline-none "
+                    "transition focus:border-numetric-green "
+                    "focus:ring-4 focus:ring-numetric-green/10"
+                ),
             }
         ),
     )
@@ -137,13 +174,6 @@ class ContactForm(forms.Form):
 
     # ======================================================
     # HONEYPOT
-    # ======================================================
-    #
-    # This field is intentionally hidden from normal users.
-    # Basic automated bots often fill every available field.
-    #
-    # We reject the submission in clean() if this field
-    # contains anything.
     # ======================================================
 
     website = forms.CharField(
@@ -163,9 +193,7 @@ class ContactForm(forms.Form):
             **kwargs,
         )
 
-        self.fields[
-            "service"
-        ].queryset = (
+        self.fields["service"].queryset = (
             Service.objects
             .filter(
                 is_active=True,
@@ -183,9 +211,8 @@ class ContactForm(forms.Form):
     def clean_full_name(self):
 
         full_name = (
-            self.cleaned_data[
-                "full_name"
-            ].strip()
+            self.cleaned_data["full_name"]
+            .strip()
         )
 
         if not full_name:
@@ -227,9 +254,7 @@ class ContactForm(forms.Form):
     def clean_email(self):
 
         email = (
-            self.cleaned_data[
-                "email"
-            ]
+            self.cleaned_data["email"]
             .strip()
             .lower()
         )
@@ -244,20 +269,9 @@ class ContactForm(forms.Form):
     def clean_phone(self):
 
         phone = (
-            self.cleaned_data[
-                "phone"
-            ]
+            self.cleaned_data["phone"]
             .strip()
         )
-
-        # Allow:
-        #
-        # +254 739 651 744
-        # 0739 651 744
-        # +254-739-651-744
-        # (0739) 651 744
-        #
-        # but reject letters and other unexpected characters.
 
         allowed = set(
             "0123456789+()- "
@@ -272,7 +286,6 @@ class ContactForm(forms.Form):
                 "Please enter a valid phone number."
             )
 
-        # Prevent obviously invalid values.
         digits = re.sub(
             r"\D",
             "",
@@ -291,7 +304,6 @@ class ContactForm(forms.Form):
                 "Please enter a valid phone number."
             )
 
-        # A plus sign should only appear at the beginning.
         if "+" in phone and not phone.startswith("+"):
 
             raise forms.ValidationError(
@@ -308,9 +320,8 @@ class ContactForm(forms.Form):
     def clean_message(self):
 
         message = (
-            self.cleaned_data[
-                "message"
-            ].strip()
+            self.cleaned_data["message"]
+            .strip()
         )
 
         if len(message) < 10:

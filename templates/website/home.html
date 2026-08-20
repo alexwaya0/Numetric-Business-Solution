@@ -1,21 +1,13 @@
-{% extends "base.html" %}
+{% extends "website/base.html" %}
+{% load static %}
 
 {% block title %}
-    Numetric Business Solution | Financial Clarity. Strategic Growth.
+    Numetric Business Solution | Financial Clarity. Better Decisions.
 {% endblock %}
 
 {% block meta_description %}
-    Numetric Business Solution provides accounting, tax, audit, financial reporting, payroll and strategic advisory services for businesses in Kenya.
+    Numetric Business Solution provides accounting, tax, payroll, audit, financial reporting and strategic advisory services for businesses in Kenya.
 {% endblock %}
-
-{% block og_title %}
-    Numetric Business Solution | Financial Clarity. Strategic Growth.
-{% endblock %}
-
-{% block og_description %}
-    Accounting, tax, audit and financial advisory built around better business decisions.
-{% endblock %}
-
 
 {% block content %}
 
@@ -23,126 +15,61 @@
      HERO
 =========================================================== -->
 
-<section
-    class="
-        relative
-        overflow-hidden
-        bg-numetric-cream
-        pt-36
-        pb-20
-        sm:pt-40
-        sm:pb-24
-        lg:pt-48
-        lg:pb-28
-    "
->
+<section class="relative overflow-hidden bg-numetric-cream pt-36 sm:pt-40 lg:pt-44">
 
-    <!-- Decorative background -->
-    <div
-        class="
-            pointer-events-none
-            absolute
-            -right-40
-            -top-40
-            h-[32rem]
-            w-[32rem]
-            rounded-full
-            bg-numetric-green/5
-            blur-3xl
-        "
-    ></div>
+    <div class="page-container">
 
-    <div
-        class="
-            pointer-events-none
-            absolute
-            bottom-0
-            left-1/3
-            h-64
-            w-64
-            rounded-full
-            bg-numetric-green/5
-            blur-3xl
-        "
-    ></div>
+        <div class="grid items-center gap-14 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
 
+            <!-- COPY -->
 
-    <div class="page-container relative">
-
-        <div
-            class="
-                grid
-                items-center
-                gap-14
-                lg:grid-cols-[1.08fr_0.92fr]
-                lg:gap-16
-            "
-        >
-
-            <!-- ==================================================
-                 HERO COPY
-            =================================================== -->
-
-            <div>
+            <div class="max-w-3xl">
 
                 <span class="eyebrow">
-                    Numetric Business Solution
+                    Financial clarity. Better decisions.
                 </span>
-
 
                 <h1
                     class="
-                        mt-7
-                        max-w-4xl
+                        mt-6
+                        max-w-3xl
                         text-5xl
-                        font-semibold
-                        leading-[0.94]
-                        tracking-[-0.055em]
+                        font-medium
+                        leading-[1.02]
+                        tracking-[-0.045em]
                         text-numetric-dark
                         sm:text-6xl
-                        lg:text-[5.9rem]
+                        lg:text-7xl
                     "
                 >
-                    Your numbers
+                    Numbers you can trust.
                     <span class="text-numetric-green">
-                        should move
+                        Decisions you can make.
                     </span>
-                    your business.
                 </h1>
-
 
                 <p
                     class="
-                        mt-8
+                        mt-7
                         max-w-2xl
                         text-lg
                         leading-8
                         text-numetric-muted
                         sm:text-xl
-                        sm:leading-9
                     "
                 >
-                    We help businesses get their numbers right,
-                    understand what they mean, and make better
-                    informed decisions with confidence.
+                    We help businesses get their numbers right and turn
+                    financial information into the clarity, control and
+                    confidence needed to grow.
                 </p>
 
-
-                <div
-                    class="
-                        mt-9
-                        flex
-                        flex-col
-                        gap-3
-                        sm:flex-row
-                    "
-                >
+                <div class="mt-9 flex flex-col gap-3 sm:flex-row">
 
                     <a
-                        href="#services"
+                        href="{% url 'website:contact' %}"
                         class="btn-primary"
                     >
-                        Explore our expertise
+                        Let's Start the Conversation
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -153,270 +80,80 @@
                         >
                             <path
                                 fill-rule="evenodd"
-                                d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                                d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
                                 clip-rule="evenodd"
                             />
                         </svg>
-
                     </a>
-
 
                     <a
-                        href="#why-numetric"
+                        href="{% url 'website:services' %}"
                         class="btn-secondary"
                     >
-                        Why Numetric
+                        Explore Our Services
                     </a>
-
-                </div>
-
-
-                <!-- Small reassurance -->
-                <div
-                    class="
-                        mt-9
-                        flex
-                        flex-wrap
-                        items-center
-                        gap-x-6
-                        gap-y-3
-                        text-xs
-                        font-medium
-                        uppercase
-                        tracking-[0.12em]
-                        text-numetric-muted
-                    "
-                >
-
-                    <span>
-                        Accounting
-                    </span>
-
-                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
-
-                    <span>
-                        Tax
-                    </span>
-
-                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
-
-                    <span>
-                        Advisory
-                    </span>
-
-                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
-
-                    <span>
-                        Audit
-                    </span>
 
                 </div>
 
             </div>
 
 
-            <!-- ==================================================
-                 HERO VISUAL
-            =================================================== -->
+            <!-- IMAGE -->
 
             <div class="relative">
 
                 <div
                     class="
                         relative
-                        min-h-[28rem]
+                        aspect-[4/5]
                         overflow-hidden
                         rounded-[2rem]
                         bg-numetric-dark
-                        sm:min-h-[34rem]
-                        lg:min-h-[40rem]
+                        shadow-2xl
                     "
                 >
 
-                    <!--
-                        Image placeholder.
-
-                        Replace this background later with the
-                        approved Numetric African business image.
-                    -->
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+                        alt="African business professionals collaborating in a modern business environment"
+                        class="h-full w-full object-cover"
+                    >
 
                     <div
                         class="
                             absolute
                             inset-0
-                            bg-gradient-to-br
-                            from-numetric-dark
-                            via-numetric-charcoal
-                            to-numetric-green/80
+                            bg-gradient-to-t
+                            from-black/55
+                            via-black/5
+                            to-transparent
                         "
                     ></div>
 
 
-                    <!-- Architectural lines -->
-
                     <div
                         class="
                             absolute
-                            inset-0
-                            opacity-20
-                        "
-                    >
-
-                        <div
-                            class="
-                                absolute
-                                right-[-15%]
-                                top-[-10%]
-                                h-[34rem]
-                                w-[34rem]
-                                rounded-full
-                                border
-                                border-white
-                            "
-                        ></div>
-
-                        <div
-                            class="
-                                absolute
-                                right-[-5%]
-                                top-0
-                                h-[26rem]
-                                w-[26rem]
-                                rounded-full
-                                border
-                                border-white
-                            "
-                        ></div>
-
-                        <div
-                            class="
-                                absolute
-                                bottom-[-20%]
-                                left-[-10%]
-                                h-72
-                                w-72
-                                rounded-full
-                                border
-                                border-numetric-green
-                            "
-                        ></div>
-
-                    </div>
-
-
-                    <!-- Visual statement -->
-
-                    <div
-                        class="
-                            absolute
-                            inset-x-6
                             bottom-6
-                            sm:inset-x-8
-                            sm:bottom-8
-                        "
-                    >
-
-                        <div
-                            class="
-                                max-w-sm
-                                rounded-[1.5rem]
-                                border
-                                border-white/10
-                                bg-white/10
-                                p-6
-                                backdrop-blur-xl
-                                sm:p-7
-                            "
-                        >
-
-                            <p
-                                class="
-                                    text-[0.65rem]
-                                    font-semibold
-                                    uppercase
-                                    tracking-[0.18em]
-                                    text-white/45
-                                "
-                            >
-                                The Numetric approach
-                            </p>
-
-                            <p
-                                class="
-                                    mt-4
-                                    text-2xl
-                                    font-medium
-                                    leading-tight
-                                    tracking-[-0.025em]
-                                    text-white
-                                    sm:text-3xl
-                                "
-                            >
-                                Clear numbers.
-                                Better decisions.
-                            </p>
-
-                            <div
-                                class="
-                                    mt-6
-                                    h-px
-                                    bg-white/10
-                                "
-                            ></div>
-
-                            <p
-                                class="
-                                    mt-5
-                                    text-sm
-                                    leading-6
-                                    text-white/55
-                                "
-                            >
-                                Reliable financial expertise,
-                                practical solutions and strategic
-                                support.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Floating marker -->
-
-                    <div
-                        class="
-                            absolute
+                            left-6
                             right-6
-                            top-6
-                            flex
-                            h-14
-                            w-14
-                            items-center
-                            justify-center
-                            rounded-full
-                            bg-numetric-green
+                            rounded-2xl
+                            border
+                            border-white/15
+                            bg-black/35
+                            p-5
                             text-white
-                            shadow-2xl
-                            sm:right-8
-                            sm:top-8
+                            backdrop-blur-md
                         "
                     >
 
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            class="h-6 w-6"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 13.5 9 3l4 7 8-1-5 12-5-7-8-.5Z"
-                            />
-                        </svg>
+                        <p class="text-xs uppercase tracking-[0.18em] text-white/55">
+                            Numetric Business Solution
+                        </p>
+
+                        <p class="mt-2 text-lg font-medium leading-6">
+                            Your financial partner beyond the numbers.
+                        </p>
 
                     </div>
 
@@ -428,140 +165,48 @@
 
     </div>
 
-</section>
 
+    <!-- TRUST STRIP -->
 
-<!-- ==========================================================
-     TRUST / CREDENTIALS
-=========================================================== -->
-
-<section
-    class="
-        border-y
-        border-numetric-line
-        bg-white
-    "
->
-
-    <div class="page-container">
+    <div class="border-y border-black/5 bg-white">
 
         <div
             class="
+                page-container
                 grid
                 divide-y
-                divide-numetric-line
-                sm:grid-cols-2
+                divide-black/5
+                sm:grid-cols-3
                 sm:divide-x
                 sm:divide-y-0
-                lg:grid-cols-4
             "
         >
 
-            <div class="px-0 py-7 sm:px-8 lg:px-8">
-
-                <p
-                    class="
-                        text-[0.62rem]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-numetric-muted
-                    "
-                >
-                    Professional
+            <div class="px-0 py-6 sm:px-8 lg:px-10">
+                <p class="text-sm font-semibold text-numetric-dark">
+                    Reliable financial information
                 </p>
-
-                <p
-                    class="
-                        mt-2
-                        text-base
-                        font-semibold
-                    "
-                >
-                    CPA (K)
+                <p class="mt-1 text-sm text-numetric-muted">
+                    Accurate, timely and decision-ready.
                 </p>
-
             </div>
 
-
-            <div class="px-0 py-7 sm:px-8 lg:px-8">
-
-                <p
-                    class="
-                        text-[0.62rem]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-numetric-muted
-                    "
-                >
-                    Certified
+            <div class="px-0 py-6 sm:px-8 lg:px-10">
+                <p class="text-sm font-semibold text-numetric-dark">
+                    Practical expertise
                 </p>
-
-                <p
-                    class="
-                        mt-2
-                        text-base
-                        font-semibold
-                    "
-                >
-                    QuickBooks
+                <p class="mt-1 text-sm text-numetric-muted">
+                    Advice grounded in your business reality.
                 </p>
-
             </div>
 
-
-            <div class="px-0 py-7 sm:px-8 lg:px-8">
-
-                <p
-                    class="
-                        text-[0.62rem]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-numetric-muted
-                    "
-                >
-                    Certified
+            <div class="px-0 py-6 sm:px-8 lg:px-10">
+                <p class="text-sm font-semibold text-numetric-dark">
+                    Built for Kenyan businesses
                 </p>
-
-                <p
-                    class="
-                        mt-2
-                        text-base
-                        font-semibold
-                    "
-                >
-                    Odoo
+                <p class="mt-1 text-sm text-numetric-muted">
+                    Compliance, insight and growth in one partner.
                 </p>
-
-            </div>
-
-
-            <div class="px-0 py-7 sm:px-8 lg:px-8">
-
-                <p
-                    class="
-                        text-[0.62rem]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-numetric-muted
-                    "
-                >
-                    Affiliation
-                </p>
-
-                <p
-                    class="
-                        mt-2
-                        text-base
-                        font-semibold
-                    "
-                >
-                    ICPAK
-                </p>
-
             </div>
 
         </div>
@@ -572,29 +217,14 @@
 
 
 <!-- ==========================================================
-     POSITIONING
+     INTRO
 =========================================================== -->
 
-<section
-    id="why-numetric"
-    class="
-        bg-white
-        py-20
-        sm:py-24
-        lg:py-32
-    "
->
+<section class="bg-white py-20 sm:py-24 lg:py-32">
 
     <div class="page-container">
 
-        <div
-            class="
-                grid
-                gap-12
-                lg:grid-cols-[0.7fr_1.3fr]
-                lg:gap-20
-            "
-        >
+        <div class="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
 
             <div>
 
@@ -602,119 +232,73 @@
                     Why Numetric
                 </span>
 
+                <h2
+                    class="
+                        mt-5
+                        max-w-md
+                        text-3xl
+                        font-medium
+                        leading-tight
+                        tracking-[-0.03em]
+                        sm:text-4xl
+                    "
+                >
+                    Accounting should help you run the business.
+                </h2>
+
             </div>
 
 
             <div>
 
-                <h2
+                <p
                     class="
-                        max-w-5xl
-                        text-4xl
-                        font-medium
-                        leading-[1.03]
-                        tracking-[-0.04em]
+                        max-w-3xl
+                        text-xl
+                        leading-8
                         text-numetric-dark
-                        sm:text-5xl
-                        lg:text-6xl
+                        sm:text-2xl
+                        sm:leading-9
                     "
                 >
-                    Accounting should be more than
-                    <span class="text-numetric-green">
-                        meeting requirements.
-                    </span>
-                </h2>
+                    At Numetric, we believe accounting should be more than
+                    meeting tax and regulatory requirements.
+                </p>
 
-
-                <div
+                <p
                     class="
-                        mt-8
-                        grid
-                        gap-8
-                        sm:grid-cols-2
+                        mt-6
+                        max-w-3xl
+                        text-base
+                        leading-8
+                        text-numetric-muted
                     "
                 >
+                    It should give business leaders the insight and control
+                    they need to understand performance, address challenges
+                    early and make sound decisions. We work alongside our
+                    clients as trusted partners, combining professional
+                    expertise with smarter processes and automation.
+                </p>
 
-                    <p
-                        class="
-                            text-base
-                            leading-7
-                            text-numetric-muted
-                        "
-                    >
-                        We provide end-to-end accounting,
-                        tax, audit, financial reporting and
-                        advisory services that give business
-                        owners a clearer view of their
-                        financial position.
-                    </p>
+                <a
+                    href="{% url 'website:about' %}"
+                    class="
+                        mt-7
+                        inline-flex
+                        items-center
+                        gap-2
+                        text-sm
+                        font-semibold
+                        text-numetric-green
+                        transition
+                        hover:gap-3
+                    "
+                >
+                    Discover Numetric
 
-
-                    <p
-                        class="
-                            text-base
-                            leading-7
-                            text-numetric-muted
-                        "
-                    >
-                        We work alongside our clients as
-                        trusted partners, combining professional
-                        expertise with smarter processes and
-                        practical support.
-                    </p>
-
-                </div>
-
-
-                <div class="mt-10">
-
-                    <a
-                        href="#services"
-                        class="
-                            inline-flex
-                            items-center
-                            gap-3
-                            text-sm
-                            font-semibold
-                            text-numetric-dark
-                            transition
-                            hover:text-numetric-green
-                        "
-                    >
-
-                        Discover how we work
-
-                        <span
-                            class="
-                                flex
-                                h-9
-                                w-9
-                                items-center
-                                justify-center
-                                rounded-full
-                                border
-                                border-black/10
-                            "
-                        >
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                class="h-4 w-4"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
-                                    clip-rule="evenodd"
-                                />
-                            </svg>
-
-                        </span>
-
-                    </a>
-
-                </div>
+                    <span aria-hidden="true">→</span>
+                </a>
 
             </div>
 
@@ -729,85 +313,63 @@
      SERVICES
 =========================================================== -->
 
-<section
-    id="services"
-    class="
-        bg-numetric-dark
-        py-20
-        text-white
-        sm:py-24
-        lg:py-32
-    "
->
+<section class="bg-numetric-cream py-20 sm:py-24 lg:py-32">
 
     <div class="page-container">
-
-        <!-- Section heading -->
 
         <div
             class="
                 flex
                 flex-col
-                gap-8
+                gap-6
                 lg:flex-row
                 lg:items-end
                 lg:justify-between
             "
         >
 
-            <div class="max-w-3xl">
+            <div class="max-w-2xl">
 
-                <span
-                    class="
-                        eyebrow
-                        text-numetric-green
-                    "
-                >
-                    Our expertise
+                <span class="eyebrow">
+                    Our Expertise
                 </span>
 
                 <h2
                     class="
-                        mt-6
+                        mt-5
                         text-4xl
                         font-medium
-                        leading-[1.03]
-                        tracking-[-0.04em]
+                        tracking-[-0.035em]
                         sm:text-5xl
-                        lg:text-6xl
                     "
                 >
-                    Financial expertise
-                    for every stage
-                    of the journey.
+                    Financial expertise for every stage of business.
                 </h2>
 
             </div>
 
-            <p
-                class="
-                    max-w-md
-                    text-base
-                    leading-7
-                    text-white/50
-                "
+            <a
+                href="{% url 'website:services' %}"
+                class="btn-secondary shrink-0"
             >
-                From dependable financial records to
-                strategic leadership, our services are
-                designed around the realities of running
-                a business.
-            </p>
+                View All Services
+            </a>
 
         </div>
 
 
-        <!-- Service list -->
-
         <div
             class="
-                mt-16
-                border-t
-                border-white/10
+                mt-12
+                grid
+                gap-px
+                overflow-hidden
+                rounded-[1.5rem]
+                border
+                border-black/10
+                bg-black/10
+                md:grid-cols-2
+                xl:grid-cols-3
             "
         >
 
@@ -817,160 +379,596 @@
                     href="{{ service.get_absolute_url }}"
                     class="
                         group
-                        grid
-                        gap-5
-                        border-b
-                        border-white/10
-                        py-8
+                        bg-white
+                        p-7
                         transition
-                        sm:grid-cols-[4rem_1fr_auto]
-                        sm:items-center
-                        sm:gap-8
-                        lg:py-10
+                        duration-300
+                        hover:bg-numetric-dark
+                        hover:text-white
+                        sm:p-8
                     "
                 >
 
-                    <span
-                        class="
-                            text-sm
-                            font-medium
-                            text-white/30
-                        "
-                    >
-                        {{ service.number|stringformat:"02d" }}
-                    </span>
+                    <div class="flex items-start justify-between gap-5">
 
-
-                    <div>
-
-                        <h3
+                        <span
                             class="
-                                text-2xl
-                                font-medium
-                                tracking-[-0.025em]
+                                text-xs
+                                font-semibold
+                                tracking-[0.15em]
+                                text-numetric-green
+                                group-hover:text-white/60
+                            "
+                        >
+                            0{{ service.number }}
+                        </span>
+
+                        <span
+                            class="
+                                text-xl
+                                text-numetric-dark/30
                                 transition
-                                group-hover:text-numetric-green
-                                sm:text-3xl
+                                duration-300
+                                group-hover:translate-x-1
+                                group-hover:text-white
                             "
                         >
-                            {{ service.name }}
-                        </h3>
-
-                        <p
-                            class="
-                                mt-2
-                                max-w-2xl
-                                text-sm
-                                leading-6
-                                text-white/40
-                            "
-                        >
-                            {{ service.tagline }}
-                        </p>
+                            ↗
+                        </span>
 
                     </div>
 
-
-                    <span
+                    <h3
                         class="
-                            flex
-                            h-11
-                            w-11
-                            items-center
-                            justify-center
-                            rounded-full
-                            border
-                            border-white/15
-                            transition
-                            group-hover:border-numetric-green
-                            group-hover:bg-numetric-green
+                            mt-12
+                            max-w-xs
+                            text-xl
+                            font-semibold
+                            leading-7
+                            tracking-[-0.02em]
                         "
                     >
+                        {{ service.name }}
+                    </h3>
 
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            class="h-4 w-4"
-                            aria-hidden="true"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5-5.5a.75.75 0 1 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-
-                    </span>
+                    <p
+                        class="
+                            mt-4
+                            line-clamp-3
+                            text-sm
+                            leading-6
+                            text-numetric-muted
+                            group-hover:text-white/60
+                        "
+                    >
+                        {{ service.tagline }}
+                    </p>
 
                 </a>
 
             {% empty %}
 
-                <div
-                    class="
-                        py-12
-                        text-center
-                        text-sm
-                        text-white/40
-                    "
-                >
-                    Our services are currently being updated.
+                <div class="bg-white p-8 text-sm text-numetric-muted">
+                    Our services are being updated. Please contact us to
+                    discuss how we can help your business.
                 </div>
 
             {% endfor %}
 
         </div>
 
+    </div>
 
-        <div class="mt-10">
+</section>
 
-            <a
-                href="{% url 'website:services' %}"
+
+<!-- ==========================================================
+     APPROACH / IMAGE
+=========================================================== -->
+
+<section class="bg-white py-20 sm:py-24 lg:py-32">
+
+    <div class="page-container">
+
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+
+            <div
                 class="
-                    inline-flex
-                    items-center
-                    gap-3
-                    text-sm
-                    font-semibold
-                    text-white
-                    transition
-                    hover:text-numetric-green
+                    overflow-hidden
+                    rounded-[2rem]
+                    bg-numetric-soft
                 "
             >
 
-                View all services
+                <img
+                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85"
+                    alt="Business professionals discussing financial information"
+                    class="aspect-[4/3] h-full w-full object-cover"
+                    loading="lazy"
+                >
 
-                <span
+            </div>
+
+
+            <div class="max-w-xl">
+
+                <span class="eyebrow">
+                    How We Work
+                </span>
+
+                <h2
                     class="
-                        flex
-                        h-9
-                        w-9
-                        items-center
-                        justify-center
-                        rounded-full
+                        mt-5
+                        text-4xl
+                        font-medium
+                        leading-tight
+                        tracking-[-0.035em]
+                        sm:text-5xl
+                    "
+                >
+                    A trusted partner, not just another accountant.
+                </h2>
+
+                <p
+                    class="
+                        mt-6
+                        text-base
+                        leading-8
+                        text-numetric-muted
+                    "
+                >
+                    We take time to understand how your business works,
+                    where it is going and what stands in the way. Then we
+                    bring together financial expertise, practical systems
+                    and strategic thinking to help you move forward.
+                </p>
+
+
+                <div class="mt-8 grid gap-5 sm:grid-cols-2">
+
+                    <div class="border-t border-black/10 pt-5">
+
+                        <p class="font-semibold">
+                            Clarity
+                        </p>
+
+                        <p class="mt-2 text-sm leading-6 text-numetric-muted">
+                            Know what your numbers are telling you.
+                        </p>
+
+                    </div>
+
+                    <div class="border-t border-black/10 pt-5">
+
+                        <p class="font-semibold">
+                            Control
+                        </p>
+
+                        <p class="mt-2 text-sm leading-6 text-numetric-muted">
+                            Strengthen processes and manage risk.
+                        </p>
+
+                    </div>
+
+                    <div class="border-t border-black/10 pt-5">
+
+                        <p class="font-semibold">
+                            Confidence
+                        </p>
+
+                        <p class="mt-2 text-sm leading-6 text-numetric-muted">
+                            Make decisions from reliable information.
+                        </p>
+
+                    </div>
+
+                    <div class="border-t border-black/10 pt-5">
+
+                        <p class="font-semibold">
+                            Growth
+                        </p>
+
+                        <p class="mt-2 text-sm leading-6 text-numetric-muted">
+                            Build a stronger, more profitable business.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     TESTIMONIALS
+=========================================================== -->
+
+{% if testimonials %}
+
+<section class="bg-numetric-dark py-20 text-white sm:py-24 lg:py-32">
+
+    <div class="page-container">
+
+        <div class="max-w-2xl">
+
+            <span class="eyebrow text-white/60">
+                Client Perspective
+            </span>
+
+            <h2
+                class="
+                    mt-5
+                    text-4xl
+                    font-medium
+                    tracking-[-0.035em]
+                    sm:text-5xl
+                "
+            >
+                Trusted by businesses that value getting it right.
+            </h2>
+
+        </div>
+
+
+        <div class="mt-12 grid gap-5 lg:grid-cols-3">
+
+            {% for testimonial in testimonials %}
+
+                <figure
+                    class="
+                        rounded-[1.5rem]
                         border
-                        border-white/15
+                        border-white/10
+                        bg-white/[0.04]
+                        p-7
+                        sm:p-8
                     "
                 >
 
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        class="h-4 w-4"
-                        aria-hidden="true"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 1 1-1.06-1.06l5.5 5.5a.75.75 0 0 1-1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
-                            clip-rule="evenodd"
-                        />
-                    </svg>
+                    <div class="text-3xl text-numetric-green">
+                        “
+                    </div>
 
+                    <blockquote
+                        class="
+                            mt-3
+                            text-base
+                            leading-7
+                            text-white/75
+                        "
+                    >
+                        {{ testimonial.quote }}
+                    </blockquote>
+
+                    <figcaption class="mt-7">
+
+                        <p class="text-sm font-semibold">
+                            {{ testimonial.name }}
+                        </p>
+
+                        {% if testimonial.role %}
+                            <p class="mt-1 text-xs text-white/40">
+                                {{ testimonial.role }}
+                            </p>
+                        {% endif %}
+
+                    </figcaption>
+
+                </figure>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<!-- ==========================================================
+     BLOG / INSIGHTS
+=========================================================== -->
+
+<section class="bg-white py-20 sm:py-24 lg:py-32">
+
+    <div class="page-container">
+
+        <div
+            class="
+                flex
+                flex-col
+                gap-6
+                lg:flex-row
+                lg:items-end
+                lg:justify-between
+            "
+        >
+
+            <div class="max-w-2xl">
+
+                <span class="eyebrow">
+                    Insights & Resources
                 </span>
 
+                <h2
+                    class="
+                        mt-5
+                        text-4xl
+                        font-medium
+                        tracking-[-0.035em]
+                        sm:text-5xl
+                    "
+                >
+                    Practical thinking for better business decisions.
+                </h2>
+
+            </div>
+
+            <a
+                href="{% url 'website:blog' %}"
+                class="btn-secondary shrink-0"
+            >
+                View All Articles
             </a>
+
+        </div>
+
+
+        {% if featured_posts %}
+
+            <div class="mt-12 grid gap-6 lg:grid-cols-3">
+
+                {% for post in featured_posts %}
+
+                    <article class="group">
+
+                        <a
+                            href="{{ post.get_absolute_url }}"
+                            class="
+                                block
+                                overflow-hidden
+                                rounded-[1.5rem]
+                                bg-numetric-soft
+                            "
+                        >
+
+                            {% if post.featured_image %}
+
+                                <img
+                                    src="{{ post.featured_image.url }}"
+                                    alt="{{ post.title }}"
+                                    class="
+                                        aspect-[16/10]
+                                        w-full
+                                        object-cover
+                                        transition
+                                        duration-500
+                                        group-hover:scale-105
+                                    "
+                                    loading="lazy"
+                                >
+
+                            {% else %}
+
+                                <div
+                                    class="
+                                        flex
+                                        aspect-[16/10]
+                                        items-end
+                                        bg-numetric-green
+                                        p-7
+                                        text-white
+                                    "
+                                >
+
+                                    <span class="text-4xl font-medium">
+                                        N.
+                                    </span>
+
+                                </div>
+
+                            {% endif %}
+
+                        </a>
+
+
+                        <div class="pt-6">
+
+                            <div
+                                class="
+                                    flex
+                                    items-center
+                                    gap-3
+                                    text-xs
+                                    uppercase
+                                    tracking-[0.12em]
+                                    text-numetric-muted
+                                "
+                            >
+
+                                <span>
+                                    {{ post.category.name }}
+                                </span>
+
+                                {% if post.published_at %}
+
+                                    <span class="h-1 w-1 rounded-full bg-numetric-green"></span>
+
+                                    <time datetime="{{ post.published_at|date:'c' }}">
+                                        {{ post.published_at|date:"M j, Y" }}
+                                    </time>
+
+                                {% endif %}
+
+                            </div>
+
+                            <h3
+                                class="
+                                    mt-3
+                                    text-xl
+                                    font-semibold
+                                    leading-7
+                                    tracking-[-0.02em]
+                                "
+                            >
+                                <a
+                                    href="{{ post.get_absolute_url }}"
+                                    class="transition hover:text-numetric-green"
+                                >
+                                    {{ post.title }}
+                                </a>
+                            </h3>
+
+                            <p
+                                class="
+                                    mt-3
+                                    line-clamp-3
+                                    text-sm
+                                    leading-6
+                                    text-numetric-muted
+                                "
+                            >
+                                {{ post.excerpt }}
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div
+                class="
+                    mt-12
+                    rounded-[1.5rem]
+                    border
+                    border-black/10
+                    bg-numetric-cream
+                    p-8
+                "
+            >
+
+                <p class="text-sm text-numetric-muted">
+                    New insights and resources are coming soon.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     FINAL CTA
+=========================================================== -->
+
+<section class="bg-numetric-cream py-20 sm:py-24 lg:py-32">
+
+    <div class="page-container">
+
+        <div
+            class="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                bg-numetric-dark
+                px-7
+                py-14
+                text-white
+                sm:px-12
+                sm:py-16
+                lg:px-20
+                lg:py-20
+            "
+        >
+
+            <div
+                class="
+                    absolute
+                    -right-24
+                    -top-24
+                    h-72
+                    w-72
+                    rounded-full
+                    bg-numetric-green/30
+                    blur-3xl
+                "
+            ></div>
+
+            <div class="relative max-w-3xl">
+
+                <span class="eyebrow text-white/60">
+                    Let's Work Together
+                </span>
+
+                <h2
+                    class="
+                        mt-5
+                        text-4xl
+                        font-medium
+                        leading-tight
+                        tracking-[-0.035em]
+                        sm:text-5xl
+                    "
+                >
+                    Your numbers should give you confidence, not confusion.
+                </h2>
+
+                <p
+                    class="
+                        mt-6
+                        max-w-2xl
+                        text-base
+                        leading-7
+                        text-white/60
+                    "
+                >
+                    Tell us where your business is today and where you want
+                    it to go. We'll help you understand the numbers and
+                    identify the next step.
+                </p>
+
+                <a
+                    href="{% url 'website:contact' %}"
+                    class="
+                        mt-8
+                        inline-flex
+                        min-h-13
+                        items-center
+                        gap-2
+                        rounded-full
+                        bg-white
+                        px-6
+                        py-3
+                        text-sm
+                        font-semibold
+                        text-numetric-dark
+                        transition
+                        hover:-translate-y-0.5
+                        hover:bg-numetric-green
+                        hover:text-white
+                    "
+                >
+                    Contact Numetric
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
 
         </div>
 

@@ -1,102 +1,69 @@
-{% extends "base.html" %}
+{% extends "website/base.html" %}
 
 {% block title %}
     {{ service.name }} | Numetric Business Solution
 {% endblock %}
 
 {% block meta_description %}
-    {{ service.tagline }} {{ service.overview|truncatewords:28 }}
+    {{ service.tagline }} {{ service.overview|truncatechars:150 }}
 {% endblock %}
-
 
 {% block content %}
 
 <!-- ==========================================================
-     SERVICE HERO
+     HERO
 =========================================================== -->
 
-<section
-    class="
-        bg-numetric-dark
-        pt-36
-        pb-20
-        text-white
-        sm:pt-40
-        sm:pb-24
-        lg:pt-48
-        lg:pb-28
-    "
->
+<section class="relative overflow-hidden bg-numetric-dark pt-36 text-white sm:pt-40 lg:pt-44">
 
-    <div class="page-container">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(27,107,58,0.28),transparent_38%)]"></div>
 
-        <div
-            class="
-                grid
-                gap-12
-                lg:grid-cols-[0.18fr_0.82fr]
-                lg:gap-16
-            "
-        >
+    <div class="page-container relative py-20 sm:py-24 lg:py-28">
 
-            <div>
+        <div class="max-w-4xl">
 
-                <span
-                    class="
-                        text-sm
-                        font-medium
-                        text-numetric-green
-                    "
-                >
-                    {{ service.number|stringformat:"02d" }}
+            <div class="flex items-center gap-4">
+
+                <span class="text-sm font-semibold tracking-[0.18em] text-numetric-green">
+                    {% if service.number < 10 %}0{% endif %}{{ service.number }}
+                </span>
+
+                <span class="h-px w-10 bg-white/20"></span>
+
+                <span class="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Our Services
                 </span>
 
             </div>
 
 
-            <div>
-
-                <span
-                    class="
-                        eyebrow
-                        text-numetric-green
-                    "
-                >
-                    Our expertise
-                </span>
-
-
-                <h1
-                    class="
-                        mt-7
-                        max-w-5xl
-                        text-5xl
-                        font-semibold
-                        leading-[0.96]
-                        tracking-[-0.05em]
-                        sm:text-6xl
-                        lg:text-8xl
-                    "
-                >
-                    {{ service.name }}
-                </h1>
+            <h1
+                class="
+                    mt-7
+                    max-w-4xl
+                    text-4xl
+                    font-semibold
+                    tracking-[-0.045em]
+                    sm:text-5xl
+                    lg:text-7xl
+                "
+            >
+                {{ service.name }}
+            </h1>
 
 
-                <p
-                    class="
-                        mt-8
-                        max-w-3xl
-                        text-xl
-                        leading-8
-                        text-white/55
-                        sm:text-2xl
-                        sm:leading-9
-                    "
-                >
-                    {{ service.tagline }}
-                </p>
-
-            </div>
+            <p
+                class="
+                    mt-7
+                    max-w-2xl
+                    text-lg
+                    leading-8
+                    text-white/60
+                    sm:text-xl
+                "
+            >
+                {{ service.tagline }}
+            </p>
 
         </div>
 
@@ -109,31 +76,29 @@
      OVERVIEW
 =========================================================== -->
 
-<section
-    class="
-        bg-white
-        py-20
-        sm:py-24
-        lg:py-32
-    "
->
+<section class="bg-white">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-28">
 
-        <div
-            class="
-                grid
-                gap-12
-                lg:grid-cols-[0.65fr_1.35fr]
-                lg:gap-20
-            "
-        >
+        <div class="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
 
             <div>
 
                 <span class="eyebrow">
                     Overview
                 </span>
+
+                <h2
+                    class="
+                        mt-5
+                        text-3xl
+                        font-semibold
+                        tracking-[-0.035em]
+                        sm:text-4xl
+                    "
+                >
+                    Financial clarity that supports better decisions.
+                </h2>
 
             </div>
 
@@ -142,14 +107,10 @@
 
                 <p
                     class="
-                        max-w-4xl
-                        text-2xl
-                        font-medium
-                        leading-[1.35]
-                        tracking-[-0.025em]
-                        text-numetric-dark
-                        sm:text-3xl
-                        lg:text-4xl
+                        max-w-3xl
+                        text-lg
+                        leading-9
+                        text-numetric-muted
                     "
                 >
                     {{ service.overview }}
@@ -165,123 +126,96 @@
 
 
 <!-- ==========================================================
-     WHAT WE DO
+     WHAT WE PROVIDE
 =========================================================== -->
 
-<section
-    class="
-        bg-numetric-cream
-        py-20
-        sm:py-24
-        lg:py-32
-    "
->
+<section class="bg-numetric-cream">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-28">
 
-        <div
-            class="
-                grid
-                gap-12
-                lg:grid-cols-[0.65fr_1.35fr]
-                lg:gap-20
-            "
-        >
+        <div class="max-w-2xl">
 
-            <div>
+            <span class="eyebrow">
+                What We Provide
+            </span>
 
-                <span class="eyebrow">
-                    What we provide
-                </span>
+            <h2
+                class="
+                    mt-5
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.04em]
+                    sm:text-4xl
+                "
+            >
+                Services designed around what your business needs.
+            </h2>
 
-                <h2
-                    class="
-                        mt-6
-                        max-w-sm
-                        text-3xl
-                        font-medium
-                        leading-tight
-                        tracking-[-0.035em]
-                        sm:text-4xl
-                    "
-                >
-                    Practical expertise.
-                    Built for real businesses.
-                </h2>
-
-            </div>
+        </div>
 
 
-            <div>
+        <div class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+
+            {% for item in service.get_services_list %}
 
                 <div
                     class="
-                        divide-y
-                        divide-black/10
-                        border-y
-                        border-black/10
+                        group
+                        rounded-[1.25rem]
+                        border
+                        border-black/8
+                        bg-white
+                        p-6
+                        transition
+                        duration-300
+                        hover:-translate-y-1
+                        hover:border-numetric-green/30
+                        hover:shadow-[0_15px_40px_rgba(10,13,11,0.07)]
                     "
                 >
 
-                    {% for item in service.get_services_list %}
+                    <div class="flex items-start gap-4">
 
-                        <div
+                        <span
                             class="
+                                mt-1
                                 flex
+                                h-6
+                                w-6
+                                shrink-0
                                 items-center
-                                gap-5
-                                py-5
+                                justify-center
+                                rounded-full
+                                bg-numetric-green/10
+                                text-numetric-green
                             "
                         >
 
-                            <span
-                                class="
-                                    flex
-                                    h-7
-                                    w-7
-                                    shrink-0
-                                    items-center
-                                    justify-center
-                                    rounded-full
-                                    bg-numetric-green
-                                    text-white
-                                "
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="h-3.5 w-3.5"
+                                aria-hidden="true"
                             >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-7.25 9.5a.75.75 0 0 1-1.1.07l-4.25-4a.75.75 0 1 1 1.028-1.09l3.65 3.44 6.73-8.828a.75.75 0 0 1 1.049-.144Z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
 
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                    class="h-3.5 w-3.5"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M16.704 4.297a1 1 0 0 1 0 1.414l-7.5 7.5a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414l3.293 3.293 6.793-6.793a1 1 0 0 1 1.414 0Z"
-                                        clip-rule="evenodd"
-                                    />
-                                </svg>
+                        </span>
 
-                            </span>
+                        <span class="text-sm font-medium leading-6 text-numetric-dark">
+                            {{ item }}
+                        </span>
 
-
-                            <span
-                                class="
-                                    text-base
-                                    font-medium
-                                    text-numetric-dark
-                                "
-                            >
-                                {{ item }}
-                            </span>
-
-                        </div>
-
-                    {% endfor %}
+                    </div>
 
                 </div>
 
-            </div>
+            {% endfor %}
 
         </div>
 
@@ -294,24 +228,16 @@
      WHO IT'S FOR
 =========================================================== -->
 
-<section
-    class="
-        bg-white
-        py-20
-        sm:py-24
-        lg:py-32
-    "
->
+<section class="bg-white">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-28">
 
         <div
             class="
+                overflow-hidden
                 rounded-[2rem]
                 bg-numetric-dark
-                p-8
-                sm:p-12
-                lg:p-16
+                text-white
             "
         >
 
@@ -319,37 +245,47 @@
                 class="
                     grid
                     gap-10
-                    lg:grid-cols-[0.55fr_1.45fr]
-                    lg:items-start
+                    p-8
+                    sm:p-12
+                    lg:grid-cols-[0.7fr_1.3fr]
+                    lg:p-16
                 "
             >
 
                 <div>
 
-                    <span
+                    <span class="eyebrow text-numetric-green">
+                        Who It's For
+                    </span>
+
+                    <h2
                         class="
-                            eyebrow
-                            text-numetric-green
+                            mt-5
+                            text-3xl
+                            font-semibold
+                            tracking-[-0.04em]
+                            sm:text-4xl
                         "
                     >
-                        Who it's for
-                    </span>
+                        Built for businesses that want to move forward.
+                    </h2>
 
                 </div>
 
 
-                <p
-                    class="
-                        text-2xl
-                        font-medium
-                        leading-[1.35]
-                        tracking-[-0.025em]
-                        text-white
-                        sm:text-3xl
-                    "
-                >
-                    {{ service.who_its_for }}
-                </p>
+                <div>
+
+                    <p
+                        class="
+                            text-lg
+                            leading-9
+                            text-white/60
+                        "
+                    >
+                        {{ service.who_its_for }}
+                    </p>
+
+                </div>
 
             </div>
 
@@ -361,71 +297,155 @@
 
 
 <!-- ==========================================================
-     CTA
+     RELATED SERVICES
 =========================================================== -->
 
-<section
-    class="
-        bg-numetric-green
-        py-20
-        text-white
-        sm:py-24
-        lg:py-28
-    "
->
+{% if related_services %}
 
-    <div class="page-container">
+<section class="bg-numetric-cream">
 
-        <div
-            class="
-                flex
-                flex-col
-                gap-8
-                lg:flex-row
-                lg:items-end
-                lg:justify-between
-            "
-        >
+    <div class="page-container py-20 sm:py-24 lg:py-28">
 
-            <div class="max-w-3xl">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 
-                <span
-                    class="
-                        text-[0.7rem]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-white/60
-                    "
-                >
-                    Ready when you are
+            <div>
+
+                <span class="eyebrow">
+                    More Expertise
                 </span>
-
 
                 <h2
                     class="
                         mt-5
-                        text-4xl
-                        font-medium
-                        leading-[1]
+                        text-3xl
+                        font-semibold
                         tracking-[-0.04em]
-                        sm:text-5xl
-                        lg:text-6xl
+                        sm:text-4xl
                     "
                 >
-                    Let's make your
-                    numbers work harder.
+                    Explore our other services.
                 </h2>
 
             </div>
 
 
             <a
-                href="#"
+                href="{% url 'website:services' %}"
                 class="
+                    text-sm
+                    font-semibold
+                    text-numetric-green
+                    transition
+                    hover:text-numetric-dark
+                "
+            >
+                View all services →
+            </a>
+
+        </div>
+
+
+        <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+            {% for related in related_services|slice:":3" %}
+
+                <a
+                    href="{{ related.get_absolute_url }}"
+                    class="
+                        group
+                        rounded-[1.5rem]
+                        border
+                        border-black/8
+                        bg-white
+                        p-7
+                        transition
+                        duration-300
+                        hover:-translate-y-1
+                        hover:shadow-[0_15px_45px_rgba(10,13,11,0.08)]
+                    "
+                >
+
+                    <div class="flex items-center justify-between">
+
+                        <span class="text-xs font-semibold tracking-[0.15em] text-numetric-green">
+                            {% if related.number < 10 %}0{% endif %}{{ related.number }}
+                        </span>
+
+                        <span class="text-lg transition group-hover:translate-x-1">
+                            →
+                        </span>
+
+                    </div>
+
+
+                    <h3
+                        class="
+                            mt-10
+                            text-xl
+                            font-semibold
+                            tracking-[-0.025em]
+                        "
+                    >
+                        {{ related.name }}
+                    </h3>
+
+
+                    <p class="mt-3 text-sm leading-7 text-numetric-muted">
+                        {{ related.tagline }}
+                    </p>
+
+                </a>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<!-- ==========================================================
+     CTA
+=========================================================== -->
+
+<section class="bg-numetric-green text-white">
+
+    <div class="page-container py-20 sm:py-24 lg:py-28">
+
+        <div class="max-w-3xl">
+
+            <span class="eyebrow text-white">
+                Let's Talk
+            </span>
+
+            <h2
+                class="
+                    mt-5
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.04em]
+                    sm:text-4xl
+                    lg:text-5xl
+                "
+            >
+                Let's find the right solution for your business.
+            </h2>
+
+            <p class="mt-5 max-w-2xl text-base leading-8 text-white/70">
+                Tell us what you're working through and our team will help
+                you identify the right financial support.
+            </p>
+
+
+            <a
+                href="{% url 'website:contact' %}"
+                class="
+                    mt-8
                     inline-flex
                     min-h-14
-                    shrink-0
                     items-center
                     justify-center
                     gap-3
@@ -436,24 +456,16 @@
                     font-semibold
                     text-numetric-dark
                     transition
-                    hover:-translate-y-0.5
+                    duration-300
+                    hover:-translate-y-1
+                    hover:bg-numetric-cream
                 "
             >
-                Start a conversation
+                Start a Conversation
 
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="h-4 w-4"
-                    aria-hidden="true"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l-5.5-5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
-                        clip-rule="evenodd"
-                    />
-                </svg>
+                <span aria-hidden="true">
+                    →
+                </span>
 
             </a>
 

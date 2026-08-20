@@ -1,0 +1,170 @@
+<footer class="bg-numetric-dark text-white">
+
+    <div class="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+
+        <div class="grid gap-12 lg:grid-cols-[1.5fr_0.7fr_0.8fr_1fr]">
+
+            <!-- BRAND -->
+
+            <div>
+
+                <div class="flex items-center gap-3">
+
+                    <div class="flex h-11 w-11 items-center justify-center rounded-full bg-numetric-green">
+
+                        <span class="text-xl font-extrabold">
+                            N
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <div class="text-lg font-extrabold">
+                            Numetric
+                        </div>
+
+                        <div class="text-[9px] uppercase tracking-[0.18em] text-white/40">
+                            Business Solution
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <p class="mt-6 max-w-md text-sm leading-7 text-white/55">
+                    Financial clarity, compliance certainty and strategic
+                    insight for businesses ready to grow.
+                </p>
+
+
+                <a
+                    href="mailto:info@numetricbusiness.co.ke"
+                    class="mt-5 inline-block text-sm text-white/80 transition hover:text-numetric-green"
+                >
+                    info@numetricbusiness.co.ke
+                </a>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div>
+
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                    Company
+                </p>
+
+                <div class="mt-5 flex flex-col gap-3">
+
+                    <a
+                        href="{% url 'website:about' %}"
+                        class="text-sm text-white/60 transition hover:text-white"
+                    >
+                        About Us
+                    </a>
+
+                    <a
+                        href="{% url 'website:services' %}"
+                        class="text-sm text-white/60 transition hover:text-white"
+                    >
+                        Services
+                    </a>
+
+                    <a
+                        href="{% url 'website:blog' %}"
+                        class="text-sm text-white/60 transition hover:text-white"
+                    >
+                        Insights
+                    </a>
+
+                    <a
+                        href="{% url 'website:contact' %}"
+                        class="text-sm text-white/60 transition hover:text-white"
+                    >
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPERTISE -->
+
+            <div>
+
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                    Expertise
+                </p>
+
+                <div class="mt-5 flex flex-col gap-3 text-sm text-white/60">
+
+                    <span>Accounting</span>
+                    <span>Tax & Compliance</span>
+                    <span>Payroll</span>
+                    <span>Management Accounting</span>
+                    <span>Virtual CFO</span>
+                    <span>Audit & Assurance</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                    Find Us
+                </p>
+
+                <div class="mt-5 space-y-4 text-sm leading-6 text-white/60">
+
+                    <p>
+                        Mombasa Road<br>
+                        Vision Plaza
+                    </p>
+
+                    <a
+                        href="tel:+254739651744"
+                        class="block transition hover:text-white"
+                    >
+                        0739 651 744
+                    </a>
+
+                    <a
+                        href="mailto:info@numetricbusiness.co.ke"
+                        class="block transition hover:text-white"
+                    >
+                        info@numetricbusiness.co.ke
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+
+            <p>
+                © {% now "Y" %} Numetric Business Solution.
+                All rights reserved.
+            </p>
+
+            <p>
+                Mombasa Road · Vision Plaza · Kenya
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>

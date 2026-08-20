@@ -1,114 +1,164 @@
-{% extends "base.html" %}
-
+{% extends "website/base.html" %}
 
 {% block title %}
     {{ post.display_title }} | Numetric Business Solution
 {% endblock %}
 
-
 {% block meta_description %}
     {{ post.display_description }}
+{% endblock %}
+
+{% block og_type %}
+    article
+{% endblock %}
+
+{% block og_title %}
+    {{ post.display_title }}
+{% endblock %}
+
+{% block og_description %}
+    {{ post.display_description }}
+{% endblock %}
+
+{% block og_image %}
+    {% if post.featured_image %}
+        <meta
+            property="og:image"
+            content="{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}"
+        >
+    {% endif %}
 {% endblock %}
 
 
 {% block content %}
 
-
 <!-- ==========================================================
      ARTICLE HEADER
 =========================================================== -->
 
-<section
-    class="
-        bg-numetric-dark
-        text-white
-        pt-36
-        pb-16
-        sm:pt-40
-        sm:pb-20
-        lg:pt-48
-        lg:pb-24
-    "
->
+<section class="bg-numetric-dark pt-36 text-white sm:pt-40 lg:pt-44">
 
-    <div class="page-container">
+    <div class="page-container py-16 sm:py-20 lg:py-24">
 
-        <div
-            class="
-                max-w-5xl
-            "
-        >
+        <div class="mx-auto max-w-4xl">
 
-            <div
+            <!-- Breadcrumb -->
+
+            <a
+                href="{% url 'website:blog' %}"
                 class="
-                    flex
-                    flex-wrap
+                    inline-flex
                     items-center
-                    gap-3
+                    gap-2
                     text-xs
                     font-semibold
                     uppercase
-                    tracking-[0.12em]
+                    tracking-[0.14em]
+                    text-white/40
+                    transition
+                    hover:text-numetric-green
                 "
             >
+                <span>←</span>
+                Insights & Resources
+            </a>
 
-                <span
-                    class="
-                        text-numetric-green
-                    "
-                >
+
+            <!-- Category -->
+
+            <div class="mt-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">
+
+                <span class="text-numetric-green">
                     {{ post.category.name }}
                 </span>
 
-                <span class="text-white/20">
-                    /
-                </span>
+                {% if post.published_at %}
 
-                <span class="text-white/40">
-                    {{ post.published_at|date:"M d, Y" }}
-                </span>
+                    <span class="text-white/20">
+                        •
+                    </span>
+
+                    <time
+                        datetime="{{ post.published_at|date:'c' }}"
+                        class="text-white/40"
+                    >
+                        {{ post.published_at|date:"d M Y" }}
+                    </time>
+
+                {% endif %}
 
             </div>
 
 
+            <!-- Title -->
+
             <h1
                 class="
-                    mt-7
-                    text-5xl
+                    mt-6
+                    text-4xl
                     font-semibold
-                    leading-[0.95]
-                    tracking-[-0.055em]
-                    sm:text-6xl
-                    lg:text-7xl
+                    leading-[1.08]
+                    tracking-[-0.045em]
+                    sm:text-5xl
+                    lg:text-6xl
                 "
             >
                 {{ post.title }}
             </h1>
 
 
+            <!-- Excerpt -->
+
             <p
                 class="
-                    mt-8
+                    mt-7
                     max-w-3xl
-                    text-xl
+                    text-lg
                     leading-8
                     text-white/55
-                    sm:text-2xl
-                    sm:leading-9
+                    sm:text-xl
                 "
             >
                 {{ post.excerpt }}
             </p>
 
 
-            <div
-                class="
-                    mt-10
-                    text-sm
-                    text-white/35
-                "
-            >
-                By {{ post.author }}
+            <!-- Author -->
+
+            <div class="mt-9 flex items-center gap-4">
+
+                <div
+                    class="
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
+                        rounded-full
+                        bg-numetric-green
+                        text-sm
+                        font-bold
+                    "
+                >
+                    N
+                </div>
+
+                <div>
+
+                    <p class="text-sm font-medium text-white">
+                        {{ post.author }}
+                    </p>
+
+                    {% if post.published_at %}
+
+                        <p class="mt-0.5 text-xs text-white/35">
+                            Published {{ post.published_at|date:"d F Y" }}
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
             </div>
 
         </div>
@@ -116,109 +166,296 @@
     </div>
 
 </section>
-
 
 
 <!-- ==========================================================
      FEATURED IMAGE
 =========================================================== -->
 
-{% if post.featured_image %}
+<section class="bg-numetric-dark">
 
-<section class="bg-white">
-
-    <div
-        class="
-            page-container
-            -mt-2
-            relative
-        "
-    >
+    <div class="page-container pb-16 sm:pb-20 lg:pb-24">
 
         <div
             class="
+                relative
+                aspect-[16/8]
                 overflow-hidden
-                rounded-[1.75rem]
+                rounded-[1.5rem]
+                bg-numetric-charcoal
+                sm:rounded-[2rem]
             "
         >
 
-            <img
-                src="{{ post.featured_image.url }}"
-                alt="{{ post.title }}"
-                class="
-                    max-h-[650px]
-                    w-full
-                    object-cover
-                "
-            >
+            {% if post.featured_image %}
+
+                <img
+                    src="{{ post.featured_image.url }}"
+                    alt="{{ post.title }}"
+                    class="
+                        h-full
+                        w-full
+                        object-cover
+                    "
+                >
+
+            {% else %}
+
+                <div
+                    class="
+                        absolute
+                        inset-0
+                        bg-[radial-gradient(circle_at_70%_30%,rgba(27,107,58,0.5),transparent_35%),linear-gradient(135deg,#0A0D0B,#151A17)]
+                    "
+                >
+
+                    <div class="flex h-full items-center justify-center">
+
+                        <div class="text-center">
+
+                            <div
+                                class="
+                                    mx-auto
+                                    flex
+                                    h-20
+                                    w-20
+                                    items-center
+                                    justify-center
+                                    rounded-full
+                                    border
+                                    border-white/10
+                                    bg-white/5
+                                    text-3xl
+                                    font-extrabold
+                                    text-numetric-green
+                                "
+                            >
+                                N
+                            </div>
+
+                            <p
+                                class="
+                                    mt-5
+                                    text-xs
+                                    uppercase
+                                    tracking-[0.2em]
+                                    text-white/30
+                                "
+                            >
+                                Numetric Insights
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
 
         </div>
 
     </div>
 
 </section>
-
-{% endif %}
-
 
 
 <!-- ==========================================================
      ARTICLE BODY
 =========================================================== -->
 
-<section
-    class="
-        bg-white
-        py-20
-        sm:py-24
-        lg:py-32
-    "
->
+<section class="bg-white">
 
-    <div
-        class="
-            page-container
-        "
-    >
+    <div class="page-container py-16 sm:py-20 lg:py-24">
 
-        <div
-            class="
-                mx-auto
-                max-w-3xl
-            "
-        >
+        <div class="grid gap-14 lg:grid-cols-[minmax(0,1fr)_260px]">
 
-            <div
-                class="
-                    space-y-7
-                    text-lg
-                    leading-8
-                    text-numetric-muted
-                    sm:text-xl
-                    sm:leading-9
-                "
-            >
+            <!-- ARTICLE -->
 
-                {% for paragraph in post.body.splitlines %}
+            <article class="mx-auto w-full max-w-3xl">
 
-                    {% if paragraph.strip %}
+                <div
+                    class="
+                        space-y-7
+                        text-[1.05rem]
+                        leading-8
+                        text-numetric-dark/75
+                    "
+                >
 
-                        <p>
-                            {{ paragraph }}
-                        </p>
+                    {% for paragraph in post.paragraphs %}
 
-                    {% endif %}
+                        {% if forloop.first %}
 
-                {% endfor %}
+                            <p class="text-xl leading-9 text-numetric-dark">
+                                {{ paragraph }}
+                            </p>
 
-            </div>
+                        {% else %}
+
+                            <p>
+                                {{ paragraph }}
+                            </p>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Article CTA -->
+
+                <div
+                    class="
+                        mt-14
+                        rounded-[1.5rem]
+                        bg-numetric-cream
+                        p-7
+                        sm:p-9
+                    "
+                >
+
+                    <span class="eyebrow">
+                        Need Help?
+                    </span>
+
+                    <h2
+                        class="
+                            mt-4
+                            text-2xl
+                            font-semibold
+                            tracking-[-0.03em]
+                        "
+                    >
+                        Want to discuss what this means for your business?
+                    </h2>
+
+                    <p class="mt-3 text-sm leading-7 text-numetric-muted">
+                        Our team can help you turn financial information
+                        into practical action.
+                    </p>
+
+                    <a
+                        href="{% url 'website:contact' %}"
+                        class="
+                            mt-6
+                            inline-flex
+                            items-center
+                            gap-2
+                            rounded-full
+                            bg-numetric-green
+                            px-6
+                            py-3
+                            text-sm
+                            font-semibold
+                            text-white
+                            transition
+                            hover:-translate-y-0.5
+                            hover:bg-[#14572F]
+                        "
+                    >
+                        Talk to Numetric
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="lg:pt-2">
+
+                <div class="sticky top-32">
+
+                    <p
+                        class="
+                            text-[0.65rem]
+                            font-semibold
+                            uppercase
+                            tracking-[0.18em]
+                            text-numetric-muted
+                        "
+                    >
+                        Article
+                    </p>
+
+
+                    <div class="mt-5 space-y-4 border-l border-black/10 pl-5">
+
+                        <div>
+
+                            <p class="text-xs text-numetric-muted">
+                                Category
+                            </p>
+
+                            <p class="mt-1 text-sm font-semibold">
+                                {{ post.category.name }}
+                            </p>
+
+                        </div>
+
+
+                        {% if post.published_at %}
+
+                            <div>
+
+                                <p class="text-xs text-numetric-muted">
+                                    Published
+                                </p>
+
+                                <p class="mt-1 text-sm font-semibold">
+                                    {{ post.published_at|date:"d M Y" }}
+                                </p>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <div>
+
+                            <p class="text-xs text-numetric-muted">
+                                Author
+                            </p>
+
+                            <p class="mt-1 text-sm font-semibold">
+                                {{ post.author }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'website:blog' %}"
+                        class="
+                            mt-8
+                            inline-flex
+                            items-center
+                            gap-2
+                            text-sm
+                            font-semibold
+                            text-numetric-green
+                            transition
+                            hover:text-numetric-dark
+                        "
+                    >
+                        ← Back to insights
+                    </a>
+
+                </div>
+
+            </aside>
 
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- ==========================================================
@@ -227,146 +464,163 @@
 
 {% if related_posts %}
 
-<section
-    class="
-        bg-numetric-cream
-        py-20
-        sm:py-24
-        lg:py-28
-    "
->
+<section class="bg-numetric-cream">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-28">
 
-        <div
-            class="
-                flex
-                flex-col
-                gap-5
-                sm:flex-row
-                sm:items-end
-                sm:justify-between
-            "
-        >
+        <div>
 
-            <div>
+            <span class="eyebrow">
+                Continue Reading
+            </span>
 
-                <span class="eyebrow">
-                    Continue reading
-                </span>
-
-                <h2
-                    class="
-                        mt-4
-                        text-3xl
-                        font-medium
-                        tracking-[-0.035em]
-                        sm:text-4xl
-                    "
-                >
-                    More from Numetric
-                </h2>
-
-            </div>
-
-
-            <a
-                href="{% url 'website:blog' %}"
+            <h2
                 class="
-                    text-sm
+                    mt-5
+                    text-3xl
                     font-semibold
-                    text-numetric-dark
-                    transition
-                    hover:text-numetric-green
+                    tracking-[-0.04em]
+                    sm:text-4xl
                 "
             >
-                View all articles
-            </a>
+                More from Numetric.
+            </h2>
 
         </div>
 
 
-        <div
-            class="
-                mt-12
-                grid
-                gap-8
-                md:grid-cols-3
-            "
-        >
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
             {% for related in related_posts %}
 
-                <article>
+                <article
+                    class="
+                        group
+                        overflow-hidden
+                        rounded-[1.5rem]
+                        border
+                        border-black/7
+                        bg-white
+                        transition
+                        duration-300
+                        hover:-translate-y-1
+                        hover:shadow-[0_18px_50px_rgba(10,13,11,0.08)]
+                    "
+                >
 
                     <a
                         href="{{ related.get_absolute_url }}"
                         class="
-                            group
+                            relative
                             block
+                            aspect-[16/10]
+                            overflow-hidden
+                            bg-numetric-dark
                         "
                     >
 
                         {% if related.featured_image %}
 
-                            <div
+                            <img
+                                src="{{ related.featured_image.url }}"
+                                alt="{{ related.title }}"
                                 class="
-                                    overflow-hidden
-                                    rounded-[1.5rem]
+                                    h-full
+                                    w-full
+                                    object-cover
+                                    transition
+                                    duration-700
+                                    group-hover:scale-105
                                 "
                             >
 
-                                <img
-                                    src="{{ related.featured_image.url }}"
-                                    alt="{{ related.title }}"
+                        {% else %}
+
+                            <div
+                                class="
+                                    flex
+                                    h-full
+                                    w-full
+                                    items-center
+                                    justify-center
+                                    bg-[radial-gradient(circle_at_70%_30%,rgba(27,107,58,0.45),transparent_35%),linear-gradient(135deg,#0A0D0B,#151A17)]
+                                "
+                            >
+
+                                <span
                                     class="
-                                        aspect-[16/10]
-                                        w-full
-                                        object-cover
-                                        transition
-                                        duration-500
-                                        group-hover:scale-[1.03]
+                                        flex
+                                        h-14
+                                        w-14
+                                        items-center
+                                        justify-center
+                                        rounded-full
+                                        border
+                                        border-white/10
+                                        text-xl
+                                        font-bold
+                                        text-numetric-green
                                     "
-                                    loading="lazy"
                                 >
+                                    N
+                                </span>
 
                             </div>
 
                         {% endif %}
 
-
-                        <div class="mt-5">
-
-                            <span
-                                class="
-                                    text-xs
-                                    font-semibold
-                                    uppercase
-                                    tracking-[0.12em]
-                                    text-numetric-green
-                                "
-                            >
-                                {{ related.category.name }}
-                            </span>
+                    </a>
 
 
-                            <h3
-                                class="
-                                    mt-3
-                                    text-xl
-                                    font-semibold
-                                    leading-tight
-                                    tracking-[-0.025em]
-                                    transition
-                                    group-hover:text-numetric-green
-                                "
-                            >
-                                {{ related.title }}
-                            </h3>
+                    <div class="p-7">
 
+                        <div class="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-numetric-green">
+                            {{ related.category.name }}
                         </div>
 
-                    </a>
+
+                        <h3
+                            class="
+                                mt-4
+                                text-xl
+                                font-semibold
+                                leading-snug
+                                tracking-[-0.025em]
+                            "
+                        >
+                            <a
+                                href="{{ related.get_absolute_url }}"
+                                class="transition hover:text-numetric-green"
+                            >
+                                {{ related.title }}
+                            </a>
+                        </h3>
+
+
+                        <p class="mt-3 line-clamp-3 text-sm leading-7 text-numetric-muted">
+                            {{ related.excerpt }}
+                        </p>
+
+
+                        <a
+                            href="{{ related.get_absolute_url }}"
+                            class="
+                                mt-6
+                                inline-flex
+                                items-center
+                                gap-2
+                                text-sm
+                                font-semibold
+                                text-numetric-dark
+                                transition
+                                hover:text-numetric-green
+                            "
+                        >
+                            Read article
+                            <span>→</span>
+                        </a>
+
+                    </div>
 
                 </article>
 
@@ -380,5 +634,62 @@
 
 {% endif %}
 
+
+<!-- ==========================================================
+     FINAL CTA
+=========================================================== -->
+
+<section class="bg-numetric-green text-white">
+
+    <div class="page-container py-20 sm:py-24 lg:py-28">
+
+        <div class="max-w-3xl">
+
+            <span class="eyebrow text-white">
+                Numetric Business Solution
+            </span>
+
+            <h2
+                class="
+                    mt-5
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.04em]
+                    sm:text-4xl
+                    lg:text-5xl
+                "
+            >
+                Let's turn financial information
+                into better business decisions.
+            </h2>
+
+            <a
+                href="{% url 'website:contact' %}"
+                class="
+                    mt-8
+                    inline-flex
+                    min-h-14
+                    items-center
+                    gap-3
+                    rounded-full
+                    bg-white
+                    px-7
+                    text-sm
+                    font-semibold
+                    text-numetric-dark
+                    transition
+                    hover:-translate-y-1
+                    hover:bg-numetric-cream
+                "
+            >
+                Start a Conversation
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
