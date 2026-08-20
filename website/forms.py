@@ -23,15 +23,16 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Your full name",
+                "placeholder": "Full name",
                 "autocomplete": "name",
                 "required": True,
                 "class": (
-                    "w-full rounded-xl border border-black/10 "
-                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "w-full rounded-md border border-black/15 "
+                    "bg-white px-4 py-3 text-sm text-numetric-dark "
                     "placeholder:text-black/35 outline-none "
-                    "transition focus:border-numetric-green "
-                    "focus:ring-4 focus:ring-numetric-green/10"
+                    "transition "
+                    "focus:border-numetric-green "
+                    "focus:ring-0"
                 ),
             }
         ),
@@ -49,14 +50,15 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Your company name",
+                "placeholder": "Company name (optional)",
                 "autocomplete": "organization",
                 "class": (
-                    "w-full rounded-xl border border-black/10 "
-                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "w-full rounded-md border border-black/15 "
+                    "bg-white px-4 py-3 text-sm text-numetric-dark "
                     "placeholder:text-black/35 outline-none "
-                    "transition focus:border-numetric-green "
-                    "focus:ring-4 focus:ring-numetric-green/10"
+                    "transition "
+                    "focus:border-numetric-green "
+                    "focus:ring-0"
                 ),
             }
         ),
@@ -73,16 +75,17 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                "placeholder": "you@company.com",
+                "placeholder": "Email address",
                 "autocomplete": "email",
                 "inputmode": "email",
                 "required": True,
                 "class": (
-                    "w-full rounded-xl border border-black/10 "
-                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "w-full rounded-md border border-black/15 "
+                    "bg-white px-4 py-3 text-sm text-numetric-dark "
                     "placeholder:text-black/35 outline-none "
-                    "transition focus:border-numetric-green "
-                    "focus:ring-4 focus:ring-numetric-green/10"
+                    "transition "
+                    "focus:border-numetric-green "
+                    "focus:ring-0"
                 ),
             }
         ),
@@ -101,16 +104,17 @@ class ContactForm(forms.Form):
         strip=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "+254 7XX XXX XXX",
+                "placeholder": "Phone number",
                 "autocomplete": "tel",
                 "inputmode": "tel",
                 "required": True,
                 "class": (
-                    "w-full rounded-xl border border-black/10 "
-                    "bg-white px-4 py-3.5 text-sm text-numetric-dark "
+                    "w-full rounded-md border border-black/15 "
+                    "bg-white px-4 py-3 text-sm text-numetric-dark "
                     "placeholder:text-black/35 outline-none "
-                    "transition focus:border-numetric-green "
-                    "focus:ring-4 focus:ring-numetric-green/10"
+                    "transition "
+                    "focus:border-numetric-green "
+                    "focus:ring-0"
                 ),
             }
         ),
@@ -118,7 +122,7 @@ class ContactForm(forms.Form):
 
 
     # ======================================================
-    # SERVICE REQUIRED
+    # SERVICE
     # ======================================================
 
     service = forms.ModelChoiceField(
@@ -130,11 +134,12 @@ class ContactForm(forms.Form):
             attrs={
                 "required": True,
                 "class": (
-                    "w-full appearance-none rounded-xl "
-                    "border border-black/10 bg-white px-4 py-3.5 "
-                    "text-sm text-numetric-dark outline-none "
-                    "transition focus:border-numetric-green "
-                    "focus:ring-4 focus:ring-numetric-green/10"
+                    "w-full rounded-md border border-black/15 "
+                    "bg-white px-4 py-3 text-sm text-numetric-dark "
+                    "outline-none "
+                    "transition "
+                    "focus:border-numetric-green "
+                    "focus:ring-0"
                 ),
             }
         ),
@@ -154,18 +159,19 @@ class ContactForm(forms.Form):
         widget=forms.Textarea(
             attrs={
                 "placeholder": (
-                    "Tell us briefly how we can help "
-                    "your business..."
+                    "Tell us briefly how we can help..."
                 ),
-                "rows": 7,
+                "rows": 6,
                 "required": True,
                 "class": (
-                    "w-full resize-y rounded-xl border "
-                    "border-black/10 bg-white px-4 py-3.5 "
-                    "text-sm leading-6 text-numetric-dark "
-                    "placeholder:text-black/35 outline-none "
-                    "transition focus:border-numetric-green "
-                    "focus:ring-4 focus:ring-numetric-green/10"
+                    "w-full resize-y rounded-md "
+                    "border border-black/15 bg-white "
+                    "px-4 py-3 text-sm leading-6 "
+                    "text-numetric-dark "
+                    "placeholder:text-black/35 "
+                    "outline-none transition "
+                    "focus:border-numetric-green "
+                    "focus:ring-0"
                 ),
             }
         ),

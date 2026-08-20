@@ -1,5 +1,6 @@
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
@@ -24,8 +25,6 @@ from .models import (
 def get_site_settings():
     """
     Return the active company settings.
-
-    The website normally uses one active SiteSettings record.
     """
 
     return (
@@ -316,8 +315,28 @@ def post_detail(request, slug):
 # ==========================================================
 
 def contact(request):
+    """
+    Contact page.
+
+    Supports both:
+
+    1. Normal browser POST
+       - Renders the contact page again.
+       - Shows the success message.
+       - Keeps the form visible.
+
+    2. AJAX POST
+       - Returns JSON.
+       - Does not reload the page.
+       - Frontend can display the success message.
+       - Form remains visible and can be reset.
+    """
 
     form = ContactForm()
+
+    # ======================================================
+    # POST
+    # ======================================================
 
     if request.method == "POST":
 
@@ -325,55 +344,87 @@ def contact(request):
             request.POST
         )
 
-        if form.is_valid():
+        # ==================================================
+        # INVALID FORM
+        # ==================================================
 
-            full_name = form.cleaned_data[
-                "full_name"
-            ]
+        if not form.is_valid():
 
-            company_name = form.cleaned_data[
-                "company_name"
-            ]
+            # ----------------------------------------------
+            # AJAX RESPONSE
+            # ----------------------------------------------
 
-            email = form.cleaned_data[
-                "email"
-            ]
+            if request.headers.get("X-Requested-With") == "XMLHttpRequest":
 
-            phone = form.cleaned_data[
-                "phone"
-            ]
+                return JsonResponse(
+                    {
+                        "success": False,
+                        "message": (
+                            "Please correct the errors below "
+                            "and try again."
+                        ),
+                        "errors": form.errors.get_json_data(),
+                    },
+                    status=400,
+                )
 
-            service = form.cleaned_data[
-                "service"
-            ]
+            # ----------------------------------------------
+            # NORMAL RESPONSE
+            # ----------------------------------------------
 
-            message = form.cleaned_data[
-                "message"
-            ]
+            context = get_common_context()
 
-            # ==================================================
-            # SAVE ENQUIRY
-            # ==================================================
-
-            enquiry = ContactEnquiry.objects.create(
-                full_name=full_name,
-                company_name=company_name,
-                email=email,
-                phone=phone,
-                service_required=service.name,
-                message=message,
+            context.update(
+                {
+                    "form": form,
+                }
             )
 
-            # ==================================================
-            # EMAIL NOTIFICATION
-            # ==================================================
-
-            subject = (
-                "New website enquiry — "
-                f"{service.name}"
+            return render(
+                request,
+                "website/contact.html",
+                context,
             )
 
-            email_body = f"""
+        # ==================================================
+        # CLEAN FORM DATA
+        # ==================================================
+
+        full_name = form.cleaned_data["full_name"]
+
+        company_name = form.cleaned_data["company_name"]
+
+        email = form.cleaned_data["email"]
+
+        phone = form.cleaned_data["phone"]
+
+        service = form.cleaned_data["service"]
+
+        message = form.cleaned_data["message"]
+
+        # ==================================================
+        # SAVE ENQUIRY
+        # ==================================================
+
+        enquiry = ContactEnquiry.objects.create(
+            full_name=full_name,
+            company_name=company_name,
+            email=email,
+            phone=phone,
+            service_required=service.name,
+            message=message,
+        )
+
+        # ==================================================
+        # EMAIL NOTIFICATION
+        # ==================================================
+
+        subject = (
+            "New website enquiry — "
+            f"{service.name}"
+        )
+
+        email_body = f"""
 New enquiry received from the Numetric Business Solution website.
 
 ==================================================
@@ -417,41 +468,66 @@ WEBSITE
 www.numetricbusiness.co.ke
 """
 
-            send_mail(
-                subject=subject,
-                message=email_body.strip(),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[
-                    settings.CONTACT_EMAIL,
-                ],
-                reply_to=[
-                    email,
-                ],
-                fail_silently=False,
-            )
+        email_message = EmailMessage(
+            subject=subject,
+            body=email_body.strip(),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[
+                settings.CONTACT_EMAIL,
+            ],
+            reply_to=[
+                email,
+            ],
+        )
 
-            # ==================================================
-            # SUCCESS
-            # ==================================================
+        email_message.send(
+            fail_silently=False,
+        )
 
-            context = get_common_context()
+        # ==================================================
+        # AJAX SUCCESS
+        # ==================================================
 
-            context.update(
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+
+            return JsonResponse(
                 {
-                    "form": ContactForm(),
-                    "submitted": True,
-                    "enquiry": enquiry,
+                    "success": True,
+                    "message": (
+                        "Thank you. Your enquiry has been "
+                        "submitted successfully. We will "
+                        "get back to you shortly."
+                    ),
+                    "enquiry_id": enquiry.pk,
                 }
             )
 
-            return render(
-                request,
-                "website/contact.html",
-                context,
-            )
+        # ==================================================
+        # NORMAL SUCCESS
+        # ==================================================
+
+        context = get_common_context()
+
+        context.update(
+            {
+                # Empty form so it remains visible
+                # and ready for another submission.
+                "form": ContactForm(),
+
+                "submitted": True,
+
+                "enquiry": enquiry,
+            }
+        )
+
+        return render(
+            request,
+            "website/contact.html",
+            context,
+        )
 
     # ======================================================
-    # INITIAL / INVALID FORM
+    # GET / INITIAL PAGE LOAD
     # ======================================================
 
     context = get_common_context()

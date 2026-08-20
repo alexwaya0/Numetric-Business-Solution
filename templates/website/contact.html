@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block meta_description %}
-    Contact Numetric Business Solution for accounting, tax, payroll, financial reporting, advisory, audit and financial training services in Kenya.
+    Contact Numetric Business Solution for accounting, tax, payroll, financial reporting and advisory services in Kenya.
 {% endblock %}
 
 {% block og_title %}
@@ -13,330 +13,205 @@
 {% endblock %}
 
 {% block og_description %}
-    Let's start the conversation. Speak with Numetric Business Solution about your accounting, tax, financial and strategic needs.
+    Speak with Numetric Business Solution about your accounting, tax, financial and advisory needs.
 {% endblock %}
 
 
 {% block content %}
 
-<!-- ==========================================================
-     CONTACT HERO
-=========================================================== -->
-
-<section class="relative overflow-hidden bg-numetric-cream pt-36 sm:pt-40 lg:pt-44">
-
-    <div class="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-numetric-green/10 blur-3xl"></div>
-
-    <div class="page-container relative pb-16 sm:pb-20 lg:pb-24">
-
-        <div class="max-w-3xl">
-
-            <span class="eyebrow">
-                Contact Us
-            </span>
-
-            <h1
-                class="
-                    mt-6
-                    max-w-3xl
-                    text-4xl
-                    font-medium
-                    leading-[1.08]
-                    tracking-[-0.04em]
-                    text-numetric-dark
-                    sm:text-5xl
-                    lg:text-6xl
-                "
-            >
-                Let's start the
-                <span class="text-numetric-green">
-                    conversation.
-                </span>
-            </h1>
-
-            <p
-                class="
-                    mt-6
-                    max-w-2xl
-                    text-base
-                    leading-7
-                    text-numetric-muted
-                    sm:text-lg
-                "
-            >
-                Whether you need accounting support, tax advice,
-                financial reporting, payroll services, strategic
-                advisory or financial training, we're here to help.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+{% include "website/partials/page_hero.html" with hero_title="Contact" hero_eyebrow="Let's connect" hero_heading="Let's talk about your business." hero_description="Tell us what you need. We'll help you find the right way forward." hero_word="CONTACT" %}
 
 
 <!-- ==========================================================
-     CONTACT CONTENT
-=========================================================== -->
+     CONTACT SECTION
+     ========================================================== -->
 
-<section class="bg-white py-16 sm:py-20 lg:py-28">
+<section class="bg-white">
 
-    <div class="page-container">
+    <div class="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
 
-        <div
-            class="
-                grid
-                gap-10
-                lg:grid-cols-[0.8fr_1.2fr]
-                lg:gap-16
-                xl:gap-24
-            "
-        >
+        <div class="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-28">
+
 
             <!-- ==================================================
-                 CONTACT INFORMATION
-            =================================================== -->
+                 CONTACT DETAILS
+                 ================================================== -->
 
             <div>
 
-                <span class="eyebrow">
-                    Speak With Us
-                </span>
-
-                <h2
-                    class="
-                        mt-5
-                        max-w-md
-                        text-3xl
-                        font-medium
-                        leading-tight
-                        tracking-[-0.03em]
-                        text-numetric-dark
-                        sm:text-4xl
-                    "
-                >
-                    Practical financial support starts with a conversation.
-                </h2>
-
-                <p
-                    class="
-                        mt-5
-                        max-w-lg
-                        text-sm
-                        leading-7
-                        text-numetric-muted
-                    "
-                >
-                    Tell us what you're working through and one of
-                    our consultants will get back to you with a
-                    practical way forward.
+                <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-numetric-green">
+                    Get in touch
                 </p>
 
+                <h2 class="mt-4 max-w-sm text-2xl font-medium leading-tight tracking-[-0.03em] text-numetric-dark sm:text-3xl">
+                    Practical advice starts with a conversation.
+                </h2>
 
-                <!-- ==================================================
-                     DETAILS
-                =================================================== -->
 
-                <div class="mt-10 space-y-7">
+                <!-- Contact information -->
 
-                    <!-- EMAIL -->
+                <div class="mt-8 border-y border-black/10">
 
-                    <div class="flex gap-4">
 
-                        <div
-                            class="
-                                flex
-                                h-11
-                                w-11
-                                shrink-0
-                                items-center
-                                justify-center
-                                rounded-full
-                                bg-numetric-soft
-                                text-numetric-green
-                            "
+                    <!-- Email -->
+
+                    <a
+                        href="mailto:info@numetricbusiness.co.ke"
+                        class="group flex items-center gap-4 border-b border-black/10 py-5"
+                    >
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-5 w-5 shrink-0 text-numetric-green"
+                            aria-hidden="true"
                         >
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="h-5 w-5"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0l-7.5-4.615A2.25 2.25 0 0 1 2.25 6.993V6.75"
-                                />
-                            </svg>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H4.5a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0l-7.5-4.615A2.25 2.25 0 0 1 2.25 6.993V6.75"
+                            />
 
-                        </div>
+                        </svg>
 
-                        <div>
 
-                            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-black/40">
+                        <span class="min-w-0">
+
+                            <span class="block text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40">
                                 Email
-                            </p>
+                            </span>
 
-                            <a
-                                href="mailto:info@numetricbusiness.co.ke"
-                                class="mt-1 block text-sm font-medium text-numetric-dark transition hover:text-numetric-green"
-                            >
+                            <span class="mt-1 block truncate text-sm font-medium text-numetric-dark transition group-hover:text-numetric-green">
                                 info@numetricbusiness.co.ke
-                            </a>
+                            </span>
 
-                        </div>
+                        </span>
 
-                    </div>
+                    </a>
 
 
-                    <!-- PHONE -->
+                    <!-- Phone -->
 
-                    <div class="flex gap-4">
+                    <a
+                        href="tel:+254739651744"
+                        class="group flex items-center gap-4 border-b border-black/10 py-5"
+                    >
 
-                        <div
-                            class="
-                                flex
-                                h-11
-                                w-11
-                                shrink-0
-                                items-center
-                                justify-center
-                                rounded-full
-                                bg-numetric-soft
-                                text-numetric-green
-                            "
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-5 w-5 shrink-0 text-numetric-green"
+                            aria-hidden="true"
                         >
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="h-5 w-5"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.09l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293a1.125 1.125 0 0 1-1.21.38 12.035 12.035 0 0 1-7.202-7.202 1.125 1.125 0 0 1 .38-1.21l1.293-.97c.363-.272.53-.73.417-1.173L6.908 3.102A1.125 1.125 0 0 0 5.818 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                                />
-                            </svg>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.09l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293a1.125 1.125 0 0 1-1.21.38 12.035 12.035 0 0 1-7.202-7.202 1.125 1.125 0 0 1 .38-1.21l1.293-.97c.363-.272.53-.73.417-1.173L6.908 3.102A1.125 1.125 0 0 0 5.818 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                            />
 
-                        </div>
+                        </svg>
 
-                        <div>
 
-                            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-black/40">
+                        <span>
+
+                            <span class="block text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40">
                                 Phone
-                            </p>
+                            </span>
 
-                            <a
-                                href="tel:+254739651744"
-                                class="mt-1 block text-sm font-medium text-numetric-dark transition hover:text-numetric-green"
-                            >
+                            <span class="mt-1 block text-sm font-medium text-numetric-dark transition group-hover:text-numetric-green">
                                 0739 651 744
-                            </a>
+                            </span>
 
-                        </div>
+                        </span>
 
-                    </div>
+                    </a>
 
 
-                    <!-- LOCATION -->
+                    <!-- Office -->
 
-                    <div class="flex gap-4">
+                    <div class="flex items-center gap-4 py-5">
 
-                        <div
-                            class="
-                                flex
-                                h-11
-                                w-11
-                                shrink-0
-                                items-center
-                                justify-center
-                                rounded-full
-                                bg-numetric-soft
-                                text-numetric-green
-                            "
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-5 w-5 shrink-0 text-numetric-green"
+                            aria-hidden="true"
                         >
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="h-5 w-5"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                                />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
 
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                                />
-                            </svg>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                            />
 
-                        </div>
+                        </svg>
 
-                        <div>
 
-                            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-black/40">
+                        <span>
+
+                            <span class="block text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40">
                                 Office
-                            </p>
+                            </span>
 
-                            <p class="mt-1 text-sm font-medium leading-6 text-numetric-dark">
-                                Mombasa Road<br>
-                                Vision Plaza
-                            </p>
+                            <span class="mt-1 block text-sm font-medium text-numetric-dark">
+                                Mombasa Road · Vision Plaza
+                            </span>
 
-                        </div>
+                        </span>
 
                     </div>
 
                 </div>
 
 
-                <!-- ==================================================
-                     TRUST NOTE
-                =================================================== -->
+                <!-- Response note -->
 
-                <div
-                    class="
-                        mt-10
-                        border-t
-                        border-black/10
-                        pt-7
-                    "
-                >
+                <div class="mt-7 flex items-start gap-3 text-xs leading-5 text-black/45">
 
-                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-black/40">
-                        What you can expect
-                    </p>
-
-                    <p
-                        class="
-                            mt-3
-                            max-w-md
-                            text-sm
-                            leading-6
-                            text-numetric-muted
-                        "
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="mt-0.5 h-4 w-4 shrink-0 text-numetric-green"
+                        aria-hidden="true"
                     >
-                        A professional, confidential conversation
-                        focused on understanding your business and
-                        finding the right financial solution.
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                        />
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 8v4l2.5 1.5"
+                        />
+
+                    </svg>
+
+
+                    <p>
+                        We aim to respond to enquiries promptly.
                     </p>
 
                 </div>
@@ -346,50 +221,29 @@
 
             <!-- ==================================================
                  CONTACT FORM
-            =================================================== -->
+                 ================================================== -->
 
-            <div
-                class="
-                    rounded-[2rem]
-                    border
-                    border-black/10
-                    bg-numetric-cream
-                    p-6
-                    shadow-[0_20px_70px_rgba(10,13,11,0.07)]
-                    sm:p-8
-                    lg:p-10
-                "
-            >
+            <div>
 
-                {% if submitted %}
 
-                    <!-- ==================================================
-                         SUCCESS STATE
-                    =================================================== -->
+                <!-- ==================================================
+                     AJAX SUCCESS MESSAGE
 
-                    <div
-                        class="
-                            flex
-                            min-h-[500px]
-                            flex-col
-                            items-center
-                            justify-center
-                            text-center
-                        "
-                    >
+                     Hidden initially.
+                     JavaScript reveals this after successful
+                     submission WITHOUT removing the form.
+                     ================================================== -->
 
-                        <div
-                            class="
-                                flex
-                                h-16
-                                w-16
-                                items-center
-                                justify-center
-                                rounded-full
-                                bg-numetric-green
-                                text-white
-                            "
-                        >
+                <div
+                    id="contact-success"
+                    class="mb-7 hidden border border-numetric-green/20 bg-numetric-green/5 p-5"
+                    role="alert"
+                    aria-live="polite"
+                >
+
+                    <div class="flex items-start gap-4">
+
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-numetric-green text-white">
 
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -397,391 +251,381 @@
                                 viewBox="0 0 24 24"
                                 stroke-width="1.8"
                                 stroke="currentColor"
-                                class="h-7 w-7"
+                                class="h-5 w-5"
                                 aria-hidden="true"
                             >
+
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     d="m4.5 12.75 6 6 9-13.5"
                                 />
+
                             </svg>
 
                         </div>
 
-                        <span class="mt-6 eyebrow">
-                            Message Received
-                        </span>
 
-                        <h2
-                            class="
-                                mt-5
-                                text-3xl
-                                font-medium
-                                tracking-[-0.03em]
-                                text-numetric-dark
-                            "
-                        >
-                            Thank you for reaching out.
-                        </h2>
+                        <div>
 
-                        <p
-                            class="
-                                mt-4
-                                max-w-md
-                                text-sm
-                                leading-7
-                                text-numetric-muted
-                            "
-                        >
-                            Your message has been received by the
-                            Numetric team. One of our consultants
-                            will get back to you as soon as possible.
-                        </p>
+                            <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-numetric-green">
+                                Message received
+                            </p>
 
-                        <a
-                            href="{% url 'website:home' %}"
-                            class="btn-primary mt-8"
-                        >
-                            Return Home
+                            <p
+                                id="contact-success-message"
+                                class="mt-1 text-sm leading-6 text-numetric-dark"
+                            >
+                                Thank you for reaching out. Your enquiry has been received. A member of our team will be in touch shortly.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     AJAX ERROR MESSAGE
+                     ================================================== -->
+
+                <div
+                    id="contact-error"
+                    class="mb-7 hidden border border-red-200 bg-red-50 p-5"
+                    role="alert"
+                    aria-live="assertive"
+                >
+
+                    <div class="flex items-start gap-4">
+
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600">
 
                             <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.8"
+                                stroke="currentColor"
+                                class="h-5 w-5"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 9v3.75m0 3.75h.007v.008H12v-.008ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-red-600">
+                                Unable to submit
+                            </p>
+
+                            <p
+                                id="contact-error-message"
+                                class="mt-1 text-sm leading-6 text-red-700"
+                            >
+                                Something went wrong. Please try again.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     FORM INTRO
+                     ================================================== -->
+
+                <div class="mb-7">
+
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-numetric-green">
+                        Send an enquiry
+                    </p>
+
+                    <h2 class="mt-3 text-2xl font-medium tracking-[-0.03em] text-numetric-dark sm:text-3xl">
+                        How can we help?
+                    </h2>
+
+                </div>
+
+
+                <!-- ==================================================
+                     FORM
+                     ================================================== -->
+
+                <form
+                    id="contact-form"
+                    method="post"
+                    action="{% url 'website:contact' %}"
+                    class="space-y-4"
+                    novalidate
+                >
+
+                    {% csrf_token %}
+
+
+                    <!-- Honeypot -->
+
+                    {{ form.website }}
+
+
+                    <!-- Non-field errors -->
+
+                    <div
+                        id="contact-non-field-errors"
+                        {% if not form.non_field_errors %}
+                            class="hidden"
+                        {% else %}
+                            class="border-l-2 border-red-500 bg-red-50 px-4 py-3 text-sm text-red-700"
+                        {% endif %}
+                    >
+
+                        {{ form.non_field_errors }}
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         NAME / COMPANY
+                         ================================================== -->
+
+                    <div class="grid gap-4 sm:grid-cols-2">
+
+
+                        <!-- Full name -->
+
+                        <div>
+
+                            {{ form.full_name }}
+
+                            <p
+                                data-error-for="full_name"
+                                class="mt-1 hidden text-xs text-red-600"
+                            ></p>
+
+                            {% if form.full_name.errors %}
+
+                                <p class="mt-1 text-xs text-red-600">
+                                    {{ form.full_name.errors.0 }}
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Company -->
+
+                        <div>
+
+                            {{ form.company_name }}
+
+                            <p
+                                data-error-for="company_name"
+                                class="mt-1 hidden text-xs text-red-600"
+                            ></p>
+
+                            {% if form.company_name.errors %}
+
+                                <p class="mt-1 text-xs text-red-600">
+                                    {{ form.company_name.errors.0 }}
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         EMAIL / PHONE
+                         ================================================== -->
+
+                    <div class="grid gap-4 sm:grid-cols-2">
+
+
+                        <!-- Email -->
+
+                        <div>
+
+                            {{ form.email }}
+
+                            <p
+                                data-error-for="email"
+                                class="mt-1 hidden text-xs text-red-600"
+                            ></p>
+
+                            {% if form.email.errors %}
+
+                                <p class="mt-1 text-xs text-red-600">
+                                    {{ form.email.errors.0 }}
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- Phone -->
+
+                        <div>
+
+                            {{ form.phone }}
+
+                            <p
+                                data-error-for="phone"
+                                class="mt-1 hidden text-xs text-red-600"
+                            ></p>
+
+                            {% if form.phone.errors %}
+
+                                <p class="mt-1 text-xs text-red-600">
+                                    {{ form.phone.errors.0 }}
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         SERVICE
+                         ================================================== -->
+
+                    <div>
+
+                        {{ form.service }}
+
+                        <p
+                            data-error-for="service"
+                            class="mt-1 hidden text-xs text-red-600"
+                        ></p>
+
+                        {% if form.service.errors %}
+
+                            <p class="mt-1 text-xs text-red-600">
+                                {{ form.service.errors.0 }}
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         MESSAGE
+                         ================================================== -->
+
+                    <div>
+
+                        {{ form.message }}
+
+                        <p
+                            data-error-for="message"
+                            class="mt-1 hidden text-xs text-red-600"
+                        ></p>
+
+                        {% if form.message.errors %}
+
+                            <p class="mt-1 text-xs text-red-600">
+                                {{ form.message.errors.0 }}
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         SUBMIT
+                         ================================================== -->
+
+                    <div class="pt-2">
+
+                        <button
+                            id="contact-submit"
+                            type="submit"
+                            class="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-numetric-green px-7 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#14572F] hover:shadow-lg hover:shadow-numetric-green/20 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                        >
+
+                            <span id="contact-submit-text">
+                                Send enquiry
+                            </span>
+
+
+                            <!-- Normal arrow -->
+
+                            <svg
+                                id="contact-submit-arrow"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20"
                                 fill="currentColor"
                                 class="h-4 w-4"
                                 aria-hidden="true"
                             >
+
                                 <path
                                     fill-rule="evenodd"
-                                    d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                                    d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
                                     clip-rule="evenodd"
                                 />
+
                             </svg>
 
-                        </a>
 
-                    </div>
-
-                {% else %}
-
-                    <!-- ==================================================
-                         FORM INTRO
-                    =================================================== -->
-
-                    <div class="mb-8">
-
-                        <span class="eyebrow">
-                            Send Us a Message
-                        </span>
-
-                        <h2
-                            class="
-                                mt-4
-                                text-2xl
-                                font-medium
-                                tracking-[-0.025em]
-                                text-numetric-dark
-                                sm:text-3xl
-                            "
-                        >
-                            Tell us how we can help.
-                        </h2>
-
-                        <p
-                            class="
-                                mt-3
-                                text-sm
-                                leading-6
-                                text-numetric-muted
-                            "
-                        >
-                            Complete the form below and one of our
-                            consultants will get back to you.
-                        </p>
-
-                    </div>
-
-
-                    <!-- ==================================================
-                         FORM
-                    =================================================== -->
-
-                    <form
-                        method="post"
-                        action="{% url 'website:contact' %}"
-                        class="space-y-5"
-                    >
-
-                        {% csrf_token %}
-
-
-                        <!-- HONEYPOT -->
-
-                        {{ form.website }}
-
-
-                        <!-- NON-FIELD ERRORS -->
-
-                        {% if form.non_field_errors %}
-
-                            <div
-                                class="
-                                    rounded-xl
-                                    border
-                                    border-red-200
-                                    bg-red-50
-                                    px-4
-                                    py-3
-                                    text-sm
-                                    text-red-700
-                                "
-                            >
-                                {{ form.non_field_errors }}
-                            </div>
-
-                        {% endif %}
-
-
-                        <!-- ==================================================
-                             NAME + COMPANY
-                        =================================================== -->
-
-                        <div
-                            class="
-                                grid
-                                gap-5
-                                sm:grid-cols-2
-                            "
-                        >
-
-                            <div>
-
-                                <label
-                                    for="{{ form.full_name.id_for_label }}"
-                                    class="mb-2 block text-sm font-medium text-numetric-dark"
-                                >
-                                    {{ form.full_name.label }}
-                                </label>
-
-                                {{ form.full_name }}
-
-                                {% if form.full_name.errors %}
-
-                                    <p class="mt-2 text-xs text-red-600">
-                                        {{ form.full_name.errors.0 }}
-                                    </p>
-
-                                {% endif %}
-
-                            </div>
-
-
-                            <div>
-
-                                <label
-                                    for="{{ form.company_name.id_for_label }}"
-                                    class="mb-2 block text-sm font-medium text-numetric-dark"
-                                >
-                                    {{ form.company_name.label }}
-                                    <span class="font-normal text-black/35">
-                                        (Optional)
-                                    </span>
-                                </label>
-
-                                {{ form.company_name }}
-
-                                {% if form.company_name.errors %}
-
-                                    <p class="mt-2 text-xs text-red-600">
-                                        {{ form.company_name.errors.0 }}
-                                    </p>
-
-                                {% endif %}
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ==================================================
-                             EMAIL + PHONE
-                        =================================================== -->
-
-                        <div
-                            class="
-                                grid
-                                gap-5
-                                sm:grid-cols-2
-                            "
-                        >
-
-                            <div>
-
-                                <label
-                                    for="{{ form.email.id_for_label }}"
-                                    class="mb-2 block text-sm font-medium text-numetric-dark"
-                                >
-                                    {{ form.email.label }}
-                                </label>
-
-                                {{ form.email }}
-
-                                {% if form.email.errors %}
-
-                                    <p class="mt-2 text-xs text-red-600">
-                                        {{ form.email.errors.0 }}
-                                    </p>
-
-                                {% endif %}
-
-                            </div>
-
-
-                            <div>
-
-                                <label
-                                    for="{{ form.phone.id_for_label }}"
-                                    class="mb-2 block text-sm font-medium text-numetric-dark"
-                                >
-                                    {{ form.phone.label }}
-                                </label>
-
-                                {{ form.phone }}
-
-                                {% if form.phone.errors %}
-
-                                    <p class="mt-2 text-xs text-red-600">
-                                        {{ form.phone.errors.0 }}
-                                    </p>
-
-                                {% endif %}
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ==================================================
-                             SERVICE
-                        =================================================== -->
-
-                        <div>
-
-                            <label
-                                for="{{ form.service.id_for_label }}"
-                                class="mb-2 block text-sm font-medium text-numetric-dark"
-                            >
-                                {{ form.service.label }}
-                            </label>
-
-                            {{ form.service }}
-
-                            {% if form.service.errors %}
-
-                                <p class="mt-2 text-xs text-red-600">
-                                    {{ form.service.errors.0 }}
-                                </p>
-
-                            {% endif %}
-
-                        </div>
-
-
-                        <!-- ==================================================
-                             MESSAGE
-                        =================================================== -->
-
-                        <div>
-
-                            <label
-                                for="{{ form.message.id_for_label }}"
-                                class="mb-2 block text-sm font-medium text-numetric-dark"
-                            >
-                                {{ form.message.label }}
-                            </label>
-
-                            {{ form.message }}
-
-                            {% if form.message.errors %}
-
-                                <p class="mt-2 text-xs text-red-600">
-                                    {{ form.message.errors.0 }}
-                                </p>
-
-                            {% endif %}
-
-                        </div>
-
-
-                        <!-- ==================================================
-                             SUBMIT
-                        =================================================== -->
-
-                        <div class="pt-2">
-
-                            <button
-                                type="submit"
-                                class="
-                                    inline-flex
-                                    min-h-14
-                                    w-full
-                                    items-center
-                                    justify-center
-                                    gap-3
-                                    rounded-full
-                                    bg-numetric-green
-                                    px-6
-                                    text-sm
-                                    font-semibold
-                                    text-white
-                                    shadow-[0_12px_30px_rgba(27,107,58,0.16)]
-                                    transition
-                                    hover:-translate-y-0.5
-                                    hover:bg-[#14572F]
-                                    hover:shadow-[0_16px_35px_rgba(27,107,58,0.22)]
-                                    active:translate-y-0
-                                    sm:w-auto
-                                    sm:min-w-52
-                                "
+                            <!-- Loading spinner -->
+
+                            <svg
+                                id="contact-submit-spinner"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                class="hidden h-4 w-4 animate-spin"
+                                aria-hidden="true"
                             >
 
-                                Send Message
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                ></circle>
 
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20"
+                                <path
+                                    class="opacity-75"
                                     fill="currentColor"
-                                    class="h-4 w-4"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
-                                        clip-rule="evenodd"
-                                    />
-                                </svg>
+                                    d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4Z"
+                                ></path>
 
-                            </button>
+                            </svg>
 
-                        </div>
+                        </button>
+
+                    </div>
 
 
-                        <p
-                            class="
-                                text-xs
-                                leading-5
-                                text-black/40
-                            "
-                        >
-                            By submitting this form, you agree that
-                            Numetric Business Solution may contact you
-                            regarding your enquiry.
-                        </p>
+                    <!-- Privacy note -->
 
-                    </form>
+                    <p class="max-w-md text-xs leading-5 text-black/40">
+                        Your information will be treated confidentially and used only to respond to your enquiry.
+                    </p>
 
-                {% endif %}
+                </form>
 
             </div>
 
@@ -793,64 +637,437 @@
 
 
 <!-- ==========================================================
-     TRUST STRIP
-=========================================================== -->
+     CONTACT FORM AJAX
+     ========================================================== -->
 
-<section class="border-y border-black/10 bg-numetric-cream">
+<script>
 
-    <div class="page-container py-10">
+document.addEventListener("DOMContentLoaded", function () {
 
-        <div
-            class="
-                grid
-                gap-8
-                text-center
-                sm:grid-cols-3
-            "
-        >
+    const form = document.getElementById("contact-form");
 
-            <div>
-
-                <p class="text-2xl font-semibold tracking-tight text-numetric-dark">
-                    CPA (K)
-                </p>
-
-                <p class="mt-1 text-xs uppercase tracking-[0.14em] text-black/40">
-                    Professional Expertise
-                </p>
-
-            </div>
+    if (!form) {
+        return;
+    }
 
 
-            <div>
+    /* ========================================================
+       ELEMENTS
+       ======================================================== */
 
-                <p class="text-2xl font-semibold tracking-tight text-numetric-dark">
-                    ICPAK
-                </p>
+    const successBox = document.getElementById(
+        "contact-success"
+    );
 
-                <p class="mt-1 text-xs uppercase tracking-[0.14em] text-black/40">
-                    Professional Affiliation
-                </p>
+    const successMessage = document.getElementById(
+        "contact-success-message"
+    );
 
-            </div>
+    const errorBox = document.getElementById(
+        "contact-error"
+    );
+
+    const errorMessage = document.getElementById(
+        "contact-error-message"
+    );
+
+    const submitButton = document.getElementById(
+        "contact-submit"
+    );
+
+    const submitText = document.getElementById(
+        "contact-submit-text"
+    );
+
+    const submitArrow = document.getElementById(
+        "contact-submit-arrow"
+    );
+
+    const submitSpinner = document.getElementById(
+        "contact-submit-spinner"
+    );
+
+    const nonFieldErrors = document.getElementById(
+        "contact-non-field-errors"
+    );
 
 
-            <div>
+    /* ========================================================
+       HELPERS
+       ======================================================== */
 
-                <p class="text-2xl font-semibold tracking-tight text-numetric-dark">
-                    Kenya
-                </p>
+    function showSuccess(message) {
 
-                <p class="mt-1 text-xs uppercase tracking-[0.14em] text-black/40">
-                    Proudly Serving Businesses
-                </p>
+        if (successMessage) {
+            successMessage.textContent = message;
+        }
 
-            </div>
+        if (successBox) {
+            successBox.classList.remove("hidden");
+        }
 
-        </div>
+        if (errorBox) {
+            errorBox.classList.add("hidden");
+        }
 
-    </div>
+    }
 
-</section>
+
+    function showError(message) {
+
+        if (errorMessage) {
+            errorMessage.textContent = message;
+        }
+
+        if (errorBox) {
+            errorBox.classList.remove("hidden");
+        }
+
+        if (successBox) {
+            successBox.classList.add("hidden");
+        }
+
+    }
+
+
+    function clearAjaxErrors() {
+
+        const errorElements = form.querySelectorAll(
+            "[data-error-for]"
+        );
+
+        errorElements.forEach(function (element) {
+
+            element.textContent = "";
+
+            element.classList.add("hidden");
+
+        });
+
+
+        if (nonFieldErrors) {
+
+            nonFieldErrors.innerHTML = "";
+
+            nonFieldErrors.classList.add("hidden");
+
+        }
+
+
+        const fields = form.querySelectorAll(
+            "input, select, textarea"
+        );
+
+        fields.forEach(function (field) {
+
+            field.classList.remove(
+                "border-red-500",
+                "ring-1",
+                "ring-red-500"
+            );
+
+        });
+
+    }
+
+
+    function showValidationErrors(errors) {
+
+        clearAjaxErrors();
+
+        if (!errors) {
+            return;
+        }
+
+
+        Object.keys(errors).forEach(function (fieldName) {
+
+            const fieldErrors = errors[fieldName];
+
+            if (!fieldErrors || !fieldErrors.length) {
+                return;
+            }
+
+
+            const messages = fieldErrors.map(function (error) {
+                return error.message;
+            });
+
+
+            if (fieldName === "__all__") {
+
+                if (nonFieldErrors) {
+
+                    nonFieldErrors.innerHTML =
+                        messages.join("<br>");
+
+                    nonFieldErrors.classList.remove(
+                        "hidden"
+                    );
+
+                }
+
+                return;
+            }
+
+
+            const errorElement = form.querySelector(
+                '[data-error-for="' + fieldName + '"]'
+            );
+
+
+            if (errorElement) {
+
+                errorElement.textContent =
+                    messages.join(" ");
+
+                errorElement.classList.remove(
+                    "hidden"
+                );
+
+            }
+
+
+            const field = form.querySelector(
+                '[name="' + fieldName + '"]'
+            );
+
+
+            if (field) {
+
+                field.classList.add(
+                    "border-red-500",
+                    "ring-1",
+                    "ring-red-500"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    function setLoading(isLoading) {
+
+        if (!submitButton) {
+            return;
+        }
+
+
+        submitButton.disabled = isLoading;
+
+
+        if (isLoading) {
+
+            if (submitText) {
+                submitText.textContent = "Sending...";
+            }
+
+            if (submitArrow) {
+                submitArrow.classList.add("hidden");
+            }
+
+            if (submitSpinner) {
+                submitSpinner.classList.remove("hidden");
+            }
+
+        } else {
+
+            if (submitText) {
+                submitText.textContent = "Send enquiry";
+            }
+
+            if (submitArrow) {
+                submitArrow.classList.remove("hidden");
+            }
+
+            if (submitSpinner) {
+                submitSpinner.classList.add("hidden");
+            }
+
+        }
+
+    }
+
+
+    /* ========================================================
+       SUBMIT
+       ======================================================== */
+
+    form.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+
+        clearAjaxErrors();
+
+
+        if (successBox) {
+            successBox.classList.add("hidden");
+        }
+
+        if (errorBox) {
+            errorBox.classList.add("hidden");
+        }
+
+
+        setLoading(true);
+
+
+        try {
+
+            const response = await fetch(
+                form.action,
+                {
+                    method: "POST",
+
+                    body: new FormData(form),
+
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+
+            let data;
+
+            try {
+
+                data = await response.json();
+
+            } catch (jsonError) {
+
+                throw new Error(
+                    "The server returned an invalid response."
+                );
+
+            }
+
+
+            /* ==================================================
+               SUCCESS
+               ================================================== */
+
+            if (response.ok && data.success) {
+
+                /*
+                 * IMPORTANT:
+                 *
+                 * The form is NOT removed.
+                 * We simply reset its fields.
+                 */
+
+                form.reset();
+
+
+                clearAjaxErrors();
+
+
+                showSuccess(
+                    data.message ||
+                    "Thank you. Your enquiry has been submitted successfully."
+                );
+
+
+                /*
+                 * Keep the success message visible near
+                 * the form without navigating away.
+                 */
+
+                if (successBox) {
+
+                    successBox.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* ==================================================
+               VALIDATION ERROR
+               ================================================== */
+
+            if (
+                response.status === 400 &&
+                data.errors
+            ) {
+
+                showValidationErrors(
+                    data.errors
+                );
+
+
+                showError(
+                    data.message ||
+                    "Please correct the errors below and try again."
+                );
+
+
+                /*
+                 * Scroll to the first visible error.
+                 */
+
+                const firstError =
+                    form.querySelector(
+                        '[data-error-for]:not(.hidden)'
+                    );
+
+
+                if (firstError) {
+
+                    firstError.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* ==================================================
+               OTHER SERVER ERROR
+               ================================================== */
+
+            showError(
+                data.message ||
+                "Something went wrong while submitting your enquiry. Please try again."
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Contact form submission error:",
+                error
+            );
+
+
+            showError(
+                "We could not submit your enquiry right now. Please check your connection and try again."
+            );
+
+        } finally {
+
+            setLoading(false);
+
+        }
+
+    });
+
+});
+
+</script>
 
 {% endblock %}

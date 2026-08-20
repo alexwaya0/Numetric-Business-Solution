@@ -5,6 +5,10 @@
 
 <head>
 
+    <!-- ======================================================
+         DOCUMENT
+    ======================================================= -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -16,6 +20,11 @@
         name="theme-color"
         content="#1B6B3A"
     >
+
+
+    <!-- ======================================================
+         SEO
+    ======================================================= -->
 
     <title>
         {% block title %}
@@ -32,6 +41,11 @@
         name="robots"
         content="index, follow"
     >
+
+
+    <!-- ======================================================
+         OPEN GRAPH
+    ======================================================= -->
 
     <meta
         property="og:type"
@@ -58,14 +72,23 @@
         content="Numetric Business Solution"
     >
 
-    {% block og_image %}{% endblock %}
+    {% block og_image %}
+    {% endblock %}
+
+
+    <!-- ======================================================
+         FAVICON
+    ======================================================= -->
 
     <link
         rel="icon"
         href="{% static 'images/favicon.ico' %}"
     >
 
-    <!-- Jost -->
+
+    <!-- ======================================================
+         FONT
+    ======================================================= -->
 
     <link
         rel="preconnect"
@@ -83,112 +106,109 @@
         rel="stylesheet"
     >
 
-    <!-- Tailwind CDN -->
+
+    <!-- ======================================================
+         TAILWIND CSS
+    ======================================================= -->
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
 
         tailwind.config = {
+
             theme: {
+
                 extend: {
+
                     fontFamily: {
-                        sans: ["Jost", "sans-serif"],
+
+                        sans: [
+                            "Jost",
+                            "sans-serif"
+                        ],
+
                     },
 
                     colors: {
+
                         numetric: {
+
                             green: "#1B6B3A",
+
                             dark: "#0A0D0B",
+
                             charcoal: "#151A17",
+
                             muted: "#68716B",
+
                             cream: "#F6F8F4",
+
                             soft: "#EEF3EE",
+
                         },
+
                     },
 
-                    maxWidth: {
-                        "8xl": "90rem",
-                    },
                 },
+
             },
+
         };
 
     </script>
 
-    <style>
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        ::selection {
-            background: #1B6B3A;
-            color: #fff;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -7px;
-            height: 1px;
-            background: #1B6B3A;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform .25s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
-
-        }
-
-    </style>
-
-    {% block extra_head %}{% endblock %}
+    {% block extra_head %}
+    {% endblock %}
 
 </head>
 
 
-<body class="bg-white font-sans text-numetric-dark">
+<body
+    class="
+        min-h-screen
+        bg-white
+        font-sans
+        text-numetric-dark
+        antialiased
+    "
+>
+
+
+    <!-- ======================================================
+         NAVBAR
+    ======================================================= -->
 
     {% include "website/partials/navbar.html" %}
 
+
+    <!-- ======================================================
+         MAIN CONTENT
+    ======================================================= -->
+
     <main>
+
         {% block content %}
         {% endblock %}
+
     </main>
+
+
+    <!-- ======================================================
+         FOOTER
+    ======================================================= -->
 
     {% include "website/partials/footer.html" %}
 
+
+    <!-- ======================================================
+         PAGE JAVASCRIPT
+    ======================================================= -->
+
     {% block extra_js %}
     {% endblock %}
+
 
 </body>
 
