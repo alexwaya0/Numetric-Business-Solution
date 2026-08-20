@@ -1,0 +1,466 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ service.name }} | Numetric Business Solution
+{% endblock %}
+
+{% block meta_description %}
+    {{ service.tagline }} {{ service.overview|truncatewords:28 }}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ==========================================================
+     SERVICE HERO
+=========================================================== -->
+
+<section
+    class="
+        bg-numetric-dark
+        pt-36
+        pb-20
+        text-white
+        sm:pt-40
+        sm:pb-24
+        lg:pt-48
+        lg:pb-28
+    "
+>
+
+    <div class="page-container">
+
+        <div
+            class="
+                grid
+                gap-12
+                lg:grid-cols-[0.18fr_0.82fr]
+                lg:gap-16
+            "
+        >
+
+            <div>
+
+                <span
+                    class="
+                        text-sm
+                        font-medium
+                        text-numetric-green
+                    "
+                >
+                    {{ service.number|stringformat:"02d" }}
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <span
+                    class="
+                        eyebrow
+                        text-numetric-green
+                    "
+                >
+                    Our expertise
+                </span>
+
+
+                <h1
+                    class="
+                        mt-7
+                        max-w-5xl
+                        text-5xl
+                        font-semibold
+                        leading-[0.96]
+                        tracking-[-0.05em]
+                        sm:text-6xl
+                        lg:text-8xl
+                    "
+                >
+                    {{ service.name }}
+                </h1>
+
+
+                <p
+                    class="
+                        mt-8
+                        max-w-3xl
+                        text-xl
+                        leading-8
+                        text-white/55
+                        sm:text-2xl
+                        sm:leading-9
+                    "
+                >
+                    {{ service.tagline }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     OVERVIEW
+=========================================================== -->
+
+<section
+    class="
+        bg-white
+        py-20
+        sm:py-24
+        lg:py-32
+    "
+>
+
+    <div class="page-container">
+
+        <div
+            class="
+                grid
+                gap-12
+                lg:grid-cols-[0.65fr_1.35fr]
+                lg:gap-20
+            "
+        >
+
+            <div>
+
+                <span class="eyebrow">
+                    Overview
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <p
+                    class="
+                        max-w-4xl
+                        text-2xl
+                        font-medium
+                        leading-[1.35]
+                        tracking-[-0.025em]
+                        text-numetric-dark
+                        sm:text-3xl
+                        lg:text-4xl
+                    "
+                >
+                    {{ service.overview }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     WHAT WE DO
+=========================================================== -->
+
+<section
+    class="
+        bg-numetric-cream
+        py-20
+        sm:py-24
+        lg:py-32
+    "
+>
+
+    <div class="page-container">
+
+        <div
+            class="
+                grid
+                gap-12
+                lg:grid-cols-[0.65fr_1.35fr]
+                lg:gap-20
+            "
+        >
+
+            <div>
+
+                <span class="eyebrow">
+                    What we provide
+                </span>
+
+                <h2
+                    class="
+                        mt-6
+                        max-w-sm
+                        text-3xl
+                        font-medium
+                        leading-tight
+                        tracking-[-0.035em]
+                        sm:text-4xl
+                    "
+                >
+                    Practical expertise.
+                    Built for real businesses.
+                </h2>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="
+                        divide-y
+                        divide-black/10
+                        border-y
+                        border-black/10
+                    "
+                >
+
+                    {% for item in service.get_services_list %}
+
+                        <div
+                            class="
+                                flex
+                                items-center
+                                gap-5
+                                py-5
+                            "
+                        >
+
+                            <span
+                                class="
+                                    flex
+                                    h-7
+                                    w-7
+                                    shrink-0
+                                    items-center
+                                    justify-center
+                                    rounded-full
+                                    bg-numetric-green
+                                    text-white
+                                "
+                            >
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    class="h-3.5 w-3.5"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M16.704 4.297a1 1 0 0 1 0 1.414l-7.5 7.5a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414l3.293 3.293 6.793-6.793a1 1 0 0 1 1.414 0Z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+
+                            </span>
+
+
+                            <span
+                                class="
+                                    text-base
+                                    font-medium
+                                    text-numetric-dark
+                                "
+                            >
+                                {{ item }}
+                            </span>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     WHO IT'S FOR
+=========================================================== -->
+
+<section
+    class="
+        bg-white
+        py-20
+        sm:py-24
+        lg:py-32
+    "
+>
+
+    <div class="page-container">
+
+        <div
+            class="
+                rounded-[2rem]
+                bg-numetric-dark
+                p-8
+                sm:p-12
+                lg:p-16
+            "
+        >
+
+            <div
+                class="
+                    grid
+                    gap-10
+                    lg:grid-cols-[0.55fr_1.45fr]
+                    lg:items-start
+                "
+            >
+
+                <div>
+
+                    <span
+                        class="
+                            eyebrow
+                            text-numetric-green
+                        "
+                    >
+                        Who it's for
+                    </span>
+
+                </div>
+
+
+                <p
+                    class="
+                        text-2xl
+                        font-medium
+                        leading-[1.35]
+                        tracking-[-0.025em]
+                        text-white
+                        sm:text-3xl
+                    "
+                >
+                    {{ service.who_its_for }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     CTA
+=========================================================== -->
+
+<section
+    class="
+        bg-numetric-green
+        py-20
+        text-white
+        sm:py-24
+        lg:py-28
+    "
+>
+
+    <div class="page-container">
+
+        <div
+            class="
+                flex
+                flex-col
+                gap-8
+                lg:flex-row
+                lg:items-end
+                lg:justify-between
+            "
+        >
+
+            <div class="max-w-3xl">
+
+                <span
+                    class="
+                        text-[0.7rem]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-white/60
+                    "
+                >
+                    Ready when you are
+                </span>
+
+
+                <h2
+                    class="
+                        mt-5
+                        text-4xl
+                        font-medium
+                        leading-[1]
+                        tracking-[-0.04em]
+                        sm:text-5xl
+                        lg:text-6xl
+                    "
+                >
+                    Let's make your
+                    numbers work harder.
+                </h2>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="
+                    inline-flex
+                    min-h-14
+                    shrink-0
+                    items-center
+                    justify-center
+                    gap-3
+                    rounded-full
+                    bg-white
+                    px-7
+                    text-sm
+                    font-semibold
+                    text-numetric-dark
+                    transition
+                    hover:-translate-y-0.5
+                "
+            >
+                Start a conversation
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="h-4 w-4"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 0 1-1.06 1.06l-5.5-5.5a.75.75 0 0 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                        clip-rule="evenodd"
+                    />
+                </svg>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
