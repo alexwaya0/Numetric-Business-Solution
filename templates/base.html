@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+            Numetric Business Solution
+        {% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="{% block meta_description %}Numetric Business Solution{% endblock %}"
+    >
+
+    <!-- ======================================================
+         JOST
+    ======================================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ======================================================
+         TAILWIND CDN
+    ======================================================= -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Jost", "sans-serif"],
+                    },
+
+                    colors: {
+                        numetric: {
+                            green: "#1B6B3A",
+                            black: "#0A0D0B",
+                            cream: "#F7F8F5",
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- ======================================================
+         GLOBAL FOUNDATION
+    ======================================================= -->
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Jost", sans-serif;
+            background: #ffffff;
+            color: #0A0D0B;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: #1B6B3A;
+            color: #ffffff;
+        }
+    </style>
+
+    {% block extra_head %}
+    {% endblock %}
+
+</head>
+
+<body class="font-sans">
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
