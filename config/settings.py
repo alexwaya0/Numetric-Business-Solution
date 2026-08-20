@@ -24,14 +24,20 @@ load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.getenv(
     "SECRET_KEY",
-    "django-insecure-change-this-key"
+    "django-insecure-change-this-key",
 )
 
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+DEBUG = os.getenv(
+    "DEBUG",
+    "False",
+).lower() == "true"
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.getenv("ALLOWED_HOSTS", "").split(",")
+    for host in os.getenv(
+        "ALLOWED_HOSTS",
+        "",
+    ).split(",")
     if host.strip()
 ]
 
@@ -41,6 +47,7 @@ ALLOWED_HOSTS = [
 # ==========================================================
 
 INSTALLED_APPS = [
+    # Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -48,7 +55,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Local
+    # Local applications
     "website",
 ]
 
@@ -186,12 +193,58 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 # ==========================================================
-# DEFAULT PRIMARY KEY
+# EMAIL / SMTP
 # ==========================================================
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+EMAIL_HOST = os.getenv(
+    "EMAIL_HOST",
+    "",
+)
+
+EMAIL_PORT = int(
+    os.getenv(
+        "EMAIL_PORT",
+        "587",
+    )
+)
+
+EMAIL_USE_TLS = (
+    os.getenv(
+        "EMAIL_USE_TLS",
+        "True",
+    ).lower()
+    == "true"
+)
+
+EMAIL_USE_SSL = (
+    os.getenv(
+        "EMAIL_USE_SSL",
+        "False",
+    ).lower()
+    == "true"
+)
+
+EMAIL_HOST_USER = os.getenv(
+    "EMAIL_HOST_USER",
+    "",
+)
+
+EMAIL_HOST_PASSWORD = os.getenv(
+    "EMAIL_HOST_PASSWORD",
+    "",
+)
+
+DEFAULT_FROM_EMAIL = os.getenv(
+    "DEFAULT_FROM_EMAIL",
+    "hello@numetric.co.ke",
+)
 
 
+# ==========================================================
+# WEBSITE / CONTACT SETTINGS
+# ==========================================================
 
 CONTACT_EMAIL = os.getenv(
     "CONTACT_EMAIL",
@@ -199,11 +252,8 @@ CONTACT_EMAIL = os.getenv(
 )
 
 
-CONTACT_EMAIL=hello@numetric.co.ke
+# ==========================================================
+# DEFAULT PRIMARY KEY
+# ==========================================================
 
-EMAIL_HOST=your-smtp-host
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER=your-email
-EMAIL_HOST_PASSWORD=your-password
-DEFAULT_FROM_EMAIL=your-email
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
