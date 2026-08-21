@@ -1,0 +1,36 @@
+<svg width="532" height="190" viewBox="0 0 532 190" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&amp;family=Fraunces:ital,wght@1,400&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect width="532" height="190" rx="18" fill="#F2F2F2"/>
+
+  <g transform="scale(1.4)">
+    <!-- Emerald badge -->
+    <rect x="24" y="24" width="88" height="88" rx="16" fill="#16803C"/>
+
+    <!-- N left vertical -->
+    <line x1="43" y1="100" x2="43" y2="44" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <!-- N right vertical -->
+    <line x1="95" y1="44" x2="95" y2="100" stroke="white" stroke-width="7" stroke-linecap="round"/>
+    <!-- N diagonal -->
+    <line x1="43" y1="44" x2="95" y2="100" stroke="white" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Rising bar chart bars -->
+    <rect x="49" y="84" width="7" height="14" fill="rgba(255,255,255,0.32)" rx="1.5"/>
+    <rect x="59" y="74" width="7" height="24" fill="rgba(255,255,255,0.50)" rx="1.5"/>
+    <rect x="69" y="63" width="7" height="35" fill="rgba(255,255,255,0.70)" rx="1.5"/>
+    <rect x="79" y="50" width="7" height="48" fill="rgba(255,255,255,0.92)" rx="1.5"/>
+
+    <!-- Wordmark: Numetric -->
+    <text x="132" y="80"
+      font-family="'Plus Jakarta Sans', Arial, sans-serif"
+      font-size="42"
+      font-weight="800"
+      fill="#111111"
+      letter-spacing="-1">Numetric</text>
+  </g>
+</svg>
