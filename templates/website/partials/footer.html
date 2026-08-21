@@ -1,146 +1,572 @@
+{% load static %}
+
 <footer class="bg-numetric-dark text-white">
 
-    <div class="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <!-- ======================================================
+         FOOTER CONTENT
+    ======================================================= -->
 
-        <div class="grid gap-12 lg:grid-cols-[1.5fr_0.7fr_0.8fr_1fr]">
+    <div class="page-container py-12 sm:py-14 lg:py-16">
 
-            <!-- BRAND -->
+        <div
+            class="
+                grid
+                gap-10
+                lg:grid-cols-[1.35fr_0.7fr_1fr_0.9fr]
+                lg:gap-10
+        "
+        >
+
+            <!-- ==================================================
+                 BRAND / POSITIONING
+            =================================================== -->
 
             <div>
 
-                <div class="flex items-center gap-3">
+                <a
+                    href="{% url 'website:home' %}"
+                    class="inline-flex items-center gap-3"
+                    aria-label="Numetric Business Solution"
+                >
 
-                    <div class="flex h-11 w-11 items-center justify-center rounded-full bg-numetric-green">
+                    <!-- LOGO CONTAINER -->
 
-                        <span class="text-xl font-extrabold">
-                            N
-                        </span>
+                    <div
+                        class="
+                            flex
+                            h-12
+                            w-12
+                            shrink-0
+                            items-center
+                            justify-center
+                            overflow-hidden
+                            rounded-xl
+                            bg-white
+                            p-1
+                            shadow-[0_8px_25px_rgba(0,0,0,0.18)]
+                        "
+                    >
+
+                        <img
+                            src="{% static 'images/favicon.png' %}"
+                            alt="Numetric Business Solution"
+                            class="
+                                h-full
+                                w-full
+                                object-contain
+                            "
+                        >
 
                     </div>
 
-                    <div>
 
-                        <div class="text-lg font-extrabold">
+                    <!-- WORDMARK -->
+
+                    <div class="leading-none">
+
+                        <div
+                            class="
+                                text-base
+                                font-extrabold
+                                tracking-[-0.025em]
+                                text-white
+                            "
+                        >
                             Numetric
                         </div>
 
-                        <div class="text-[9px] uppercase tracking-[0.18em] text-white/40">
+                        <div
+                            class="
+                                mt-1
+                                text-[9px]
+                                font-medium
+                                uppercase
+                                tracking-[0.18em]
+                                text-white/35
+                            "
+                        >
                             Business Solution
                         </div>
 
                     </div>
 
-                </div>
+                </a>
 
 
-                <p class="mt-6 max-w-md text-sm leading-7 text-white/55">
+                <p
+                    class="
+                        mt-5
+                        max-w-sm
+                        text-sm
+                        leading-7
+                        text-white/50
+                    "
+                >
                     Financial clarity, compliance certainty and strategic
                     insight for businesses ready to grow.
                 </p>
 
 
+                <!-- CTA -->
+
                 <a
-                    href="mailto:info@numetricbusiness.co.ke"
-                    class="mt-5 inline-block text-sm text-white/80 transition hover:text-numetric-green"
+                    href="{% url 'website:contact' %}"
+                    class="
+                        mt-5
+                        inline-flex
+                        min-h-10
+                        items-center
+                        gap-2
+                        rounded-full
+                        border
+                        border-white/15
+                        bg-white/[0.04]
+                        px-4
+                        text-xs
+                        font-semibold
+                        text-white/80
+                        transition
+                        duration-300
+                        hover:-translate-y-0.5
+                        hover:border-numetric-green
+                        hover:bg-numetric-green
+                        hover:text-white
+                    "
                 >
-                    info@numetricbusiness.co.ke
+
+                    Start a Conversation
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
                 </a>
 
             </div>
 
 
-            <!-- COMPANY -->
+            <!-- ==================================================
+                 COMPANY
+            =================================================== -->
 
             <div>
 
-                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                <p
+                    class="
+                        text-[10px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-white/30
+                    "
+                >
                     Company
                 </p>
 
-                <div class="mt-5 flex flex-col gap-3">
+
+                <nav
+                    class="mt-4 flex flex-col gap-2.5"
+                    aria-label="Company navigation"
+                >
 
                     <a
                         href="{% url 'website:about' %}"
-                        class="text-sm text-white/60 transition hover:text-white"
+                        class="
+                            group
+                            inline-flex
+                            items-center
+                            gap-2
+                            text-sm
+                            text-white/55
+                            transition
+                            duration-200
+                            hover:text-white
+                        "
                     >
+
+                        <span
+                            class="
+                                text-numetric-green
+                                transition
+                                duration-200
+                                group-hover:translate-x-0.5
+                            "
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
                         About Us
+
                     </a>
+
 
                     <a
                         href="{% url 'website:services' %}"
-                        class="text-sm text-white/60 transition hover:text-white"
+                        class="
+                            group
+                            inline-flex
+                            items-center
+                            gap-2
+                            text-sm
+                            text-white/55
+                            transition
+                            duration-200
+                            hover:text-white
+                        "
                     >
+
+                        <span
+                            class="
+                                text-numetric-green
+                                transition
+                                duration-200
+                                group-hover:translate-x-0.5
+                            "
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
                         Services
+
                     </a>
+
 
                     <a
                         href="{% url 'website:blog' %}"
-                        class="text-sm text-white/60 transition hover:text-white"
+                        class="
+                            group
+                            inline-flex
+                            items-center
+                            gap-2
+                            text-sm
+                            text-white/55
+                            transition
+                            duration-200
+                            hover:text-white
+                        "
                     >
+
+                        <span
+                            class="
+                                text-numetric-green
+                                transition
+                                duration-200
+                                group-hover:translate-x-0.5
+                            "
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
                         Insights
+
                     </a>
+
 
                     <a
                         href="{% url 'website:contact' %}"
-                        class="text-sm text-white/60 transition hover:text-white"
+                        class="
+                            group
+                            inline-flex
+                            items-center
+                            gap-2
+                            text-sm
+                            text-white/55
+                            transition
+                            duration-200
+                            hover:text-white
+                        "
                     >
+
+                        <span
+                            class="
+                                text-numetric-green
+                                transition
+                                duration-200
+                                group-hover:translate-x-0.5
+                            "
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
                         Contact Us
+
                     </a>
 
-                </div>
+                </nav>
 
             </div>
 
 
-            <!-- EXPERTISE -->
+            <!-- ==================================================
+                 EXPERTISE
+            =================================================== -->
 
             <div>
 
-                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                <p
+                    class="
+                        text-[10px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-white/30
+                    "
+                >
                     Expertise
                 </p>
 
-                <div class="mt-5 flex flex-col gap-3 text-sm text-white/60">
 
-                    <span>Accounting</span>
-                    <span>Tax & Compliance</span>
-                    <span>Payroll</span>
-                    <span>Management Accounting</span>
-                    <span>Virtual CFO</span>
-                    <span>Audit & Assurance</span>
+                <nav
+                    class="
+                        mt-4
+                        flex
+                        flex-col
+                        gap-2.5
+                    "
+                    aria-label="Services navigation"
+                >
 
-                </div>
+                    {% for service in services %}
+
+                        <a
+                            href="{{ service.get_absolute_url }}"
+                            class="
+                                group
+                                inline-flex
+                                items-center
+                                gap-2
+                                text-sm
+                                text-white/55
+                                transition
+                                duration-200
+                                hover:text-white
+                            "
+                        >
+
+                            <span
+                                class="
+                                    shrink-0
+                                    text-numetric-green
+                                    transition
+                                    duration-200
+                                    group-hover:translate-x-0.5
+                                "
+                                aria-hidden="true"
+                            >
+                                →
+                            </span>
+
+                            <span>
+                                {{ service.name }}
+                            </span>
+
+                        </a>
+
+                    {% empty %}
+
+                        <a
+                            href="{% url 'website:services' %}"
+                            class="
+                                group
+                                inline-flex
+                                items-center
+                                gap-2
+                                text-sm
+                                text-white/55
+                                transition
+                                hover:text-white
+                            "
+                        >
+
+                            <span class="text-numetric-green">
+                                →
+                            </span>
+
+                            View Our Services
+
+                        </a>
+
+                    {% endfor %}
+
+                </nav>
 
             </div>
 
 
-            <!-- CONTACT -->
+            <!-- ==================================================
+                 FIND US
+            =================================================== -->
 
             <div>
 
-                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/35">
+                <p
+                    class="
+                        text-[10px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-white/30
+                    "
+                >
                     Find Us
                 </p>
 
-                <div class="mt-5 space-y-4 text-sm leading-6 text-white/60">
 
-                    <p>
-                        Mombasa Road<br>
-                        Vision Plaza
-                    </p>
+                <div
+                    class="
+                        mt-4
+                        space-y-3.5
+                        text-sm
+                        leading-6
+                        text-white/55
+                    "
+                >
+
+                    <!-- LOCATION -->
+
+                    <div class="flex items-start gap-3">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            class="
+                                mt-0.5
+                                h-5
+                                w-5
+                                shrink-0
+                                text-numetric-green
+                            "
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 10.5c0 7-7.5 10.5-7.5 10.5S4.5 17.5 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                            />
+                        </svg>
+
+                        <address class="not-italic">
+                            Mombasa Road<br>
+                            Vision Plaza<br>
+                            Kenya
+                        </address>
+
+                    </div>
+
+
+                    <!-- PHONE -->
 
                     <a
                         href="tel:+254739651744"
-                        class="block transition hover:text-white"
+                        class="
+                            group
+                            flex
+                            items-center
+                            gap-3
+                            transition
+                            hover:text-white
+                        "
                     >
-                        0739 651 744
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            class="
+                                h-5
+                                w-5
+                                shrink-0
+                                text-numetric-green
+                                transition
+                                group-hover:text-white
+                            "
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.25 6.75c0-1.243 1.007-2.25 2.25-2.25h2.07c.95 0 1.79.596 2.108 1.491l.89 2.498a2.25 2.25 0 0 1-.502 2.328l-1.44 1.44a16.5 16.5 0 0 0 7.072 7.072l1.44-1.44a2.25 2.25 0 0 1 2.328-.502l2.498.89A2.25 2.25 0 0 1 20.505 20.25h-2.07C9.782 20.25 3.75 14.218 3.75 6.75H2.25Z"
+                            />
+                        </svg>
+
+                        <span>
+                            +254 739 651 744
+                        </span>
+
                     </a>
+
+
+                    <!-- EMAIL -->
 
                     <a
                         href="mailto:info@numetricbusiness.co.ke"
-                        class="block transition hover:text-white"
+                        class="
+                            group
+                            flex
+                            items-center
+                            gap-3
+                            break-words
+                            transition
+                            hover:text-white
+                        "
                     >
-                        info@numetricbusiness.co.ke
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            class="
+                                h-5
+                                w-5
+                                shrink-0
+                                text-numetric-green
+                                transition
+                                group-hover:text-white
+                            "
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3 6.75A2.25 2.25 0 0 1 5.25 4.5h13.5A2.25 2.25 0 0 1 21 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 17.25V6.75Z"
+                            />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m3.75 6 8.25 6 8.25-6"
+                            />
+                        </svg>
+
+                        <span class="break-all">
+                            info@numetricbusiness.co.ke
+                        </span>
+
                     </a>
 
                 </div>
@@ -150,17 +576,54 @@
         </div>
 
 
-        <!-- BOTTOM -->
+        <!-- ======================================================
+             FOOTER BOTTOM
+        ======================================================= -->
 
-        <div class="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        <div
+            class="
+                mt-10
+                flex
+                flex-col
+                gap-4
+                border-t
+                border-white/10
+                pt-5
+                text-xs
+                text-white/30
+                sm:mt-12
+                sm:flex-row
+                sm:items-center
+                sm:justify-between
+            "
+        >
 
             <p>
                 © {% now "Y" %} Numetric Business Solution.
                 All rights reserved.
             </p>
 
-            <p>
-                Mombasa Road · Vision Plaza · Kenya
+
+            <!-- DEVELOPED BY -->
+
+            <p class="text-right">
+
+                Developed by
+
+                <a
+                    href="https://amigodigitalhub.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="
+                        font-semibold
+                        text-white/55
+                        transition
+                        hover:text-numetric-green
+                    "
+                >
+                    Amigo Digital Hub
+                </a>
+
             </p>
 
         </div>

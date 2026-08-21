@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.core.mail import EmailMessage
+from django.db.models import Count, Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
@@ -18,14 +19,8 @@ from .models import (
 )
 
 
-# ==========================================================
-# SHARED WEBSITE DATA
-# ==========================================================
-
 def get_site_settings():
-    """
-    Return the active company settings.
-    """
+    """Return the active company settings."""
 
     return (
         SiteSettings.objects
@@ -35,12 +30,16 @@ def get_site_settings():
 
 
 def get_common_context():
-    """
-    Content shared across multiple website pages.
-    """
+    """Return content shared across multiple website pages."""
 
     return {
         "site_settings": get_site_settings(),
+
+        "services": (
+            Service.objects
+            .filter(is_active=True)
+            .order_by("number")
+        ),
 
         "core_values": (
             CoreValue.objects
@@ -75,22 +74,15 @@ def get_common_context():
             )
         ),
     }
-
-
-# ==========================================================
-# HOME
-# ==========================================================
+    
 
 def home(request):
+    """Render the website home page."""
 
     services = (
         Service.objects
-        .filter(
-            is_active=True,
-        )
-        .order_by(
-            "number",
-        )
+        .filter(is_active=True)
+        .order_by("number")
     )
 
     featured_posts = (
@@ -100,9 +92,7 @@ def home(request):
             published_at__isnull=False,
             published_at__lte=timezone.now(),
         )
-        .select_related(
-            "category",
-        )
+        .select_related("category")
         .order_by(
             "-is_featured",
             "-published_at",
@@ -125,11 +115,8 @@ def home(request):
     )
 
 
-# ==========================================================
-# ABOUT
-# ==========================================================
-
 def about(request):
+    """Render the about page."""
 
     context = get_common_context()
 
@@ -140,20 +127,13 @@ def about(request):
     )
 
 
-# ==========================================================
-# SERVICES
-# ==========================================================
-
 def services(request):
+    """Render the services page."""
 
     services = (
         Service.objects
-        .filter(
-            is_active=True,
-        )
-        .order_by(
-            "number",
-        )
+        .filter(is_active=True)
+        .order_by("number")
     )
 
     context = get_common_context()
@@ -171,11 +151,8 @@ def services(request):
     )
 
 
-# ==========================================================
-# SERVICE DETAIL
-# ==========================================================
-
 def service_detail(request, slug):
+    """Render an individual service page."""
 
     service = get_object_or_404(
         Service,
@@ -185,15 +162,9 @@ def service_detail(request, slug):
 
     related_services = (
         Service.objects
-        .filter(
-            is_active=True,
-        )
-        .exclude(
-            pk=service.pk,
-        )
-        .order_by(
-            "number",
-        )
+        .filter(is_active=True)
+        .exclude(pk=service.pk)
+        .order_by("number")
     )
 
     context = get_common_context()
@@ -212,13 +183,16 @@ def service_detail(request, slug):
     )
 
 
-# ==========================================================
-# BLOG
-# ==========================================================
-
 def blog(request):
+    """
+    Display published insights with optional category filtering.
 
-    posts = (
+    Articles are ordered newest first. When a category is supplied
+    through the query string, only published articles belonging to
+    that category are displayed.
+    """
+
+    published_posts = (
         Post.objects
         .filter(
             is_published=True,
@@ -228,16 +202,38 @@ def blog(request):
         .select_related(
             "category",
         )
-        .order_by(
-            "-published_at",
+    )
+
+    selected_category = None
+
+    category_slug = request.GET.get("category")
+
+    if category_slug:
+        selected_category = get_object_or_404(
+            Category.objects.filter(
+                is_active=True,
+            ),
+            slug=category_slug,
         )
+
+        published_posts = published_posts.filter(
+            category=selected_category,
+        )
+
+    posts = published_posts.order_by(
+        "-published_at",
+        "-pk",
     )
 
     categories = (
         Category.objects
         .filter(
             is_active=True,
+            posts__is_published=True,
+            posts__published_at__isnull=False,
+            posts__published_at__lte=timezone.now(),
         )
+        .distinct()
         .order_by(
             "name",
         )
@@ -249,6 +245,7 @@ def blog(request):
         {
             "posts": posts,
             "categories": categories,
+            "selected_category": selected_category,
         }
     )
 
@@ -259,16 +256,11 @@ def blog(request):
     )
 
 
-# ==========================================================
-# BLOG POST DETAIL
-# ==========================================================
-
 def post_detail(request, slug):
+    """Render an individual insight."""
 
     post = get_object_or_404(
-        Post.objects.select_related(
-            "category",
-        ),
+        Post.objects.select_related("category"),
         slug=slug,
         is_published=True,
         published_at__isnull=False,
@@ -283,15 +275,9 @@ def post_detail(request, slug):
             published_at__isnull=False,
             published_at__lte=timezone.now(),
         )
-        .exclude(
-            pk=post.pk,
-        )
-        .select_related(
-            "category",
-        )
-        .order_by(
-            "-published_at",
-        )[:3]
+        .exclude(pk=post.pk)
+        .select_related("category")
+        .order_by("-published_at")[:3]
     )
 
     context = get_common_context()
@@ -310,52 +296,24 @@ def post_detail(request, slug):
     )
 
 
-# ==========================================================
-# CONTACT
-# ==========================================================
-
 def contact(request):
     """
-    Contact page.
+    Render the contact page and process contact enquiries.
 
-    Supports both:
-
-    1. Normal browser POST
-       - Renders the contact page again.
-       - Shows the success message.
-       - Keeps the form visible.
-
-    2. AJAX POST
-       - Returns JSON.
-       - Does not reload the page.
-       - Frontend can display the success message.
-       - Form remains visible and can be reset.
+    AJAX requests receive JSON responses. Normal browser requests
+    receive the rendered contact page.
     """
 
     form = ContactForm()
 
-    # ======================================================
-    # POST
-    # ======================================================
-
     if request.method == "POST":
-
-        form = ContactForm(
-            request.POST
-        )
-
-        # ==================================================
-        # INVALID FORM
-        # ==================================================
+        form = ContactForm(request.POST)
 
         if not form.is_valid():
-
-            # ----------------------------------------------
-            # AJAX RESPONSE
-            # ----------------------------------------------
-
-            if request.headers.get("X-Requested-With") == "XMLHttpRequest":
-
+            if (
+                request.headers.get("X-Requested-With")
+                == "XMLHttpRequest"
+            ):
                 return JsonResponse(
                     {
                         "success": False,
@@ -367,10 +325,6 @@ def contact(request):
                     },
                     status=400,
                 )
-
-            # ----------------------------------------------
-            # NORMAL RESPONSE
-            # ----------------------------------------------
 
             context = get_common_context()
 
@@ -386,25 +340,12 @@ def contact(request):
                 context,
             )
 
-        # ==================================================
-        # CLEAN FORM DATA
-        # ==================================================
-
         full_name = form.cleaned_data["full_name"]
-
         company_name = form.cleaned_data["company_name"]
-
         email = form.cleaned_data["email"]
-
         phone = form.cleaned_data["phone"]
-
         service = form.cleaned_data["service"]
-
         message = form.cleaned_data["message"]
-
-        # ==================================================
-        # SAVE ENQUIRY
-        # ==================================================
 
         enquiry = ContactEnquiry.objects.create(
             full_name=full_name,
@@ -414,10 +355,6 @@ def contact(request):
             service_required=service.name,
             message=message,
         )
-
-        # ==================================================
-        # EMAIL NOTIFICATION
-        # ==================================================
 
         subject = (
             "New website enquiry — "
@@ -472,24 +409,18 @@ www.numetricbusiness.co.ke
             subject=subject,
             body=email_body.strip(),
             from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[
-                settings.CONTACT_EMAIL,
-            ],
-            reply_to=[
-                email,
-            ],
+            to=[settings.CONTACT_EMAIL],
+            reply_to=[email],
         )
 
         email_message.send(
             fail_silently=False,
         )
 
-        # ==================================================
-        # AJAX SUCCESS
-        # ==================================================
-
-        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
-
+        if (
+            request.headers.get("X-Requested-With")
+            == "XMLHttpRequest"
+        ):
             return JsonResponse(
                 {
                     "success": True,
@@ -502,20 +433,12 @@ www.numetricbusiness.co.ke
                 }
             )
 
-        # ==================================================
-        # NORMAL SUCCESS
-        # ==================================================
-
         context = get_common_context()
 
         context.update(
             {
-                # Empty form so it remains visible
-                # and ready for another submission.
                 "form": ContactForm(),
-
                 "submitted": True,
-
                 "enquiry": enquiry,
             }
         )
@@ -525,10 +448,6 @@ www.numetricbusiness.co.ke
             "website/contact.html",
             context,
         )
-
-    # ======================================================
-    # GET / INITIAL PAGE LOAD
-    # ======================================================
 
     context = get_common_context()
 

@@ -1,10 +1,14 @@
-{# website/partials/page_hero.html #}
+<section
+    class="
+        relative
+        isolate
+        overflow-hidden
+        bg-numetric-dark
+        text-white
+    "
+>
 
-<section class="relative isolate overflow-hidden border-b border-black/10 bg-numetric-cream">
-
-    <!-- ======================================================
-         BACKGROUND ATMOSPHERE
-    ======================================================= -->
+    <!-- Subtle background atmosphere. -->
 
     <div
         class="
@@ -12,16 +16,13 @@
             absolute
             inset-0
             -z-10
-            opacity-80
-            bg-[radial-gradient(circle_at_82%_18%,rgba(27,107,58,0.12),transparent_38%),radial-gradient(circle_at_8%_90%,rgba(27,107,58,0.06),transparent_38%)]
+            bg-[radial-gradient(circle_at_82%_18%,rgba(27,107,58,0.22),transparent_36%),radial-gradient(circle_at_8%_90%,rgba(27,107,58,0.10),transparent_38%)]
         "
         aria-hidden="true"
     ></div>
 
 
-    <!-- ======================================================
-         SUBTLE GRID
-    ======================================================= -->
+    <!-- Very subtle background grid. -->
 
     <div
         class="
@@ -30,31 +31,33 @@
             inset-0
             -z-10
             opacity-[0.035]
-            [background-image:linear-gradient(to_right,#0A0D0B_1px,transparent_1px),linear-gradient(to_bottom,#0A0D0B_1px,transparent_1px)]
+            [background-image:linear-gradient(to_right,#FFFFFF_1px,transparent_1px),linear-gradient(to_bottom,#FFFFFF_1px,transparent_1px)]
             [background-size:72px_72px]
         "
         aria-hidden="true"
     ></div>
 
 
-    <!-- ======================================================
-         LARGE BACKGROUND WORD
-    ======================================================= -->
+    <!-- Large decorative background word. -->
 
     <div
         class="
             pointer-events-none
             absolute
-            -right-8
-            bottom-[-1.5rem]
+            -right-5
+            -top-8
             -z-10
             select-none
-            text-[8rem]
+            text-[7rem]
             font-semibold
             leading-none
-            tracking-[-0.08em]
-            text-numetric-green/[0.045]
-            sm:text-[11rem]
+            tracking-[-0.10em]
+            text-white/[0.035]
+            sm:-right-6
+            sm:-top-10
+            sm:text-[10rem]
+            lg:-right-8
+            lg:-top-16
             lg:text-[15rem]
         "
         aria-hidden="true"
@@ -63,157 +66,183 @@
     </div>
 
 
-    <!-- ======================================================
-         HERO CONTENT
-    ======================================================= -->
+    <!-- Main hero content. -->
 
-    <div
-        class="
-            mx-auto
-            max-w-7xl
-            px-5
-            py-16
-            sm:px-6
-            sm:py-20
-            lg:px-8
-            lg:py-24
-        "
-    >
+    <div class="page-container pt-24 sm:pt-28 lg:pt-32">
 
-        <div class="max-w-3xl">
+        <div
+            class="
+                relative
+                grid
+                gap-8
+                pb-10
+                sm:pb-12
+                lg:grid-cols-[0.55fr_1.45fr]
+                lg:items-end
+                lg:gap-16
+                lg:pb-14
+            "
+        >
 
+            <!-- Hero eyebrow. -->
 
-            <!-- ==================================================
-                 EYEBROW
-            =================================================== -->
+            <div class="relative z-10">
 
-            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-4">
 
-                <span
-                    class="h-px w-8 bg-numetric-green"
-                    aria-hidden="true"
-                ></span>
+                    <span
+                        class="
+                            h-px
+                            w-8
+                            bg-numetric-green
+                            sm:w-10
+                        "
+                        aria-hidden="true"
+                    ></span>
 
-                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-numetric-green">
-                    {{ hero_eyebrow }}
-                </p>
+                    <p
+                        class="
+                            text-[10px]
+                            font-semibold
+                            uppercase
+                            tracking-[0.22em]
+                            text-numetric-green
+                            sm:text-[11px]
+                        "
+                    >
+                        {{ hero_eyebrow }}
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- ==================================================
-                 HEADING
-            =================================================== -->
+            <!-- Main heading and description. -->
 
-            <h1
-                class="
-                    mt-5
-                    max-w-3xl
-                    text-4xl
-                    font-medium
-                    leading-[1.02]
-                    tracking-[-0.045em]
-                    text-numetric-dark
-                    sm:text-5xl
-                    lg:text-[4rem]
-                "
-            >
-                {{ hero_heading }}
-            </h1>
+            <div class="relative z-10 max-w-4xl">
 
-
-            <!-- ==================================================
-                 DESCRIPTION
-            =================================================== -->
-
-            {% if hero_description %}
-
-                <p
+                <h1
                     class="
-                        mt-5
-                        max-w-xl
-                        text-sm
-                        leading-6
-                        text-numetric-muted
-                        sm:text-base
+                        max-w-4xl
+                        text-4xl
+                        font-medium
+                        leading-[1.02]
+                        tracking-[-0.055em]
+                        text-white
+                        sm:text-5xl
+                        lg:text-[4rem]
                     "
                 >
-                    {{ hero_description }}
-                </p>
-
-            {% endif %}
+                    {{ hero_heading }}
+                </h1>
 
 
-            <!-- ==================================================
-                 BREADCRUMB
-            =================================================== -->
+                {% if hero_description %}
 
-            <nav
-                aria-label="Breadcrumb"
-                class="
-                    mt-7
-                    flex
-                    items-center
-                    gap-2
-                    text-xs
-                "
-            >
+                    <p
+                        class="
+                            mt-5
+                            max-w-2xl
+                            text-sm
+                            leading-6
+                            text-white/55
+                            sm:text-base
+                            sm:leading-7
+                        "
+                    >
+                        {{ hero_description }}
+                    </p>
 
-                <a
-                    href="{% url 'website:home' %}"
-                    class="
-                        text-black/40
-                        transition
-                        hover:text-numetric-green
-                    "
-                >
-                    Home
-                </a>
+                {% endif %}
 
-
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="h-3.5 w-3.5 text-black/20"
-                    aria-hidden="true"
-                >
-
-                    <path
-                        fill-rule="evenodd"
-                        d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24a.75.75 0 0 1 0 1.06l-4.24 4.24a.75.75 0 0 1 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06.02Z"
-                        clip-rule="evenodd"
-                    />
-
-                </svg>
-
-
-                <span class="font-medium text-numetric-dark">
-                    {{ hero_title }}
-                </span>
-
-            </nav>
+            </div>
 
         </div>
+
+
+        <!-- Breadcrumb. -->
+
+        <nav
+            aria-label="Breadcrumb"
+            class="
+                flex
+                items-center
+                gap-2
+                border-t
+                border-white/10
+                py-4
+                text-[11px]
+                sm:py-5
+            "
+        >
+
+            <a
+                href="{% url 'website:home' %}"
+                class="
+                    text-white/35
+                    transition
+                    hover:text-numetric-green
+                "
+            >
+                Home
+            </a>
+
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-3.5 w-3.5 text-white/20"
+                aria-hidden="true"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 0 1 1.06-1.06l4.24 4.24a.75.75 0 0 1 0 1.06l-4.24 4.24a.75.75 0 0 1 0 1.06l-4.24-4.24a.75.75 0 0 1 0 1.06l-4.24 4.24a.75.75 0 0 1 0 1.06l-4.24-4.24a.75.75 0 0 1-1.06-.02l-4.24-4.24a.75.75 0 0 1 0-1.06l4.24-4.24a.75.75 0 0 1 1.06-1.06l4.24 4.24a.75.75 0 0 1 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06.02Z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+
+
+            <span class="font-medium text-white/70">
+                {{ hero_title }}
+            </span>
+
+        </nav>
 
     </div>
 
 
-    <!-- ======================================================
-         EDGE ACCENT
-    ======================================================= -->
+    <!-- Decorative background number / index. -->
 
     <div
         class="
             pointer-events-none
             absolute
             bottom-0
-            right-5
+            right-6
+            hidden
             h-16
             w-px
-            bg-numetric-green/20
-            sm:right-8
-            lg:right-12
+            bg-numetric-green/30
+            sm:block
+            lg:right-10
+        "
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- Green hero edge accent. -->
+
+    <div
+        class="
+            absolute
+            bottom-0
+            left-0
+            h-1
+            w-20
+            bg-numetric-green
+            sm:w-28
         "
         aria-hidden="true"
     ></div>

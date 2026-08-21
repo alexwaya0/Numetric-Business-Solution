@@ -44,7 +44,7 @@
 
 
     <!-- ======================================================
-         OPEN GRAPH
+         OPEN GRAPH / SOCIAL SHARING
     ======================================================= -->
 
     <meta
@@ -72,6 +72,41 @@
         content="Numetric Business Solution"
     >
 
+    <meta
+        property="og:image"
+        content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/favicon.png' %}"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Numetric Business Solution"
+    >
+
+    <meta
+        property="og:image:type"
+        content="image/png"
+    >
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="{% block twitter_title %}Numetric Business Solution{% endblock %}"
+    >
+
+    <meta
+        name="twitter:description"
+        content="{% block twitter_description %}Financial clarity, compliance certainty and strategic insight for ambitious businesses.{% endblock %}"
+    >
+
+    <meta
+        name="twitter:image"
+        content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/favicon.png' %}"
+    >
+
     {% block og_image %}
     {% endblock %}
 
@@ -82,7 +117,13 @@
 
     <link
         rel="icon"
-        href="{% static 'images/favicon.ico' %}"
+        type="image/png"
+        href="{% static 'images/favicon.png' %}"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="{% static 'images/favicon.png' %}"
     >
 
 
@@ -150,6 +191,12 @@
 
                     },
 
+                    maxWidth: {
+
+                        "numetric": "1140px",
+
+                    },
+
                 },
 
             },
@@ -157,6 +204,559 @@
         };
 
     </script>
+
+
+    <!-- ======================================================
+         NUMETRIC GLOBAL STYLES
+    ======================================================= -->
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           PAGE CONTAINER
+        ===================================================== */
+
+        .page-container {
+            width: min(
+                calc(100% - 40px),
+                1140px
+            );
+
+            margin-inline: auto;
+        }
+
+
+        @media (min-width: 640px) {
+
+            .page-container {
+                width: min(
+                    calc(100% - 48px),
+                    1140px
+                );
+            }
+
+        }
+
+
+        /* =====================================================
+           TYPOGRAPHY HELPERS
+        ===================================================== */
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            font-size: 0.6875rem;
+            line-height: 1rem;
+
+            font-weight: 600;
+
+            letter-spacing: 0.18em;
+
+            text-transform: uppercase;
+
+            color: #1B6B3A;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .btn-primary {
+            display: inline-flex;
+            min-height: 3.25rem;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 0.625rem;
+
+            border-radius: 9999px;
+
+            background: #1B6B3A;
+
+            padding-inline: 1.5rem;
+
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+            transition:
+                transform 300ms ease,
+                background-color 300ms ease,
+                color 300ms ease,
+                box-shadow 300ms ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+
+            background: #14572F;
+
+            box-shadow:
+                0 12px 30px rgba(27, 107, 58, 0.18);
+        }
+
+
+        .btn-secondary {
+            display: inline-flex;
+            min-height: 3.25rem;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9999px;
+
+            border: 1px solid rgba(10, 13, 11, 0.14);
+
+            background: #ffffff;
+
+            padding-inline: 1.5rem;
+
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+
+            font-weight: 600;
+
+            color: #0A0D0B;
+
+            transition:
+                transform 300ms ease,
+                border-color 300ms ease,
+                background-color 300ms ease,
+                color 300ms ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+
+            border-color: #1B6B3A;
+
+            color: #1B6B3A;
+        }
+
+
+        /* =====================================================
+           TEXT SELECTION
+        ===================================================== */
+
+        ::selection {
+            background: rgba(27, 107, 58, 0.18);
+            color: #0A0D0B;
+        }
+
+
+        /* =====================================================
+           FOCUS STATES
+        ===================================================== */
+
+        :focus-visible {
+            outline: 2px solid #1B6B3A;
+            outline-offset: 3px;
+        }
+
+
+        /* =====================================================
+           IMAGES
+        ===================================================== */
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* =====================================================
+           PAGE LOADER
+        ===================================================== */
+
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #0A0D0B;
+
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                opacity 400ms ease,
+                visibility 400ms ease;
+        }
+
+        #page-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .page-loader-spinner {
+            width: 34px;
+            height: 34px;
+
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-top-color: #1B6B3A;
+
+            border-radius: 50%;
+
+            animation:
+                page-loader-spin 800ms linear infinite;
+        }
+
+        @keyframes page-loader-spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        /* =====================================================
+           FLOATING ACTIONS
+        ===================================================== */
+
+        .floating-actions {
+            position: fixed;
+
+            right: 1.25rem;
+            bottom: 1.25rem;
+
+            z-index: 950;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            gap: 0.75rem;
+        }
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        #back-to-top {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(10, 13, 11, 0.10);
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            color: #0A0D0B;
+
+            box-shadow:
+                0 10px 30px rgba(10, 13, 11, 0.12);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+
+            transition:
+                opacity 250ms ease,
+                visibility 250ms ease,
+                transform 250ms ease,
+                background-color 250ms ease,
+                color 250ms ease;
+        }
+
+        #back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #back-to-top:hover {
+            background: #1B6B3A;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        #back-to-top svg {
+            width: 17px;
+            height: 17px;
+        }
+
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp-widget {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            pointer-events: none;
+        }
+
+
+        .whatsapp-button {
+            position: relative;
+
+            width: 54px;
+            height: 54px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 3px solid #ffffff;
+            border-radius: 18px;
+
+            background: #1B6B3A;
+
+            box-shadow:
+                0 8px 24px rgba(27, 107, 58, 0.28);
+
+            pointer-events: auto;
+
+            transition:
+                transform 250ms ease,
+                box-shadow 250ms ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(27, 107, 58, 0.38);
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           WHATSAPP WAVE / GLOW
+        ===================================================== */
+
+        .whatsapp-button::before,
+        .whatsapp-button::after {
+            content: "";
+
+            position: absolute;
+            inset: -5px;
+
+            border: 1px solid rgba(27, 107, 58, 0.38);
+            border-radius: 21px;
+
+            pointer-events: none;
+
+            animation:
+                whatsapp-wave 2.6s ease-out infinite;
+        }
+
+        .whatsapp-button::after {
+            animation-delay: 1.3s;
+        }
+
+        @keyframes whatsapp-wave {
+
+            0% {
+                transform: scale(0.92);
+                opacity: 0.65;
+            }
+
+            70% {
+                transform: scale(1.28);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.28);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =====================================================
+           WHATSAPP TOOLTIP
+        ===================================================== */
+
+        .whatsapp-tooltip {
+            position: absolute;
+
+            right: 66px;
+            bottom: 0;
+
+            width: 245px;
+
+            padding: 13px 14px;
+
+            border: 1px solid rgba(10, 13, 11, 0.08);
+            border-radius: 14px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 14px 40px rgba(10, 13, 11, 0.14);
+
+            pointer-events: auto;
+
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+
+            transition:
+                opacity 250ms ease,
+                visibility 250ms ease,
+                transform 250ms ease;
+        }
+
+        .whatsapp-tooltip.is-closed {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(8px);
+            pointer-events: none;
+        }
+
+        .whatsapp-tooltip-content {
+            padding-right: 20px;
+        }
+
+        .whatsapp-tooltip-label {
+            margin: 0;
+
+            font-size: 0.6875rem;
+            line-height: 1rem;
+
+            font-weight: 600;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #1B6B3A;
+        }
+
+        .whatsapp-tooltip-text {
+            margin: 4px 0 0;
+
+            font-size: 0.8125rem;
+            line-height: 1.35rem;
+
+            color: #68716B;
+        }
+
+        .whatsapp-tooltip-close {
+            position: absolute;
+
+            top: 8px;
+            right: 8px;
+
+            width: 24px;
+            height: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: #68716B;
+
+            transition:
+                background-color 200ms ease,
+                color 200ms ease;
+        }
+
+        .whatsapp-tooltip-close:hover {
+            background: #EEF3EE;
+            color: #0A0D0B;
+        }
+
+
+        /* =====================================================
+           MOBILE FLOATING ACTIONS
+        ===================================================== */
+
+        @media (max-width: 639px) {
+
+            .floating-actions {
+                right: 1rem;
+                bottom: 1rem;
+
+                gap: 0.625rem;
+            }
+
+            .whatsapp-tooltip {
+                right: 64px;
+
+                width: min(
+                    230px,
+                    calc(100vw - 90px)
+                );
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+
+            .whatsapp-button::before,
+            .whatsapp-button::after {
+                animation: none;
+            }
+
+        }
+
+    </style>
 
 
     {% block extra_head %}
@@ -174,6 +774,23 @@
         antialiased
     "
 >
+
+
+    <!-- ======================================================
+         PAGE LOADER
+    ======================================================= -->
+
+    <div
+        id="page-loader"
+        aria-hidden="true"
+    >
+
+        <div
+            class="page-loader-spinner"
+            aria-hidden="true"
+        ></div>
+
+    </div>
 
 
     <!-- ======================================================
@@ -203,8 +820,274 @@
 
 
     <!-- ======================================================
+         FLOATING ACTIONS
+    ======================================================= -->
+
+    <div
+        class="floating-actions"
+        aria-label="Quick actions"
+    >
+
+        <!-- ==================================================
+             BACK TO TOP
+        =================================================== -->
+
+        <button
+            type="button"
+            id="back-to-top"
+            aria-label="Back to top"
+            title="Back to top"
+        >
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M9.47 3.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1-1.06 1.06L10.75 5.81V16a.75.75 0 0 1-1.5 0V5.81L6.28 8.78a.75.75 0 1 1-1.06-1.06l4.25-4.25Z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+
+        </button>
+
+
+        <!-- ==================================================
+             WHATSAPP
+        =================================================== -->
+
+        <div
+            class="whatsapp-widget"
+            id="whatsapp-widget"
+        >
+
+            <div
+                class="whatsapp-tooltip"
+                id="whatsapp-tooltip"
+            >
+
+                <button
+                    type="button"
+                    class="whatsapp-tooltip-close"
+                    id="whatsapp-tooltip-close"
+                    aria-label="Close WhatsApp message"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 0 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+                        />
+                    </svg>
+                </button>
+
+
+                <div class="whatsapp-tooltip-content">
+
+                    <p class="whatsapp-tooltip-label">
+                        Need assistance?
+                    </p>
+
+                    <p class="whatsapp-tooltip-text">
+                        Let's chat on WhatsApp and let's discuss how we can help your business.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/254739651744"
+                class="whatsapp-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Numetric Business Solution on WhatsApp"
+            >
+
+                <img
+                    src="{% static 'images/favicon.png' %}"
+                    alt=""
+                    aria-hidden="true"
+                >
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ======================================================
          PAGE JAVASCRIPT
     ======================================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                /*
+                =================================================
+                PAGE LOADER
+                =================================================
+                */
+
+                const pageLoader =
+                    document.getElementById(
+                        "page-loader"
+                    );
+
+                if (pageLoader) {
+
+                    requestAnimationFrame(
+                        function () {
+
+                            pageLoader.classList.add(
+                                "is-hidden"
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /*
+                =================================================
+                BACK TO TOP
+                =================================================
+                */
+
+                const backToTop =
+                    document.getElementById(
+                        "back-to-top"
+                    );
+
+                if (backToTop) {
+
+                    const toggleBackToTop =
+                        function () {
+
+                            if (window.scrollY > 500) {
+
+                                backToTop.classList.add(
+                                    "is-visible"
+                                );
+
+                            } else {
+
+                                backToTop.classList.remove(
+                                    "is-visible"
+                                );
+
+                            }
+
+                        };
+
+
+                    window.addEventListener(
+                        "scroll",
+                        toggleBackToTop,
+                        {
+                            passive: true
+                        }
+                    );
+
+
+                    backToTop.addEventListener(
+                        "click",
+                        function () {
+
+                            window.scrollTo({
+                                top: 0,
+                                behavior: "smooth"
+                            });
+
+                        }
+                    );
+
+
+                    toggleBackToTop();
+
+                }
+
+
+                /*
+                =================================================
+                WHATSAPP TOOLTIP
+                =================================================
+                */
+
+                const whatsappTooltip =
+                    document.getElementById(
+                        "whatsapp-tooltip"
+                    );
+
+                const whatsappTooltipClose =
+                    document.getElementById(
+                        "whatsapp-tooltip-close"
+                    );
+
+
+                if (
+                    whatsappTooltip &&
+                    whatsappTooltipClose
+                ) {
+
+                    whatsappTooltipClose.addEventListener(
+                        "click",
+                        function () {
+
+                            whatsappTooltip.classList.add(
+                                "is-closed"
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        /*
+        ========================================================
+        PAGE LOADER FALLBACK
+        ========================================================
+        */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                const pageLoader =
+                    document.getElementById(
+                        "page-loader"
+                    );
+
+                if (pageLoader) {
+
+                    pageLoader.classList.add(
+                        "is-hidden"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
 
     {% block extra_js %}
     {% endblock %}

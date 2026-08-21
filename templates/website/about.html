@@ -1,168 +1,70 @@
 {% extends "website/base.html" %}
-{% load static %}
 
 {% block title %}
-    About Us | Numetric Business Solution
+About Us | Numetric Business Solution
 {% endblock %}
 
 {% block meta_description %}
-    Learn about Numetric Business Solution, our approach, mission, vision and values. We provide accounting, tax, audit, financial reporting and strategic advisory services to businesses in Kenya.
+Learn about Numetric Business Solution, our approach to financial expertise, and how we help Kenyan businesses make better decisions.
 {% endblock %}
 
 {% block content %}
 
+{% include "website/partials/page_hero.html" with hero_title="About Numetric" hero_eyebrow="Who we are" hero_heading="Clarity for better business." hero_description="Practical financial expertise to help you understand your numbers and make better decisions." hero_word="ABOUT" %}
+
+
 <!-- ==========================================================
-     PAGE HERO
+     WHO WE ARE
 =========================================================== -->
 
-<section class="bg-numetric-cream pt-36 sm:pt-40 lg:pt-44">
+<section class="bg-white">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-32">
 
-        <div
-            class="
-                grid
-                items-end
-                gap-10
-                pb-16
-                lg:grid-cols-[1.1fr_0.9fr]
-                lg:pb-24
-                lg:gap-20
-            "
-        >
+        <div class="grid gap-12 lg:grid-cols-[0.55fr_1.45fr] lg:gap-24">
 
             <div>
-
-                <span class="eyebrow">
-                    About Numetric
-                </span>
-
-                <h1
-                    class="
-                        mt-6
-                        max-w-4xl
-                        text-5xl
-                        font-medium
-                        leading-[1.02]
-                        tracking-[-0.045em]
-                        sm:text-6xl
-                        lg:text-7xl
-                    "
-                >
-                    More than accounting.
-                    <span class="text-numetric-green">
-                        A partner for better business.
-                    </span>
-                </h1>
-
-            </div>
-
-
-            <div class="max-w-xl lg:pb-2">
-
-                <p
-                    class="
-                        text-lg
-                        leading-8
-                        text-numetric-muted
-                        sm:text-xl
-                    "
-                >
-                    We help businesses get their numbers right and make
-                    better informed decisions.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==========================================================
-     INTRODUCTION
-=========================================================== -->
-
-<section class="bg-white py-20 sm:py-24 lg:py-32">
-
-    <div class="page-container">
-
-        <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
-
-            <!-- IMAGE -->
-
-            <div
-                class="
-                    overflow-hidden
-                    rounded-[2rem]
-                    bg-numetric-soft
-                "
-            >
-
-                <img
-                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
-                    alt="African business professionals collaborating in a modern office"
-                    class="aspect-[4/5] h-full w-full object-cover"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <!-- STORY -->
-
-            <div class="max-w-2xl lg:pt-8">
-
                 <span class="eyebrow">
                     Who We Are
                 </span>
+            </div>
 
-                <div class="mt-7 space-y-6">
+            <div class="max-w-5xl">
 
-                    <p
-                        class="
-                            text-2xl
-                            font-medium
-                            leading-9
-                            tracking-[-0.025em]
-                            text-numetric-dark
-                            sm:text-3xl
-                            sm:leading-10
-                        "
-                    >
-                        At Numetric Business Solution, we provide the
-                        financial clarity businesses need to operate,
-                        improve and grow with confidence.
+                <h2
+                    class="
+                        text-3xl
+                        font-medium
+                        leading-[1.08]
+                        tracking-[-0.045em]
+                        text-numetric-dark
+                        sm:text-4xl
+                        lg:text-5xl
+                    "
+                >
+                    A financial partner built around
+                    the realities of business.
+                </h2>
+
+                <div
+                    class="
+                        mt-8
+                        grid
+                        gap-8
+                        sm:grid-cols-2
+                    "
+                >
+
+                    <p class="text-base leading-8 text-numetric-muted">
+                        Numetric Business Solution provides professional
+                        financial expertise to businesses seeking greater
+                        clarity, control and confidence.
                     </p>
 
                     <p class="text-base leading-8 text-numetric-muted">
-                        We provide end-to-end accounting, tax, audit,
-                        financial reporting and advisory services, giving
-                        business owners a clear view of their financial
-                        position and the confidence to grow.
-                    </p>
-
-                    <p class="text-base leading-8 text-numetric-muted">
-                        We believe accounting should be more than meeting
-                        tax and regulatory requirements. It should give
-                        business leaders the insight and control they need
-                        to manage performance, address challenges early,
-                        and make sound decisions.
-                    </p>
-
-                    <p class="text-base leading-8 text-numetric-muted">
-                        We work alongside our clients as trusted partners,
-                        combining professional expertise with smarter
-                        processes and automation to provide timely,
-                        reliable financial information.
-                    </p>
-
-                    <p class="text-base leading-8 text-numetric-muted">
-                        Our approach is tailored to each client, helping
-                        them strengthen their operations and build
-                        stronger, more profitable businesses.
+                        We bring together sound financial thinking and
+                        practical business understanding to help our clients
+                        move forward with confidence.
                     </p>
 
                 </div>
@@ -177,34 +79,57 @@
 
 
 <!-- ==========================================================
-     POSITIONING STATEMENT
+     OUR PERSPECTIVE
 =========================================================== -->
 
-<section class="border-y border-black/5 bg-numetric-cream py-20 sm:py-24 lg:py-28">
+<section class="bg-numetric-cream">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-32">
 
-        <div class="mx-auto max-w-4xl text-center">
+        <div class="grid gap-12 lg:grid-cols-[0.55fr_1.45fr] lg:gap-24">
 
-            <span class="eyebrow">
-                Our Perspective
-            </span>
+            <div>
+                <span class="eyebrow">
+                    Our Perspective
+                </span>
+            </div>
 
-            <blockquote
-                class="
-                    mt-7
-                    text-3xl
-                    font-medium
-                    leading-tight
-                    tracking-[-0.035em]
-                    sm:text-4xl
-                    lg:text-5xl
-                "
-            >
-                “The right financial information does more than explain
-                where your business has been. It helps you decide where
-                it should go next.”
-            </blockquote>
+            <div>
+
+                <p
+                    class="
+                        max-w-5xl
+                        text-3xl
+                        font-medium
+                        leading-[1.1]
+                        tracking-[-0.045em]
+                        text-numetric-dark
+                        sm:text-4xl
+                        lg:text-5xl
+                    "
+                >
+                    Financial information should not simply
+                    explain where a business has been.
+                    It should help shape where it goes next.
+                </p>
+
+                <div class="mt-8 h-px w-16 bg-numetric-green"></div>
+
+                <p
+                    class="
+                        mt-7
+                        max-w-2xl
+                        text-base
+                        leading-8
+                        text-numetric-muted
+                    "
+                >
+                    That principle guides how we work with our clients,
+                    from everyday financial management to the decisions
+                    that shape long-term growth.
+                </p>
+
+            </div>
 
         </div>
 
@@ -214,106 +139,166 @@
 
 
 <!-- ==========================================================
-     MISSION & VISION
+     HOW WE WORK
 =========================================================== -->
 
-<section class="bg-white py-20 sm:py-24 lg:py-32">
+<section class="bg-white">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-32">
 
-        <div class="grid gap-6 lg:grid-cols-2">
+        <div class="grid gap-12 lg:grid-cols-[0.55fr_1.45fr] lg:gap-24">
 
-            <!-- MISSION -->
+            <div>
 
-            <div
-                class="
-                    rounded-[1.75rem]
-                    bg-numetric-dark
-                    p-8
-                    text-white
-                    sm:p-10
-                    lg:p-12
-                "
-            >
-
-                <span class="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
-                    Our Mission
+                <span class="eyebrow">
+                    How We Work
                 </span>
 
                 <h2
                     class="
-                        mt-8
+                        mt-5
+                        max-w-sm
                         text-3xl
                         font-medium
-                        tracking-[-0.03em]
+                        leading-tight
+                        tracking-[-0.04em]
+                        text-numetric-dark
                         sm:text-4xl
                     "
                 >
-                    Practical financial expertise that strengthens
-                    businesses.
+                    Clear thinking.
+                    Practical action.
                 </h2>
-
-                <p
-                    class="
-                        mt-6
-                        max-w-xl
-                        text-base
-                        leading-8
-                        text-white/60
-                    "
-                >
-                    To provide businesses with reliable financial
-                    expertise, practical solutions, and strategic support
-                    that strengthen performance, manage risk, and protect
-                    what our clients have built.
-                </p>
 
             </div>
 
 
-            <!-- VISION -->
+            <div class="border-t border-black/10">
 
-            <div
-                class="
-                    rounded-[1.75rem]
-                    border
-                    border-black/10
-                    bg-numetric-cream
-                    p-8
-                    sm:p-10
-                    lg:p-12
-                "
-            >
-
-                <span class="text-xs font-semibold uppercase tracking-[0.18em] text-numetric-green">
-                    Our Vision
-                </span>
-
-                <h2
+                <div
                     class="
-                        mt-8
-                        text-3xl
-                        font-medium
-                        tracking-[-0.03em]
-                        sm:text-4xl
+                        grid
+                        gap-5
+                        border-b
+                        border-black/10
+                        py-8
+                        sm:grid-cols-[4rem_1fr]
+                        sm:gap-10
                     "
                 >
-                    A future where Kenyan businesses grow with clarity.
-                </h2>
 
-                <p
+                    <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3 class="text-xl font-medium text-numetric-dark">
+                            Understand
+                        </h3>
+
+                        <p class="mt-2 max-w-2xl text-sm leading-7 text-numetric-muted">
+                            We understand your business, its numbers and
+                            the decisions that matter.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
                     class="
-                        mt-6
-                        max-w-xl
-                        text-base
-                        leading-8
-                        text-numetric-muted
+                        grid
+                        gap-5
+                        border-b
+                        border-black/10
+                        py-8
+                        sm:grid-cols-[4rem_1fr]
+                        sm:gap-10
                     "
                 >
-                    To create a future where every Kenyan business
-                    achieves sustainable growth through financial clarity,
-                    compliance certainty, and strategic insight.
-                </p>
+
+                    <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3 class="text-xl font-medium text-numetric-dark">
+                            Advise
+                        </h3>
+
+                        <p class="mt-2 max-w-2xl text-sm leading-7 text-numetric-muted">
+                            We turn financial information into practical
+                            insight that supports better decisions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        grid
+                        gap-5
+                        border-b
+                        border-black/10
+                        py-8
+                        sm:grid-cols-[4rem_1fr]
+                        sm:gap-10
+                    "
+                >
+
+                    <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3 class="text-xl font-medium text-numetric-dark">
+                            Strengthen
+                        </h3>
+
+                        <p class="mt-2 max-w-2xl text-sm leading-7 text-numetric-muted">
+                            We help strengthen financial processes,
+                            controls and compliance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        grid
+                        gap-5
+                        py-8
+                        sm:grid-cols-[4rem_1fr]
+                        sm:gap-10
+                    "
+                >
+
+                    <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                        04
+                    </span>
+
+                    <div>
+
+                        <h3 class="text-xl font-medium text-numetric-dark">
+                            Grow
+                        </h3>
+
+                        <p class="mt-2 max-w-2xl text-sm leading-7 text-numetric-muted">
+                            We remain alongside our clients as their
+                            businesses evolve and grow.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -328,51 +313,32 @@
      VALUES
 =========================================================== -->
 
-<section class="bg-numetric-dark py-20 text-white sm:py-24 lg:py-32">
+<section class="bg-numetric-dark text-white">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-32">
 
-        <div
-            class="
-                grid
-                gap-12
-                lg:grid-cols-[0.65fr_1.35fr]
-                lg:gap-24
-            "
-        >
+        <div class="grid gap-12 lg:grid-cols-[0.55fr_1.45fr] lg:gap-24">
 
             <div>
 
-                <span class="eyebrow text-white/60">
-                    What Guides Us
+                <span class="eyebrow text-white/45">
+                    Our Values
                 </span>
 
                 <h2
                     class="
-                        mt-6
-                        text-4xl
+                        mt-5
+                        max-w-sm
+                        text-3xl
                         font-medium
                         leading-tight
-                        tracking-[-0.035em]
-                        sm:text-5xl
+                        tracking-[-0.04em]
+                        sm:text-4xl
                     "
                 >
-                    Values that shape every engagement.
+                    The standards
+                    behind our work.
                 </h2>
-
-                <p
-                    class="
-                        mt-6
-                        max-w-md
-                        text-base
-                        leading-7
-                        text-white/50
-                    "
-                >
-                    Our values define who we are, how we work, and what we
-                    stand for. They guide every decision we make and shape
-                    the standard of excellence we bring to every client.
-                </p>
 
             </div>
 
@@ -386,42 +352,32 @@
                         <div
                             class="
                                 grid
-                                gap-4
+                                gap-5
                                 border-b
                                 border-white/10
                                 py-7
-                                sm:grid-cols-[5rem_1fr]
-                                sm:py-9
+                                sm:grid-cols-[4rem_1fr]
+                                sm:gap-10
                             "
                         >
 
-                            <div class="text-sm font-semibold text-numetric-green">
-                                0{{ value.number }}
-                            </div>
+                            <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                                {{ value.number|stringformat:"02d" }}
+                            </span>
 
                             <div>
 
-                                <h3
-                                    class="
-                                        text-2xl
-                                        font-medium
-                                        tracking-[-0.02em]
-                                    "
-                                >
+                                <h3 class="text-xl font-medium">
                                     {{ value.name }}
                                 </h3>
 
-                                <p
-                                    class="
-                                        mt-3
-                                        max-w-2xl
-                                        text-sm
-                                        leading-7
-                                        text-white/50
-                                    "
-                                >
-                                    {{ value.description }}
-                                </p>
+                                {% if value.description %}
+
+                                    <p class="mt-2 max-w-2xl text-sm leading-7 text-white/45">
+                                        {{ value.description }}
+                                    </p>
+
+                                {% endif %}
 
                             </div>
 
@@ -431,73 +387,83 @@
 
                 {% else %}
 
-                    <!-- FALLBACK CONTENT -->
+                    <div class="grid gap-5 border-b border-white/10 py-7 sm:grid-cols-[4rem_1fr] sm:gap-10">
 
-                    <div class="grid gap-0">
+                        <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                            01
+                        </span>
 
-                        <div class="border-b border-white/10 py-8">
+                        <div>
 
-                            <p class="text-sm font-semibold text-numetric-green">
-                                01
-                            </p>
-
-                            <h3 class="mt-4 text-2xl font-medium">
+                            <h3 class="text-xl font-medium">
                                 Integrity
                             </h3>
 
-                            <p class="mt-3 text-sm leading-7 text-white/50">
-                                We do what's right.
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-white/45">
+                                Honest, accountable and responsible in every engagement.
                             </p>
 
                         </div>
 
+                    </div>
 
-                        <div class="border-b border-white/10 py-8">
 
-                            <p class="text-sm font-semibold text-numetric-green">
-                                02
-                            </p>
+                    <div class="grid gap-5 border-b border-white/10 py-7 sm:grid-cols-[4rem_1fr] sm:gap-10">
 
-                            <h3 class="mt-4 text-2xl font-medium">
+                        <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3 class="text-xl font-medium">
                                 Excellence
                             </h3>
 
-                            <p class="mt-3 text-sm leading-7 text-white/50">
-                                We never stop improving.
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-white/45">
+                                Committed to quality, accuracy and continuous improvement.
                             </p>
 
                         </div>
 
+                    </div>
 
-                        <div class="border-b border-white/10 py-8">
 
-                            <p class="text-sm font-semibold text-numetric-green">
-                                03
-                            </p>
+                    <div class="grid gap-5 border-b border-white/10 py-7 sm:grid-cols-[4rem_1fr] sm:gap-10">
 
-                            <h3 class="mt-4 text-2xl font-medium">
+                        <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h3 class="text-xl font-medium">
                                 Partnership
                             </h3>
 
-                            <p class="mt-3 text-sm leading-7 text-white/50">
-                                We grow stronger together.
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-white/45">
+                                Working alongside our clients to understand and solve real challenges.
                             </p>
 
                         </div>
 
+                    </div>
 
-                        <div class="py-8">
 
-                            <p class="text-sm font-semibold text-numetric-green">
-                                04
-                            </p>
+                    <div class="grid gap-5 py-7 sm:grid-cols-[4rem_1fr] sm:gap-10">
 
-                            <h3 class="mt-4 text-2xl font-medium">
+                        <span class="text-xs font-semibold tracking-[0.16em] text-numetric-green">
+                            04
+                        </span>
+
+                        <div>
+
+                            <h3 class="text-xl font-medium">
                                 Impact
                             </h3>
 
-                            <p class="mt-3 text-sm leading-7 text-white/50">
-                                We create value that lasts.
+                            <p class="mt-2 max-w-2xl text-sm leading-7 text-white/45">
+                                Focused on creating meaningful and lasting value for our clients.
                             </p>
 
                         </div>
@@ -516,14 +482,14 @@
 
 
 <!-- ==========================================================
-     PROFESSIONAL CREDENTIALS
+     PROFESSIONAL STANDARDS
 =========================================================== -->
 
-<section class="bg-white py-20 sm:py-24 lg:py-32">
+<section class="bg-white">
 
-    <div class="page-container">
+    <div class="page-container py-20 sm:py-24 lg:py-32">
 
-        <div class="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
+        <div class="grid gap-12 lg:grid-cols-[0.55fr_1.45fr] lg:gap-24">
 
             <div>
 
@@ -534,14 +500,17 @@
                 <h2
                     class="
                         mt-5
-                        max-w-lg
-                        text-4xl
+                        max-w-sm
+                        text-3xl
                         font-medium
-                        tracking-[-0.035em]
-                        sm:text-5xl
+                        leading-tight
+                        tracking-[-0.04em]
+                        text-numetric-dark
+                        sm:text-4xl
                     "
                 >
-                    Expertise backed by professional standards.
+                    Expertise you
+                    can rely on.
                 </h2>
 
             </div>
@@ -549,37 +518,38 @@
 
             <div>
 
-                <p
-                    class="
-                        max-w-2xl
-                        text-base
-                        leading-8
-                        text-numetric-muted
-                    "
-                >
+                <p class="max-w-2xl text-base leading-8 text-numetric-muted">
                     Our work is grounded in professional expertise,
-                    continuous improvement and a commitment to the
-                    standards expected of a trusted financial partner.
+                    dependable processes and standards designed to
+                    give our clients confidence.
                 </p>
 
 
-                <!-- CERTIFICATIONS -->
-
                 {% if certifications %}
 
-                    <div class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-black/10 bg-black/10 sm:grid-cols-2">
+                    <div class="mt-10 border-t border-black/10">
 
                         {% for certification in certifications %}
 
-                            <div class="bg-numetric-cream p-6">
+                            <div
+                                class="
+                                    grid
+                                    gap-3
+                                    border-b
+                                    border-black/10
+                                    py-6
+                                    sm:grid-cols-[14rem_1fr]
+                                    sm:gap-8
+                                "
+                            >
 
-                                <p class="font-semibold">
+                                <p class="font-medium text-numetric-dark">
                                     {{ certification.name }}
                                 </p>
 
                                 {% if certification.description %}
 
-                                    <p class="mt-2 text-sm leading-6 text-numetric-muted">
+                                    <p class="text-sm leading-7 text-numetric-muted">
                                         {{ certification.description }}
                                     </p>
 
@@ -593,51 +563,71 @@
 
                 {% else %}
 
-                    <div
-                        class="
-                            mt-10
-                            grid
-                            gap-px
-                            overflow-hidden
-                            rounded-2xl
-                            border
-                            border-black/10
-                            bg-black/10
-                            sm:grid-cols-3
-                        "
-                    >
+                    <div class="mt-10 border-t border-black/10">
 
-                        <div class="bg-numetric-cream p-6">
+                        <div
+                            class="
+                                grid
+                                gap-3
+                                border-b
+                                border-black/10
+                                py-6
+                                sm:grid-cols-[14rem_1fr]
+                                sm:gap-8
+                            "
+                        >
 
-                            <p class="font-semibold">
+                            <p class="font-medium text-numetric-dark">
                                 CPA (K)
                             </p>
 
-                            <p class="mt-2 text-sm text-numetric-muted">
+                            <p class="text-sm leading-7 text-numetric-muted">
                                 Professional accounting expertise.
                             </p>
 
                         </div>
 
-                        <div class="bg-numetric-cream p-6">
 
-                            <p class="font-semibold">
+                        <div
+                            class="
+                                grid
+                                gap-3
+                                border-b
+                                border-black/10
+                                py-6
+                                sm:grid-cols-[14rem_1fr]
+                                sm:gap-8
+                            "
+                        >
+
+                            <p class="font-medium text-numetric-dark">
                                 QuickBooks Certified
                             </p>
 
-                            <p class="mt-2 text-sm text-numetric-muted">
+                            <p class="text-sm leading-7 text-numetric-muted">
                                 Modern accounting systems expertise.
                             </p>
 
                         </div>
 
-                        <div class="bg-numetric-cream p-6">
 
-                            <p class="font-semibold">
+                        <div
+                            class="
+                                grid
+                                gap-3
+                                border-b
+                                border-black/10
+                                py-6
+                                sm:grid-cols-[14rem_1fr]
+                                sm:gap-8
+                            "
+                        >
+
+                            <p class="font-medium text-numetric-dark">
                                 Odoo Certified
                             </p>
 
-                            <p class="mt-2 text-sm text-numetric-muted">
+                            <p class="text-sm leading-7 text-numetric-muted">
                                 Business systems and automation expertise.
                             </p>
 
@@ -648,31 +638,19 @@
                 {% endif %}
 
 
-                <!-- AFFILIATIONS -->
-
                 {% if affiliations %}
 
-                    <div class="mt-10 border-t border-black/10 pt-8">
+                    <div class="mt-10 border-t border-black/10 pt-7">
 
-                        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-numetric-muted">
-                            Professional Affiliations
+                        <p class="eyebrow">
+                            Professional Affiliation
                         </p>
 
-                        <div class="mt-5 flex flex-wrap gap-3">
+                        <div class="mt-4 flex flex-wrap gap-x-8 gap-y-3">
 
                             {% for affiliation in affiliations %}
 
-                                <span
-                                    class="
-                                        rounded-full
-                                        border
-                                        border-black/10
-                                        px-4
-                                        py-2
-                                        text-sm
-                                        font-medium
-                                    "
-                                >
+                                <span class="text-sm font-medium text-numetric-dark">
                                     {{ affiliation.name }}
                                 </span>
 
@@ -684,15 +662,17 @@
 
                 {% else %}
 
-                    <div class="mt-10 border-t border-black/10 pt-8">
+                    <div class="mt-10 border-t border-black/10 pt-7">
 
-                        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-numetric-muted">
+                        <p class="eyebrow">
                             Professional Affiliation
                         </p>
 
-                        <p class="mt-4 text-lg font-medium">
+                        <p class="mt-4 text-sm font-medium text-numetric-dark">
                             Institute of Certified Public Accountants of Kenya
-                            <span class="text-numetric-green">(ICPAK)</span>
+                            <span class="text-numetric-green">
+                                (ICPAK)
+                            </span>
                         </p>
 
                     </div>
@@ -709,179 +689,60 @@
 
 
 <!-- ==========================================================
-     CLIENT TRUST
+     CLOSING STATEMENT
 =========================================================== -->
 
-{% if testimonials %}
+<section class="border-t border-black/10 bg-numetric-cream">
 
-<section class="bg-numetric-cream py-20 sm:py-24 lg:py-32">
+    <div class="page-container py-20 sm:py-24 lg:py-28">
 
-    <div class="page-container">
+        <div class="grid gap-10 lg:grid-cols-[0.55fr_1.45fr] lg:gap-24">
 
-        <div class="max-w-2xl">
+            <div>
 
-            <span class="eyebrow">
-                Client Trust
-            </span>
-
-            <h2
-                class="
-                    mt-5
-                    text-4xl
-                    font-medium
-                    tracking-[-0.035em]
-                    sm:text-5xl
-                "
-            >
-                What our clients say.
-            </h2>
-
-        </div>
-
-
-        <div class="mt-12 grid gap-5 lg:grid-cols-3">
-
-            {% for testimonial in testimonials %}
-
-                <figure
-                    class="
-                        rounded-[1.5rem]
-                        border
-                        border-black/10
-                        bg-white
-                        p-7
-                        sm:p-8
-                    "
-                >
-
-                    <div
-                        class="
-                            text-3xl
-                            leading-none
-                            text-numetric-green
-                        "
-                    >
-                        “
-                    </div>
-
-                    <blockquote
-                        class="
-                            mt-4
-                            text-base
-                            leading-7
-                            text-numetric-dark
-                        "
-                    >
-                        {{ testimonial.quote }}
-                    </blockquote>
-
-                    <figcaption class="mt-7">
-
-                        <p class="text-sm font-semibold">
-                            {{ testimonial.name }}
-                        </p>
-
-                        {% if testimonial.role %}
-
-                            <p class="mt-1 text-xs text-numetric-muted">
-                                {{ testimonial.role }}
-                            </p>
-
-                        {% endif %}
-
-                    </figcaption>
-
-                </figure>
-
-            {% endfor %}
-
-        </div>
-
-    </div>
-
-</section>
-
-{% endif %}
-
-
-<!-- ==========================================================
-     CTA
-=========================================================== -->
-
-<section class="bg-white py-20 sm:py-24 lg:py-32">
-
-    <div class="page-container">
-
-        <div
-            class="
-                overflow-hidden
-                rounded-[2rem]
-                bg-numetric-green
-                px-7
-                py-14
-                text-white
-                sm:px-12
-                sm:py-16
-                lg:px-20
-                lg:py-20
-            "
-        >
-
-            <div class="max-w-3xl">
-
-                <span class="eyebrow text-white/65">
+                <span class="eyebrow">
                     Work With Us
                 </span>
 
+            </div>
+
+            <div>
+
                 <h2
                     class="
-                        mt-5
-                        text-4xl
+                        max-w-4xl
+                        text-3xl
                         font-medium
-                        leading-tight
-                        tracking-[-0.035em]
-                        sm:text-5xl
+                        leading-[1.08]
+                        tracking-[-0.045em]
+                        text-numetric-dark
+                        sm:text-4xl
+                        lg:text-5xl
                     "
                 >
-                    Let's build stronger financial foundations for your
-                    business.
+                    Better financial decisions
+                    begin with better understanding.
                 </h2>
-
-                <p
-                    class="
-                        mt-6
-                        max-w-2xl
-                        text-base
-                        leading-7
-                        text-white/70
-                    "
-                >
-                    Whether you need accounting support, tax advice,
-                    financial reporting, payroll, advisory or a more
-                    strategic financial partner, we're ready to talk.
-                </p>
 
                 <a
                     href="{% url 'website:contact' %}"
                     class="
                         mt-8
                         inline-flex
-                        min-h-13
                         items-center
-                        gap-2
-                        rounded-full
-                        bg-white
-                        px-6
-                        py-3
+                        gap-3
                         text-sm
                         font-semibold
                         text-numetric-dark
                         transition
-                        hover:-translate-y-0.5
+                        hover:text-numetric-green
                     "
                 >
-                    Let's Start the Conversation
-                    <span aria-hidden="true">→</span>
+                    Start a conversation
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
                 </a>
 
             </div>

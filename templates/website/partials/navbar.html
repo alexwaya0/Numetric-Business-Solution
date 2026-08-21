@@ -1,71 +1,118 @@
+{% load static %}
+
 <header class="fixed inset-x-0 top-0 z-50">
 
-    <div class="mx-auto max-w-8xl px-4 pt-4 sm:px-6 lg:px-8">
+    <div class="page-container pt-4 sm:pt-5">
 
-        <div class="flex items-center justify-between rounded-full border border-black/10 bg-white/95 px-4 py-3 shadow-lg shadow-black/[0.04] backdrop-blur-xl sm:px-6">
+        <!-- ==================================================
+             NAVBAR
+        =================================================== -->
 
-            <!-- BRAND -->
+        <div
+            class="
+                relative
+                flex
+                items-center
+                justify-between
+                rounded-2xl
+                border
+                border-black/[0.08]
+                bg-white/95
+                px-4
+                py-3
+                shadow-[0_10px_40px_rgba(10,13,11,0.07)]
+                backdrop-blur-xl
+                sm:px-5
+                lg:rounded-xl
+                lg:px-6
+                lg:py-3.5
+            "
+        >
+
+            <!-- ==================================================
+                 BRAND
+            =================================================== -->
 
             <a
                 href="{% url 'website:home' %}"
-                class="flex items-center gap-3"
+                class="
+                    flex
+                    shrink-0
+                    items-center
+                    transition
+                    duration-300
+                    hover:opacity-80
+                "
                 aria-label="Numetric Business Solution"
             >
 
-                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-numetric-green text-white">
-
-                    <span class="text-lg font-extrabold">
-                        N
-                    </span>
-
-                </div>
-
-                <div class="leading-none">
-
-                    <div class="text-base font-extrabold tracking-tight">
-                        Numetric
-                    </div>
-
-                    <div class="mt-1 text-[9px] font-medium uppercase tracking-[0.18em] text-numetric-muted">
-                        Business Solution
-                    </div>
-
-                </div>
+                <img
+                    src="{% static 'images/numetric-logo.png' %}"
+                    alt="Numetric Business Solution"
+                    class="
+                        h-9
+                        w-auto
+                        object-contain
+                        sm:h-10
+                    "
+                >
 
             </a>
 
 
-            <!-- DESKTOP NAV -->
+            <!-- ==================================================
+                 DESKTOP NAVIGATION
+            =================================================== -->
 
             <nav
-                class="hidden items-center gap-8 lg:flex"
+                class="
+                    hidden
+                    items-center
+                    gap-8
+                    lg:flex
+                "
                 aria-label="Primary navigation"
             >
 
                 <a
                     href="{% url 'website:home' %}"
-                    class="nav-link text-sm font-medium text-black/70 transition hover:text-black {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                    class="
+                        nav-link
+                        {% if request.resolver_match.url_name == 'home' %}active{% endif %}
+                    "
                 >
                     Home
                 </a>
 
+
                 <a
                     href="{% url 'website:about' %}"
-                    class="nav-link text-sm font-medium text-black/70 transition hover:text-black {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                    class="
+                        nav-link
+                        {% if request.resolver_match.url_name == 'about' %}active{% endif %}
+                    "
                 >
                     About Us
                 </a>
 
+
                 <a
                     href="{% url 'website:services' %}"
-                    class="nav-link text-sm font-medium text-black/70 transition hover:text-black {% if request.resolver_match.url_name == 'services' or request.resolver_match.url_name == 'service_detail' %}active{% endif %}"
+                    class="
+                        nav-link
+                        {% if request.resolver_match.url_name == 'services' or request.resolver_match.url_name == 'service_detail' %}active{% endif %}
+                    "
                 >
                     Services
                 </a>
 
+
                 <a
                     href="{% url 'website:blog' %}"
-                    class="nav-link text-sm font-medium text-black/70 transition hover:text-black {% if request.resolver_match.url_name == 'blog' or request.resolver_match.url_name == 'post_detail' %}active{% endif %}"
+                    class="
+                        nav-link
+                        {% if request.resolver_match.url_name == 'blog' or request.resolver_match.url_name == 'post_detail' %}active{% endif %}
+                    "
                 >
                     Insights
                 </a>
@@ -73,76 +120,160 @@
             </nav>
 
 
-            <!-- CTA -->
+            <!-- ==================================================
+                 DESKTOP ACTIONS
+            =================================================== -->
 
-            <a
-                href="{% url 'website:contact' %}"
-                class="hidden items-center gap-2 rounded-full bg-numetric-green px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#14572F] hover:shadow-lg hover:shadow-numetric-green/20 lg:inline-flex"
-            >
+            <div class="hidden items-center gap-4 lg:flex">
 
-                Let's Talk
-
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="h-4 w-4"
-                    aria-hidden="true"
+                <a
+                    href="tel:+254739651744"
+                    class="
+                        hidden
+                        xl:inline-flex
+                        items-center
+                        gap-2
+                        text-xs
+                        font-medium
+                        text-numetric-muted
+                        transition
+                        hover:text-numetric-green
+                    "
                 >
-                    <path
-                        fill-rule="evenodd"
-                        d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
-                        clip-rule="evenodd"
-                    />
-                </svg>
 
-            </a>
+                    <span
+                        class="
+                            h-1.5
+                            w-1.5
+                            rounded-full
+                            bg-numetric-green
+                        "
+                        aria-hidden="true"
+                    ></span>
+
+                    +254 739 651 744
+
+                </a>
 
 
-            <!-- MOBILE BUTTON -->
+                <a
+                    href="{% url 'website:contact' %}"
+                    class="
+                        group
+                        inline-flex
+                        min-h-11
+                        items-center
+                        justify-center
+                        gap-3
+                        rounded-full
+                        bg-numetric-dark
+                        px-5
+                        text-sm
+                        font-semibold
+                        text-white
+                        transition
+                        duration-300
+                        hover:-translate-y-0.5
+                        hover:bg-numetric-green
+                        hover:shadow-[0_12px_30px_rgba(27,107,58,0.18)]
+                    "
+                >
+
+                    Let's Talk
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="
+                            h-4
+                            w-4
+                            transition
+                            duration-300
+                            group-hover:translate-x-0.5
+                        "
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-4.219-4.22a.75.75 0 1 1 1.06-1.06l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06l4.219-4.22H3.75A.75.75 0 0 1 3 10Z"
+                            clip-rule="evenodd"
+                        />
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+
+            <!-- ==================================================
+                 MOBILE MENU BUTTON
+            =================================================== -->
 
             <button
                 id="mobile-menu-button"
                 type="button"
-                class="flex h-10 w-10 items-center justify-center rounded-full bg-numetric-dark text-white lg:hidden"
+                class="
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-numetric-dark
+                    text-white
+                    transition
+                    duration-300
+                    hover:bg-numetric-green
+                    lg:hidden
+                "
                 aria-label="Open navigation menu"
                 aria-expanded="false"
                 aria-controls="mobile-menu"
             >
+
+                <!-- OPEN ICON -->
 
                 <svg
                     id="menu-open-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.7"
+                    stroke-width="1.6"
                     stroke="currentColor"
                     class="h-5 w-5"
+                    aria-hidden="true"
                 >
 
                     <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
+                        d="M4 7h16M4 12h16M4 17h16"
                     />
 
                 </svg>
 
+
+                <!-- CLOSE ICON -->
 
                 <svg
                     id="menu-close-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.7"
+                    stroke-width="1.6"
                     stroke="currentColor"
                     class="hidden h-5 w-5"
+                    aria-hidden="true"
                 >
 
                     <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        d="M6 18 18 6M6 6l12 12"
+                        d="M6 6l12 12M18 6L6 18"
                     />
 
                 </svg>
@@ -152,11 +283,24 @@
         </div>
 
 
-        <!-- MOBILE NAV -->
+        <!-- ==================================================
+             MOBILE NAVIGATION
+        =================================================== -->
 
         <div
             id="mobile-menu"
-            class="mt-3 hidden rounded-3xl border border-black/10 bg-white p-5 shadow-2xl lg:hidden"
+            class="
+                mt-3
+                hidden
+                overflow-hidden
+                rounded-2xl
+                border
+                border-black/[0.08]
+                bg-white
+                p-4
+                shadow-[0_20px_60px_rgba(10,13,11,0.12)]
+                lg:hidden
+            "
         >
 
             <nav
@@ -164,40 +308,138 @@
                 aria-label="Mobile navigation"
             >
 
+                <!-- HOME -->
+
                 <a
                     href="{% url 'website:home' %}"
-                    class="border-b border-black/5 py-4 text-sm font-medium"
+                    class="
+                        mobile-nav-link
+                        {% if request.resolver_match.url_name == 'home' %}active{% endif %}
+                    "
                 >
-                    Home
+                    <span>Home</span>
+
+                    <span class="mobile-nav-arrow">→</span>
                 </a>
+
+
+                <!-- ABOUT -->
 
                 <a
                     href="{% url 'website:about' %}"
-                    class="border-b border-black/5 py-4 text-sm font-medium"
+                    class="
+                        mobile-nav-link
+                        {% if request.resolver_match.url_name == 'about' %}active{% endif %}
+                    "
                 >
-                    About Us
+                    <span>About Us</span>
+
+                    <span class="mobile-nav-arrow">→</span>
                 </a>
+
+
+                <!-- SERVICES -->
 
                 <a
                     href="{% url 'website:services' %}"
-                    class="border-b border-black/5 py-4 text-sm font-medium"
+                    class="
+                        mobile-nav-link
+                        {% if request.resolver_match.url_name == 'services' or request.resolver_match.url_name == 'service_detail' %}active{% endif %}
+                    "
                 >
-                    Services
+                    <span>Services</span>
+
+                    <span class="mobile-nav-arrow">→</span>
                 </a>
+
+
+                <!-- INSIGHTS -->
 
                 <a
                     href="{% url 'website:blog' %}"
-                    class="border-b border-black/5 py-4 text-sm font-medium"
+                    class="
+                        mobile-nav-link
+                        {% if request.resolver_match.url_name == 'blog' or request.resolver_match.url_name == 'post_detail' %}active{% endif %}
+                    "
                 >
-                    Insights
+                    <span>Insights</span>
+
+                    <span class="mobile-nav-arrow">→</span>
                 </a>
 
-                <a
-                    href="{% url 'website:contact' %}"
-                    class="mt-5 flex min-h-12 items-center justify-center rounded-full bg-numetric-green px-5 text-sm font-semibold text-white"
+
+                <!-- MOBILE CONTACT -->
+
+                <div
+                    class="
+                        mt-3
+                        border-t
+                        border-black/[0.07]
+                        pt-4
+                    "
                 >
-                    Let's Talk
-                </a>
+
+                    <a
+                        href="{% url 'website:contact' %}"
+                        class="
+                            flex
+                            min-h-12
+                            items-center
+                            justify-center
+                            gap-3
+                            rounded-full
+                            bg-numetric-dark
+                            px-5
+                            text-sm
+                            font-semibold
+                            text-white
+                            transition
+                            duration-300
+                            hover:bg-numetric-green
+                        "
+                    >
+
+                        Let's Talk
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="tel:+254739651744"
+                        class="
+                            mt-3
+                            flex
+                            items-center
+                            justify-center
+                            gap-2
+                            py-2
+                            text-xs
+                            font-medium
+                            text-numetric-muted
+                            transition
+                            hover:text-numetric-green
+                        "
+                    >
+
+                        <span
+                            class="
+                                h-1.5
+                                w-1.5
+                                rounded-full
+                                bg-numetric-green
+                            "
+                            aria-hidden="true"
+                        ></span>
+
+                        +254 739 651 744
+
+                    </a>
+
+                </div>
 
             </nav>
 
@@ -208,89 +450,327 @@
 </header>
 
 
+<!-- ==========================================================
+     NAVIGATION STYLES
+=========================================================== -->
+
+<style>
+
+    /*
+    ============================================================
+    DESKTOP NAVIGATION
+    ============================================================
+    */
+
+    @media (min-width: 1024px) {
+
+        .nav-link {
+            position: relative;
+
+            padding-top: 0.55rem;
+            padding-bottom: 0.55rem;
+
+            font-size: 0.8125rem;
+            line-height: 1rem;
+
+            font-weight: 600;
+
+            letter-spacing: -0.01em;
+
+            color: rgba(10, 13, 11, 0.58);
+
+            transition:
+                color 200ms ease;
+        }
+
+
+        .nav-link:hover {
+            color: #0A0D0B;
+        }
+
+
+        .nav-link::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 0;
+
+            width: 0;
+            height: 2px;
+
+            border-radius: 9999px;
+
+            background: #1B6B3A;
+
+            transform:
+                translateX(-50%);
+
+            transition:
+                width 250ms ease;
+        }
+
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 20px;
+        }
+
+
+        .nav-link.active {
+            color: #0A0D0B;
+        }
+
+    }
+
+
+    /*
+    ============================================================
+    MOBILE NAVIGATION
+    ============================================================
+    */
+
+    .mobile-nav-link {
+        display: flex;
+
+        min-height: 3.5rem;
+
+        align-items: center;
+        justify-content: space-between;
+
+        border-bottom: 1px solid rgba(10, 13, 11, 0.06);
+
+        padding-inline: 0.5rem;
+
+        font-size: 0.9375rem;
+
+        font-weight: 600;
+
+        color: #0A0D0B;
+
+        transition:
+            color 200ms ease,
+            padding 200ms ease;
+    }
+
+
+    .mobile-nav-link:hover {
+        color: #1B6B3A;
+        padding-left: 0.75rem;
+    }
+
+
+    .mobile-nav-link.active {
+        color: #1B6B3A;
+    }
+
+
+    .mobile-nav-link:last-of-type {
+        border-bottom: 0;
+    }
+
+
+    .mobile-nav-arrow {
+        font-size: 1rem;
+
+        color: rgba(10, 13, 11, 0.22);
+
+        transition:
+            transform 200ms ease,
+            color 200ms ease;
+    }
+
+
+    .mobile-nav-link:hover .mobile-nav-arrow {
+        transform: translateX(3px);
+        color: #1B6B3A;
+    }
+
+
+    /*
+    ============================================================
+    REDUCED MOTION
+    ============================================================
+    */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .nav-link::after,
+        .mobile-nav-link,
+        .mobile-nav-arrow {
+            transition: none;
+        }
+
+    }
+
+</style>
+
+
+<!-- ==========================================================
+     MOBILE MENU SCRIPT
+=========================================================== -->
+
 <script>
 
-    const menuButton = document.getElementById(
-        "mobile-menu-button"
-    );
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
-    const mobileMenu = document.getElementById(
-        "mobile-menu"
-    );
+            const menuButton =
+                document.getElementById(
+                    "mobile-menu-button"
+                );
 
-    const openIcon = document.getElementById(
-        "menu-open-icon"
-    );
+            const mobileMenu =
+                document.getElementById(
+                    "mobile-menu"
+                );
 
-    const closeIcon = document.getElementById(
-        "menu-close-icon"
-    );
+            const openIcon =
+                document.getElementById(
+                    "menu-open-icon"
+                );
 
-    if (menuButton && mobileMenu) {
+            const closeIcon =
+                document.getElementById(
+                    "menu-close-icon"
+                );
 
-        menuButton.addEventListener(
-            "click",
-            function () {
 
-                const open =
-                    menuButton.getAttribute(
-                        "aria-expanded"
-                    ) === "true";
+            if (
+                !menuButton ||
+                !mobileMenu ||
+                !openIcon ||
+                !closeIcon
+            ) {
+                return;
+            }
+
+
+            function closeMenu() {
 
                 menuButton.setAttribute(
                     "aria-expanded",
-                    String(!open)
+                    "false"
                 );
 
-                mobileMenu.classList.toggle(
-                    "hidden",
-                    open
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
                 );
 
-                openIcon.classList.toggle(
-                    "hidden",
-                    !open
+                mobileMenu.classList.add(
+                    "hidden"
                 );
 
-                closeIcon.classList.toggle(
-                    "hidden",
-                    open
+                openIcon.classList.remove(
+                    "hidden"
+                );
+
+                closeIcon.classList.add(
+                    "hidden"
                 );
 
             }
-        );
 
 
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(function (link) {
+            function openMenu() {
 
-                link.addEventListener(
-                    "click",
-                    function () {
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
 
-                        menuButton.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Close navigation menu"
+                );
 
-                        mobileMenu.classList.add(
-                            "hidden"
-                        );
+                mobileMenu.classList.remove(
+                    "hidden"
+                );
 
-                        openIcon.classList.remove(
-                            "hidden"
-                        );
+                openIcon.classList.add(
+                    "hidden"
+                );
 
-                        closeIcon.classList.add(
-                            "hidden"
+                closeIcon.classList.remove(
+                    "hidden"
+                );
+
+            }
+
+
+            menuButton.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        menuButton.getAttribute(
+                            "aria-expanded"
+                        ) === "true";
+
+                    if (isOpen) {
+
+                        closeMenu();
+
+                    } else {
+
+                        openMenu();
+
+                    }
+
+                }
+            );
+
+
+            mobileMenu
+                .querySelectorAll("a")
+                .forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            closeMenu
                         );
 
                     }
                 );
 
-            });
 
-    }
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Escape"
+                    ) {
+
+                        closeMenu();
+
+                    }
+
+                }
+            );
+
+
+            window.addEventListener(
+                "resize",
+                function () {
+
+                    if (
+                        window.innerWidth >= 1024
+                    ) {
+
+                        closeMenu();
+
+                    }
+
+                }
+            );
+
+        }
+    );
 
 </script>

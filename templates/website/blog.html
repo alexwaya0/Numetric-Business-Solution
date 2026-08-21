@@ -10,52 +10,83 @@
 
 {% block content %}
 
-<!-- ==========================================================
-     HERO
-=========================================================== -->
+{% include "website/partials/page_hero.html" with hero_title="Insights" hero_eyebrow="Insights & Resources" hero_heading="Insight for better decisions." hero_description="Practical guidance on finance, tax, and business growth." hero_word="INSIGHTS" %}
 
-<section class="relative overflow-hidden bg-numetric-dark pt-36 text-white sm:pt-40 lg:pt-44">
 
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(27,107,58,0.28),transparent_40%)]"></div>
 
-    <div class="page-container relative py-20 sm:py-24 lg:py-28">
+<section class="border-b border-black/10 bg-white">
 
-        <div class="max-w-3xl">
+    <div class="page-container">
 
-            <span class="eyebrow text-numetric-green">
-                Insights & Resources
-            </span>
+        <div class="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
 
-            <h1
-                class="
-                    mt-6
-                    text-4xl
-                    font-semibold
-                    tracking-[-0.045em]
-                    sm:text-5xl
-                    lg:text-7xl
-                "
-            >
-                Better financial decisions
-                <span class="text-white/45">
-                    start with better insight.
-                </span>
-            </h1>
+            <div>
 
-            <p
-                class="
-                    mt-7
-                    max-w-2xl
-                    text-lg
-                    leading-8
-                    text-white/60
-                    sm:text-xl
-                "
-            >
-                Stay informed with practical finance, accounting, tax,
-                and business insights designed to help you improve
-                performance, stay compliant, and make smarter decisions.
-            </p>
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-black/35">
+                    Explore
+                </p>
+
+                <p class="mt-1 text-sm font-medium text-numetric-dark">
+                    Browse insights by topic
+                </p>
+
+            </div>
+
+
+            {% if categories %}
+
+                <nav
+                    class="flex flex-wrap items-center gap-x-6 gap-y-3"
+                    aria-label="Insight categories"
+                >
+
+                    <a
+                        href="{% url 'website:blog' %}"
+                        class="
+                            text-xs
+                            font-semibold
+                            transition
+                            {% if not selected_category %}
+                                text-numetric-green
+                            {% else %}
+                                text-numetric-dark/45
+                                hover:text-numetric-green
+                            {% endif %}
+                        "
+                        {% if not selected_category %}
+                            aria-current="page"
+                        {% endif %}
+                    >
+                        All insights
+                    </a>
+
+                    {% for category in categories %}
+
+                        <a
+                            href="{% url 'website:blog' %}?category={{ category.slug }}"
+                            class="
+                                text-xs
+                                font-semibold
+                                transition
+                                {% if selected_category and selected_category.pk == category.pk %}
+                                    text-numetric-green
+                                {% else %}
+                                    text-numetric-dark/45
+                                    hover:text-numetric-green
+                                {% endif %}
+                            "
+                            {% if selected_category and selected_category.pk == category.pk %}
+                                aria-current="page"
+                            {% endif %}
+                        >
+                            {{ category.name }}
+                        </a>
+
+                    {% endfor %}
+
+                </nav>
+
+            {% endif %}
 
         </div>
 
@@ -64,103 +95,116 @@
 </section>
 
 
-<!-- ==========================================================
-     CATEGORY FILTER
-=========================================================== -->
+<section class="bg-white">
 
-<section class="border-b border-numetric-line bg-white">
+    <div class="page-container py-14 sm:py-16 lg:py-20">
 
-    <div class="page-container py-5">
+        <div
+            class="
+                flex
+                flex-col
+                gap-4
+                border-b
+                border-black/10
+                pb-6
+                sm:flex-row
+                sm:items-end
+                sm:justify-between
+            "
+        >
 
-        <div class="flex gap-3 overflow-x-auto pb-1">
+            <div>
 
-            <a
-                href="{% url 'website:blog' %}"
-                class="
-                    shrink-0
-                    rounded-full
-                    bg-numetric-dark
-                    px-5
-                    py-2.5
-                    text-xs
-                    font-semibold
-                    text-white
-                "
-            >
-                All Insights
-            </a>
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-numetric-green">
+                    {% if selected_category %}
+                        {{ selected_category.name }}
+                    {% else %}
+                        Latest Thinking
+                    {% endif %}
+                </p>
 
-            {% for category in categories %}
+                <h2
+                    class="
+                        mt-3
+                        text-2xl
+                        font-medium
+                        tracking-[-0.035em]
+                        text-numetric-dark
+                        sm:text-3xl
+                    "
+                >
+                    {% if selected_category %}
+                        {{ selected_category.name }} insights
+                    {% else %}
+                        Latest from Numetric
+                    {% endif %}
+                </h2>
+
+            </div>
+
+
+            {% if selected_category %}
 
                 <a
-                    href="#category-{{ category.slug }}"
+                    href="{% url 'website:blog' %}"
                     class="
-                        shrink-0
-                        rounded-full
-                        border
-                        border-black/10
-                        px-5
-                        py-2.5
+                        inline-flex
+                        w-fit
+                        items-center
+                        gap-2
                         text-xs
                         font-semibold
-                        text-numetric-dark/65
+                        text-numetric-dark
                         transition
-                        hover:border-numetric-green
                         hover:text-numetric-green
                     "
                 >
-                    {{ category.name }}
+                    View all insights
+                    <span aria-hidden="true">→</span>
                 </a>
 
-            {% endfor %}
+            {% endif %}
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- ==========================================================
-     ARTICLES
-=========================================================== -->
-
-<section class="bg-numetric-cream">
-
-    <div class="page-container py-20 sm:py-24 lg:py-28">
 
         {% if posts %}
 
-            <!-- ==================================================
-                 FEATURED ARTICLE
-            =================================================== -->
+            <div
+                class="
+                    grid
+                    grid-cols-1
+                    gap-x-7
+                    gap-y-12
+                    pt-9
+                    sm:grid-cols-2
+                    lg:grid-cols-3
+                    lg:gap-x-8
+                    lg:gap-y-14
+                "
+            >
 
-            {% with featured=posts.0 %}
+                {% for post in posts %}
 
-                <article class="overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(10,13,11,0.06)]">
-
-                    <div class="grid lg:grid-cols-2">
-
-                        <!-- IMAGE -->
+                    <article class="group flex h-full flex-col">
 
                         <a
-                            href="{{ featured.get_absolute_url }}"
+                            href="{{ post.get_absolute_url }}"
                             class="
-                                group
                                 relative
-                                min-h-[300px]
+                                block
+                                aspect-[16/9]
                                 overflow-hidden
                                 bg-numetric-dark
-                                sm:min-h-[420px]
-                                lg:min-h-[500px]
                             "
+                            aria-label="Read {{ post.title }}"
                         >
 
-                            {% if featured.featured_image %}
+                            {% if post.featured_image %}
 
                                 <img
-                                    src="{{ featured.featured_image.url }}"
-                                    alt="{{ featured.title }}"
+                                    src="{{ post.featured_image.url }}"
+                                    alt="{{ post.title }}"
                                     class="
                                         absolute
                                         inset-0
@@ -171,9 +215,20 @@
                                         duration-700
                                         group-hover:scale-105
                                     "
+                                    loading="lazy"
                                 >
 
-                                <div class="absolute inset-0 bg-black/10"></div>
+                                <div
+                                    class="
+                                        absolute
+                                        inset-0
+                                        bg-gradient-to-t
+                                        from-black/35
+                                        via-black/5
+                                        to-transparent
+                                    "
+                                    aria-hidden="true"
+                                ></div>
 
                             {% else %}
 
@@ -181,397 +236,225 @@
                                     class="
                                         absolute
                                         inset-0
-                                        bg-[radial-gradient(circle_at_70%_30%,rgba(27,107,58,0.55),transparent_35%),linear-gradient(135deg,#0A0D0B,#151A17)]
+                                        bg-numetric-dark
+                                        bg-[radial-gradient(circle_at_72%_28%,rgba(27,107,58,0.48),transparent_38%)]
                                     "
-                                >
+                                    aria-hidden="true"
+                                ></div>
 
-                                    <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="absolute inset-0 flex items-center justify-center">
 
-                                        <div class="text-center">
-
-                                            <div
-                                                class="
-                                                    mx-auto
-                                                    flex
-                                                    h-20
-                                                    w-20
-                                                    items-center
-                                                    justify-center
-                                                    rounded-full
-                                                    border
-                                                    border-white/10
-                                                    bg-white/5
-                                                    text-3xl
-                                                    font-bold
-                                                    text-numetric-green
-                                                "
-                                            >
-                                                N
-                                            </div>
-
-                                            <p class="mt-5 text-xs uppercase tracking-[0.2em] text-white/35">
-                                                Numetric Insights
-                                            </p>
-
-                                        </div>
-
-                                    </div>
+                                    <span
+                                        class="
+                                            text-6xl
+                                            font-semibold
+                                            tracking-[-0.08em]
+                                            text-white/10
+                                        "
+                                        aria-hidden="true"
+                                    >
+                                        N
+                                    </span>
 
                                 </div>
 
                             {% endif %}
 
-
-                            <span
+                            <div
                                 class="
                                     absolute
-                                    left-6
-                                    top-6
-                                    rounded-full
-                                    bg-white
-                                    px-4
-                                    py-2
-                                    text-[0.65rem]
-                                    font-bold
+                                    bottom-0
+                                    left-0
+                                    right-0
+                                    flex
+                                    items-center
+                                    justify-between
+                                    px-5
+                                    py-4
+                                    text-[10px]
+                                    font-semibold
                                     uppercase
-                                    tracking-[0.12em]
-                                    text-numetric-dark
+                                    tracking-[0.14em]
+                                    text-white
                                 "
                             >
-                                Featured
-                            </span>
+
+                                <span>
+                                    {% if post.category %}
+                                        {{ post.category.name }}
+                                    {% else %}
+                                        Insight
+                                    {% endif %}
+                                </span>
+
+                                <span
+                                    class="
+                                        opacity-70
+                                        transition
+                                        duration-300
+                                        group-hover:translate-x-1
+                                    "
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+
+                            </div>
 
                         </a>
 
 
-                        <!-- CONTENT -->
+                        <div class="flex flex-1 flex-col pt-5">
 
-                        <div class="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
+                            <div class="flex items-center gap-3">
 
-                            <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em]">
+                                {% if post.published_at %}
 
-                                <span class="text-numetric-green">
-                                    {{ featured.category.name }}
-                                </span>
-
-                                {% if featured.published_at %}
-
-                                    <span class="text-black/20">
-                                        •
-                                    </span>
-
-                                    <span class="text-numetric-muted">
-                                        {{ featured.published_at|date:"d M Y" }}
-                                    </span>
+                                    <time
+                                        class="
+                                            text-[10px]
+                                            font-semibold
+                                            uppercase
+                                            tracking-[0.14em]
+                                            text-numetric-muted
+                                        "
+                                        datetime="{{ post.published_at|date:'c' }}"
+                                    >
+                                        {{ post.published_at|date:"d M Y" }}
+                                    </time>
 
                                 {% endif %}
 
                             </div>
 
 
-                            <h2
+                            <h3
                                 class="
-                                    mt-5
-                                    text-3xl
-                                    font-semibold
-                                    leading-tight
-                                    tracking-[-0.04em]
-                                    sm:text-4xl
+                                    mt-3
+                                    text-xl
+                                    font-medium
+                                    leading-snug
+                                    tracking-[-0.025em]
+                                    text-numetric-dark
+                                    sm:text-[1.35rem]
                                 "
                             >
                                 <a
-                                    href="{{ featured.get_absolute_url }}"
+                                    href="{{ post.get_absolute_url }}"
                                     class="transition hover:text-numetric-green"
                                 >
-                                    {{ featured.title }}
+                                    {{ post.display_title|default:post.title }}
                                 </a>
-                            </h2>
+                            </h3>
 
 
-                            <p class="mt-5 text-base leading-8 text-numetric-muted">
-                                {{ featured.excerpt }}
-                            </p>
+                            {% if post.excerpt %}
 
-
-                            <a
-                                href="{{ featured.get_absolute_url }}"
-                                class="
-                                    mt-8
-                                    inline-flex
-                                    items-center
-                                    gap-3
-                                    text-sm
-                                    font-semibold
-                                    text-numetric-dark
-                                    transition
-                                    hover:text-numetric-green
-                                "
-                            >
-                                Read article
-
-                                <span
+                                <p
                                     class="
-                                        transition
-                                        group-hover:translate-x-1
+                                        mt-3
+                                        line-clamp-3
+                                        text-sm
+                                        leading-6
+                                        text-numetric-muted
                                     "
                                 >
-                                    →
-                                </span>
+                                    {{ post.excerpt }}
+                                </p>
 
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            {% endwith %}
+                            {% endif %}
 
 
-            <!-- ==================================================
-                 ARTICLE GRID
-            =================================================== -->
-
-            {% if posts|slice:"1:" %}
-
-                <div class="mt-16">
-
-                    <div class="flex items-end justify-between gap-6">
-
-                        <div>
-
-                            <span class="eyebrow">
-                                Latest Thinking
-                            </span>
-
-                            <h2
-                                class="
-                                    mt-4
-                                    text-3xl
-                                    font-semibold
-                                    tracking-[-0.04em]
-                                    sm:text-4xl
-                                "
-                            >
-                                From our team
-                            </h2>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-                        {% for post in posts|slice:"1:" %}
-
-                            <article
-                                class="
-                                    group
-                                    overflow-hidden
-                                    rounded-[1.5rem]
-                                    border
-                                    border-black/7
-                                    bg-white
-                                    transition
-                                    duration-300
-                                    hover:-translate-y-1
-                                    hover:shadow-[0_18px_50px_rgba(10,13,11,0.08)]
-                                "
-                            >
-
-                                <!-- IMAGE -->
+                            <div class="mt-auto pt-5">
 
                                 <a
                                     href="{{ post.get_absolute_url }}"
                                     class="
-                                        relative
-                                        block
-                                        aspect-[16/10]
-                                        overflow-hidden
-                                        bg-numetric-dark
+                                        inline-flex
+                                        items-center
+                                        gap-2
+                                        text-xs
+                                        font-semibold
+                                        text-numetric-dark
+                                        transition
+                                        hover:text-numetric-green
                                     "
                                 >
+                                    Read insight
 
-                                    {% if post.featured_image %}
-
-                                        <img
-                                            src="{{ post.featured_image.url }}"
-                                            alt="{{ post.title }}"
-                                            class="
-                                                h-full
-                                                w-full
-                                                object-cover
-                                                transition
-                                                duration-700
-                                                group-hover:scale-105
-                                            "
-                                        >
-
-                                    {% else %}
-
-                                        <div
-                                            class="
-                                                flex
-                                                h-full
-                                                w-full
-                                                items-center
-                                                justify-center
-                                                bg-[radial-gradient(circle_at_70%_30%,rgba(27,107,58,0.45),transparent_35%),linear-gradient(135deg,#0A0D0B,#151A17)]
-                                            "
-                                        >
-
-                                            <div class="text-center">
-
-                                                <div
-                                                    class="
-                                                        mx-auto
-                                                        flex
-                                                        h-14
-                                                        w-14
-                                                        items-center
-                                                        justify-center
-                                                        rounded-full
-                                                        border
-                                                        border-white/10
-                                                        text-xl
-                                                        font-bold
-                                                        text-numetric-green
-                                                    "
-                                                >
-                                                    N
-                                                </div>
-
-                                                <span class="mt-3 block text-[0.6rem] uppercase tracking-[0.18em] text-white/30">
-                                                    Numetric
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    {% endif %}
+                                    <span
+                                        class="
+                                            transition
+                                            duration-300
+                                            group-hover:translate-x-1
+                                        "
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
 
                                 </a>
 
+                            </div>
 
-                                <!-- CONTENT -->
+                        </div>
 
-                                <div class="p-7">
+                    </article>
 
-                                    <div class="flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em]">
+                {% endfor %}
 
-                                        <span class="text-numetric-green">
-                                            {{ post.category.name }}
-                                        </span>
-
-                                        {% if post.published_at %}
-
-                                            <span class="text-black/20">
-                                                •
-                                            </span>
-
-                                            <span class="text-numetric-muted">
-                                                {{ post.published_at|date:"d M Y" }}
-                                            </span>
-
-                                        {% endif %}
-
-                                    </div>
-
-
-                                    <h3
-                                        class="
-                                            mt-4
-                                            text-xl
-                                            font-semibold
-                                            leading-snug
-                                            tracking-[-0.025em]
-                                        "
-                                    >
-                                        <a
-                                            href="{{ post.get_absolute_url }}"
-                                            class="transition hover:text-numetric-green"
-                                        >
-                                            {{ post.title }}
-                                        </a>
-                                    </h3>
-
-
-                                    <p class="mt-3 line-clamp-3 text-sm leading-7 text-numetric-muted">
-                                        {{ post.excerpt }}
-                                    </p>
-
-
-                                    <a
-                                        href="{{ post.get_absolute_url }}"
-                                        class="
-                                            mt-6
-                                            inline-flex
-                                            items-center
-                                            gap-2
-                                            text-sm
-                                            font-semibold
-                                            text-numetric-dark
-                                            transition
-                                            hover:text-numetric-green
-                                        "
-                                    >
-                                        Read more
-                                        <span>→</span>
-                                    </a>
-
-                                </div>
-
-                            </article>
-
-                        {% endfor %}
-
-                    </div>
-
-                </div>
-
-            {% endif %}
-
+            </div>
 
         {% else %}
 
-            <!-- ==================================================
-                 EMPTY STATE
-            =================================================== -->
+            <div class="border-b border-black/10 py-16 sm:py-20">
 
-            <div
-                class="
-                    rounded-[2rem]
-                    border
-                    border-black/8
-                    bg-white
-                    px-8
-                    py-20
-                    text-center
-                "
-            >
-
-                <span class="eyebrow">
-                    Coming Soon
-                </span>
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-numetric-green">
+                    No insights found
+                </p>
 
                 <h2
                     class="
-                        mt-5
+                        mt-4
                         text-3xl
-                        font-semibold
-                        tracking-[-0.04em]
+                        font-medium
+                        tracking-[-0.035em]
+                        text-numetric-dark
                     "
                 >
-                    Insights are on the way.
+                    No articles in this category yet.
                 </h2>
 
-                <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-numetric-muted">
-                    We're preparing practical insights on accounting,
-                    tax, finance, compliance, and business growth.
+                <p
+                    class="
+                        mt-4
+                        max-w-xl
+                        text-sm
+                        leading-7
+                        text-numetric-muted
+                    "
+                >
+                    We are preparing more practical perspectives
+                    across finance, accounting, tax and business growth.
                 </p>
+
+                <a
+                    href="{% url 'website:blog' %}"
+                    class="
+                        mt-7
+                        inline-flex
+                        items-center
+                        gap-2
+                        text-sm
+                        font-semibold
+                        text-numetric-dark
+                        transition
+                        hover:text-numetric-green
+                    "
+                >
+                    View all insights
+                    <span aria-hidden="true">→</span>
+                </a>
 
             </div>
 
@@ -581,70 +464,5 @@
 
 </section>
 
-
-<!-- ==========================================================
-     CTA
-=========================================================== -->
-
-<section class="bg-numetric-dark text-white">
-
-    <div class="page-container py-20 sm:py-24 lg:py-28">
-
-        <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-
-            <div class="max-w-3xl">
-
-                <span class="eyebrow text-numetric-green">
-                    Need Expert Support?
-                </span>
-
-                <h2
-                    class="
-                        mt-5
-                        text-3xl
-                        font-semibold
-                        tracking-[-0.04em]
-                        sm:text-4xl
-                        lg:text-5xl
-                    "
-                >
-                    Insight is valuable.
-                    <span class="text-white/40">
-                        Knowing what to do with it is even better.
-                    </span>
-                </h2>
-
-            </div>
-
-
-            <a
-                href="{% url 'website:contact' %}"
-                class="
-                    inline-flex
-                    min-h-14
-                    items-center
-                    justify-center
-                    gap-3
-                    rounded-full
-                    bg-numetric-green
-                    px-7
-                    text-sm
-                    font-semibold
-                    text-white
-                    transition
-                    duration-300
-                    hover:-translate-y-1
-                    hover:bg-[#14572F]
-                "
-            >
-                Talk to Numetric
-                <span>→</span>
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
 
 {% endblock %}
